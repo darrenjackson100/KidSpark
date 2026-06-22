@@ -38,6 +38,7 @@ const HAPPY_LINES = [
   "Great job learning today!",
   "I'm so happy you're here!",
   "Let's learn together!",
+  "It's great to see you again!",
 ];
 
 // ---------------------------------------------------------------------------
