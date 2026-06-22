@@ -1,0 +1,114 @@
+Fix the navigation system throughout the entire app.
+
+Current issue:
+
+* The "Exit Game" button does not work correctly.
+* The "Back to Game" button does not work correctly.
+* Both buttons should always return the user to the correct previous screen or the main menu.
+
+Required behaviour:
+
+Exit Game:
+
+* Immediately exit the current activity.
+* Save any progress already completed.
+* Return the user to the Home Dashboard.
+* Never leave the user on a blank screen.
+* Never refresh the app.
+
+Back Button:
+
+* Return to the previous screen.
+* Preserve any entered information.
+* Work consistently across all pages, games, settings, notes, and profiles.
+
+Create a centralized navigation system so all navigation is managed from one place instead of each page having its own logic.
+
+Age ranges:
+Replace all existing age groups with:
+
+* 3–4 Years
+* 5–6 Years
+* 7–8 Years
+
+Each age group should automatically adjust:
+
+* Question difficulty
+* Number ranges
+* Animal activities
+* Memory games
+* Counting games
+* Reading requirements
+
+Add Child-Friendly Sound Effects:
+
+Every button press should play a small, pleasant sound effect.
+
+Examples:
+
+* Soft pop sound
+* Gentle click
+* Light bubble sound
+* Small sparkle sound
+
+Requirements:
+
+* Sounds must be subtle and not annoying.
+* Volume should be low by default.
+* Sound should play instantly when buttons are pressed.
+* Add a mute/unmute button in settings.
+* Remember the user's sound preference.
+
+Additional Improvements:
+
+Home Dashboard:
+
+* Add animated welcome message:
+  "Welcome back, [Child Name]!"
+
+* Add achievement stars.
+
+* Add earned badges.
+
+* Add streak tracking.
+
+* Add progress percentage.
+
+Game Completion:
+
+* Add celebration animations.
+* Add confetti.
+* Add star rewards.
+* Add positive voice-style feedback text.
+
+Examples:
+
+* Amazing Work!
+* Fantastic Counting!
+* You're a Superstar!
+* Great Job!
+
+Profile System:
+
+* Allow multiple children.
+* Teachers can switch between children.
+* Save all progress separately.
+
+Teacher Notes:
+
+* Add date and time to every note.
+* Allow editing and deleting notes.
+* Add a quick observation system:
+  Excellent
+  Good
+  Needs Practice
+
+Visual Improvements:
+
+* Larger buttons.
+* Better spacing.
+* More colourful cards.
+* Smoother animations.
+* More professional classroom appearance.
+
+The final result should feel like a premium educational app used in nurseries, reception classes, and primary schools, not a simple demo project.

@@ -1,0 +1,287 @@
+Fix these bugs properly.
+
+
+
+1. Reset Points is not working
+
+
+
+Current issue:
+
+When an adult resets a child’s points, the app says it has reset them, but the points stay the same.
+
+
+
+Fix:
+
+
+
+* Reset the actual saved points value to 0
+
+* Update local storage / database state
+
+* Update the dashboard immediately
+
+* Update the child profile immediately
+
+* Update the Class page immediately
+
+* Update Rewards Shop balance immediately
+
+* Save a history log
+
+
+
+After reset:
+
+
+
+* Points must show as 0 everywhere
+
+* The old points value must not come back after refresh
+
+
+
+Also make sure pending reward requests are checked again after points reset. If the child no longer has enough points, those requests should be marked invalid or cancelled.
+
+
+
+2. Fix text overflow and spacing in answer cards
+
+
+
+Some answer cards have huge text, bad line breaks, and overflow outside the card.
+
+
+
+Example:
+
+“Omnivore — eats plants AND meat” is too large and spills out.
+
+
+
+Fix answer cards:
+
+
+
+* Text must always fit inside the card
+
+* Reduce font size automatically for longer answers
+
+* Allow neat wrapping
+
+* Centre text vertically and horizontally
+
+* Add proper padding
+
+* Prevent text from overflowing
+
+* Prevent text from being cut off
+
+* Keep icons and text aligned nicely
+
+* On mobile, use smaller responsive font sizes for long answers
+
+
+
+Long answer examples should display neatly like:
+
+
+
+Omnivore
+
+eats plants
+
+and meat
+
+
+
+Not huge text spilling out.
+
+
+
+3. Fix confusing Yes/No questions
+
+
+
+Some games, especially Health & Food, ask questions like:
+
+
+
+“Is this healthy?”
+
+
+
+But the answers are:
+
+
+
+* Yes
+
+* No
+
+* Maybe
+
+* Sometimes
+
+
+
+This is confusing.
+
+
+
+For direct Yes/No questions, only show:
+
+
+
+* Yes
+
+* No
+
+
+
+Do not include Maybe or Sometimes unless the question is specifically designed to teach “sometimes food”.
+
+
+
+Rules:
+
+
+
+* If the question asks “Is X healthy?” → answers must only be Yes / No
+
+* If the question asks “Is X good for every day?” → answers must only be Yes / No
+
+* If the question asks “Should you brush your teeth?” → answers must only be Yes / No
+
+
+
+Only use “Sometimes” when the wording clearly supports it, for example:
+
+“Is cake an everyday food or a sometimes food?”
+
+
+
+Then answers can be:
+
+
+
+* Everyday food
+
+* Sometimes food
+
+
+
+Audit all Health & Food games and any other games with Yes/No style questions.
+
+
+
+Make questions and answer options simple, clear, age-appropriate, and not confusing.
+
+
+
+Fix the read-aloud voice system for maths and symbols.
+
+
+
+Current issue:
+
+When the app reads maths questions aloud, it reads symbols badly.
+
+
+
+Example:
+
+“5 - 1” should not be read awkwardly or silently.
+
+
+
+Update text-to-speech so maths symbols are converted before speaking.
+
+
+
+Rules:
+
+
+
+* “+” should be spoken as “plus” or “add”
+
+* “-” should be spoken as “minus” or “take away”
+
+* “×” or “*” should be spoken as “times”
+
+* “÷” or “/” should be spoken as “divided by”
+
+* “=” should be spoken as “equals”
+
+
+
+Examples:
+
+
+
+* “5 - 1” should be spoken as “5 take away 1”
+
+* “6 + 2” should be spoken as “6 plus 2”
+
+* “3 × 4” should be spoken as “3 times 4”
+
+* “10 ÷ 2” should be spoken as “10 divided by 2”
+
+
+
+Also make the voice British and calm.
+
+
+
+Voice requirements:
+
+
+
+* Prefer a British English voice
+
+* Use `en-GB`
+
+* Prefer a female voice if available
+
+* Calm, friendly, slow enough for children
+
+* Not robotic or rushed
+
+* Set speech rate slightly slower than normal
+
+* Set pitch gentle and natural
+
+
+
+Add a voice fallback:
+
+If a British female voice is not available, use the best available English voice.
+
+
+
+Apply this to:
+
+
+
+* Question read-aloud
+
+* Answer option read-aloud
+
+* Review screen read-aloud
+
+* Maths games
+
+* Reading games
+
+* Science games
+
+* Health & Food games
+
+* Daily Challenge
+
+* Timed Play
+
+
+
+Make all spoken questions child-friendly and easy to understand.

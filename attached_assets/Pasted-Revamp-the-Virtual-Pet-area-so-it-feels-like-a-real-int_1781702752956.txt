@@ -1,0 +1,340 @@
+Revamp the Virtual Pet area so it feels like a real interactive pet, not a still image on a plain screen.
+
+Current problem:
+The pet scene feels boring. The pet is tiny, still, hard to see, and does not feel alive. It does not feel like the child owns a cute pet.
+
+Goal:
+Make the pet feature feel like a proper virtual pet companion inside an educational app.
+
+Use the same kind of feel as a premium kids virtual pet app:
+
+* Soft cosy bedroom background
+* Large cute pet in the centre
+* Big expressive eyes
+* Warm lighting
+* Child-friendly room decorations
+* Cute furniture
+* Playful toy items
+* Rounded modern UI
+* Fun but not cluttered
+* Educational app feel, not a random game
+
+The pet room should feel similar to:
+A cute capybara or animal sitting in a cosy child’s bedroom, with a rug, bed, toys, window, soft lighting, pastel decorations, and clear care buttons at the bottom.
+
+---
+
+Pet appearance
+
+The pet must be much larger and easier to see.
+
+Requirements:
+
+* Pet should be the main focus of the room
+* Make the pet at least 2–3x bigger than it is now
+* Use cute, rounded, expressive pet art
+* Big friendly eyes
+* Soft body shape
+* Clear face
+* Clear emotions
+* Not a tiny emoji or small static icon
+* Avoid using basic emoji-style images as the main pet
+
+Each pet should have visual states:
+
+* Happy
+* Hungry
+* Tired
+* Dirty
+* Excited
+* Sleeping
+* Playing
+* Learning
+
+The pet should look like something a child wants to care for, not a small icon.
+
+---
+
+Pet animations
+
+The pet must not sit still.
+
+Add animations such as:
+
+* Blinking
+* Breathing
+* Looking left and right
+* Small bounce
+* Walking around the room
+* Sitting down
+* Lying down
+* Jumping when happy
+* Reacting when tapped
+* Eating animation
+* Drinking animation
+* Bath bubble animation
+* Sleeping animation
+* Playing with toy animation
+* Celebration animation after learning
+
+When the child taps the pet:
+
+* Pet should react
+* Show hearts, sparkles, or a happy bounce
+* Play a small sound if sound is enabled
+
+---
+
+Bedroom scene
+
+Replace the plain orange/yellow scene with a proper child’s bedroom/playroom.
+
+The room should match the child’s profile theme.
+
+Girl/pastel theme examples:
+
+* Pastel bedroom
+* Pink/purple/rainbow colours
+* Soft rug
+* Toy box
+* Stars
+* Hearts
+* Plush toys
+* Cute wall decorations
+* Warm cosy lighting
+
+Boy/adventure theme examples:
+
+* Blue/green/orange room
+* Space posters
+* Dinosaur toys
+* Cars
+* Robots
+* Adventure rug
+* Toy shelves
+* Warm cosy lighting
+
+Neutral theme:
+
+* Bright colourful playroom
+* Rainbow rug
+* Blocks
+* Bookshelf
+* Animal posters
+* Balloons
+* Stars
+* Warm cosy lighting
+
+Add room elements:
+
+* Bed
+* Rug
+* Food bowl
+* Water bowl
+* Bath area or bath button animation
+* Toy box
+* Bookshelf
+* Window
+* Wall decorations
+* Soft lamp/night light
+* Posters
+* Plush toys
+
+The room should feel warm, playful, and child-friendly.
+
+---
+
+Pet room layout
+
+Redesign the My Pet page layout.
+
+Suggested layout:
+
+Top:
+
+* Child name/profile
+* Pet name/type
+* Growth level
+* Home button
+* Settings button
+
+Main room:
+
+* Full cosy bedroom/playroom scene
+* Large pet centred on rug
+* Pet speech bubble with friendly message
+* Animated toy/room elements
+* Pet needs panel on the side or neatly below on mobile
+
+Bottom:
+
+* Large care action buttons:
+  Feed
+  Water
+  Bath
+  Sleep
+  Play
+  Learn
+  Dress Up / Style
+
+Side or lower panel:
+
+* Daily reward
+* Next gift timer
+* Pet growth XP
+* Current mood
+
+Keep it clean and not overwhelming.
+
+---
+
+Interactive pet room
+
+Allow children to interact with the room.
+
+Examples:
+
+* Tap food bowl to feed
+* Tap water bowl to give water
+* Tap bath icon to wash
+* Tap bed to rest
+* Tap toy box to play
+* Tap bookshelf to learn
+* Tap pet to pet/love it
+
+The pet should move/react to the selected item.
+
+Example:
+If child taps Feed:
+
+* Pet walks or bounces to food bowl
+* Eating animation plays
+* Food bar improves
+
+If child taps Bath:
+
+* Bubbles appear
+* Pet looks clean and happy
+* Clean bar improves
+
+If child taps Play:
+
+* Pet chases a ball or toy
+* Fun bar improves
+
+If child taps Learn:
+
+* Pet holds a book or jumps excitedly
+* Send child to learning games
+
+---
+
+Make it feel alive
+
+Add small idle behaviours:
+
+* Pet wanders around
+* Pet looks at child
+* Pet sits on rug
+* Pet naps if tired
+* Pet plays with toy if happy
+* Pet looks dirty if clean bar is low
+* Pet shows hunger/thirst gently if needs are low
+* Pet smiles when all needs are high
+* Pet reacts when the child returns after time away
+
+Do not make it sad or scary.
+Keep it positive and friendly.
+
+Messages:
+
+* “I missed you!”
+* “Can we learn together?”
+* “I’m ready to play!”
+* “I feel cosy!”
+* “Thank you for looking after me!”
+* “Great job learning today!”
+
+---
+
+Growth visuals
+
+As the pet grows, it should visually change.
+
+Not just text saying “Tiny Baby”.
+
+For growth stages:
+
+* Pet becomes slightly bigger
+* Pet posture changes
+* Pet unlocks new expressions
+* Pet unlocks new animations
+* Pet unlocks new room items
+* Pet unlocks accessories
+
+Make growth feel rewarding.
+
+---
+
+Accessories
+
+Accessories should visibly appear on the pet or in the room.
+
+Examples:
+
+* Bow
+* Hat
+* Collar
+* Glasses
+* Scarf
+* Crown
+* Blanket
+* Bed
+* Ball
+* Teddy
+* Wall poster
+* Rug
+* Lamp
+
+The child should be able to see what they unlocked.
+
+---
+
+Mobile and iPad layout
+
+The pet room must look good on:
+
+* Phone
+* iPad
+* Tablet
+* Desktop
+
+Requirements:
+
+* Pet should never be tiny
+* Pet should stay centred and visible
+* Room should scale properly
+* Care buttons should be easy to tap
+* No overflowing content
+* No cramped layout
+* On smaller screens, place needs and care buttons below the pet room neatly
+* On larger screens, use side panels if it looks better
+
+---
+
+Important technical note
+
+If proper pet art cannot be generated dynamically, create a reusable illustrated pet component using CSS/SVG/Lottie-style animation rather than using tiny emoji images.
+
+Do not use the current tiny static icon as the main pet.
+
+Use higher quality illustrated assets, SVGs, sprite animations, or CSS/Lottie-style animation so the pet looks alive.
+
+The final result should feel like:
+
+* A cute virtual pet
+* A child’s own companion
+* Something the child wants to return to
+* Still part of an educational app
+* Fun, animated, interactive, and polished
+* Similar in quality and warmth to a premium kids virtual pet bedroom scene

@@ -1,0 +1,246 @@
+Make the following updates and fixes:
+
+### Healthy Lunchbox Game
+
+Simplify the answers.
+
+Remove:
+
+* "Maybe"
+* "Sometimes"
+* "Okay Sometimes"
+
+For questions such as:
+
+"Is this a healthy lunch choice?"
+
+Only allow:
+
+* Yes
+* No
+
+Keep the game simple and clear for children.
+
+---
+
+### Parent / Teacher Point Management
+
+In the child profile settings, add:
+
+"Manage Points"
+
+Adult-only feature (requires passcode).
+
+Allow:
+
+* Add Points
+* Deduct Points
+* Reset Points
+
+Example:
+
++10
++50
++100
+
+-10
+-50
+-100
+
+or custom amount.
+
+Changes must:
+
+* Save immediately
+* Persist after app restart
+* Sync with rewards shop
+* Sync with pet progress
+* Sync with child statistics
+
+Add an audit log:
+
+"Point History"
+
+Example:
+
+Parent added +50 points
+Teacher deducted -20 points
+Reward purchased -100 points
+
+Include:
+
+* Date
+* Time
+* Action
+* Amount
+
+---
+
+### Build The Word Game
+
+When the speech button is pressed:
+
+Current:
+Only says the word.
+
+Change to:
+
+"Spell the word Lion"
+
+"Spell the word Cat"
+
+"Spell the word Rabbit"
+
+Always say:
+
+"Spell the word [word]"
+
+before reading the word.
+
+---
+
+### Picture & Word Game
+
+Current problem:
+
+If the picture is a fish it says:
+
+"What word matches the picture? Fish"
+
+which gives away the answer.
+
+Change speech to:
+
+"What word matches the picture?"
+
+ONLY.
+
+Never say the answer.
+
+---
+
+### How Do They Feel Game
+
+Current problem:
+
+It reads the emotion.
+
+Example:
+
+"Happy"
+
+before the child answers.
+
+This gives away the answer.
+
+Change speech to:
+
+"How is this face feeling?"
+
+ONLY.
+
+Do not read:
+
+* Happy
+* Sad
+* Angry
+* Excited
+* Scared
+
+until after the child answers.
+
+---
+
+### Missing Letter Game
+
+Current:
+
+L I _ N
+
+is read as:
+
+"L I underscore N"
+
+Change speech behaviour.
+
+Underscores should be spoken as:
+
+"Blank"
+
+Example:
+
+L I _ N
+
+should be read:
+
+"L I Blank N"
+
+C A _
+
+should be read:
+
+"C A Blank"
+
+Never say "underscore".
+
+---
+
+### Child Profile Photos
+
+When creating a child account:
+
+Allow:
+
+* Choose avatar
+  OR
+* Upload photo
+
+Parents/teachers can upload:
+
+* Child photo
+* Cartoon picture
+* Pet image
+* Family chosen image
+
+Supported:
+
+* JPG
+* PNG
+* WEBP
+
+Profile photos should:
+
+* Display in circular frame
+* Scale correctly
+* Not stretch
+* Save permanently
+
+Add to Edit Profile:
+
+* Change photo
+* Remove photo
+* Replace photo
+
+Do not delete:
+
+* Points
+* Progress
+* Rewards
+* Pet progress
+* Achievements
+
+when changing profile pictures.
+
+---
+
+### Important
+
+All new parent/teacher settings must require the adult passcode before making changes.
+
+This includes:
+
+* Adding points
+* Deducting points
+* Resetting points
+* Changing profile photo
+* Managing child profile settings

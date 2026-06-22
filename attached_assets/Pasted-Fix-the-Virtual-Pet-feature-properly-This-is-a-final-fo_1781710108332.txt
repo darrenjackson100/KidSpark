@@ -1,0 +1,252 @@
+Fix the Virtual Pet feature properly. This is a final focused redesign request. Do not add random new features. Do not generate images separately. Update the actual app UI and code.
+
+Current problem:
+The pet area still looks cheap, unfinished, and unprofessional.
+
+Specific problems:
+
+* The pet looks like a small basic icon, not a proper pet
+* The pet does not walk or move properly
+* The pet looks like it is floating
+* The pet just sits there
+* The pet room does not look like a real child’s bedroom
+* The room is mostly yellow and flat
+* The bed, bath, toys, and room objects look like basic blocks
+* The oval items around the pet look stupid and cluttered
+* The interactive items are covering the pet area
+* The care buttons are not aligned nicely
+* The overall pet area does not feel fun, premium, or child-friendly
+
+Goal:
+Make the pet area look like a polished, professional, interactive kids virtual pet bedroom.
+
+---
+
+1. Remove floating clutter from the pet room
+
+Remove the random floating oval interaction pads and objects around the pet.
+
+Do not place ugly oval buttons or pads inside the bedroom scene.
+
+The room should look like a real bedroom/playroom, not a test layout.
+
+Care actions should be normal buttons outside or below the room, not random floating pads inside the pet scene.
+
+Keep only natural room objects inside the room, such as:
+
+* Bed
+* Pet bed
+* Toy box
+* Rug
+* Bookshelf
+* Window
+* Lamp
+* Wall art
+* Food bowl
+* Water bowl
+
+---
+
+2. Redesign the bedroom properly
+
+Replace the flat yellow/orange room with a proper cosy child’s bedroom.
+
+The room should include:
+
+* Soft coloured walls
+* Floor with depth
+* Rug
+* Window with curtains
+* Bed or pet bed
+* Bookshelf
+* Toy box
+* Soft lamp
+* Wall paintings/posters
+* Plush toys
+* Small decorations
+* Warm lighting
+* Shadows and depth
+
+Girl theme:
+
+* Pastel pink/purple/rainbow
+* Hearts, stars, plush toys, flowers
+
+Boy theme:
+
+* Blue/green/orange
+* Space, dinosaurs, cars, robots, adventure posters
+
+Neutral theme:
+
+* Rainbow playroom
+* Blocks, books, animals, stars, balloons
+
+Do not make the whole room bright yellow.
+
+Make it look warm, cosy, and like a real child’s bedroom.
+
+---
+
+3. Improve the pet design massively
+
+The pet must look like a real cute virtual pet, not a tiny emoji or icon.
+
+Requirements:
+
+* Make the pet much larger
+* Full body visible
+* Proper legs/feet
+* Proper face
+* Big expressive eyes
+* Cute rounded body
+* Soft 3D/cartoon style
+* Clear emotions
+* Sits or stands naturally on the floor/rug
+* Does not float
+
+If using capybara:
+
+* Make it clearly look like a cute baby capybara
+* Brown soft fur
+* Big eyes
+* Small ears
+* Little feet
+* Rounded face
+* Friendly smile
+
+If high-quality 3D is possible, use 3D-style pet art.
+If true 3D is not possible, use high-quality SVG/Lottie/CSS animated cartoon pet components.
+
+Do not use emoji, tiny icons, or basic flat shapes.
+
+---
+
+4. Make the pet actually feel alive
+
+The pet should not just slide around or sit still.
+
+Add proper animations:
+
+* Blink
+* Breathe
+* Look around
+* Wag/wiggle
+* Bounce happily
+* Sit naturally
+* Lie down in bed
+* Walk with feet/legs moving
+* React when tapped
+* Eat from bowl
+* Drink from water bowl
+* Play with toy
+* Sleep in pet bed
+* Get bath bubbles when bathing
+* Celebrate after learning
+
+Important:
+Do not fake walking by just moving the entire image across the screen.
+If walking cannot be done properly, keep the pet mostly centred and use high-quality idle animations instead.
+
+No floating.
+
+---
+
+5. Better interaction system
+
+The child should interact using clean care buttons, not ugly objects covering the room.
+
+Use a clean bottom action bar:
+
+Feed
+Water
+Bath
+Sleep
+Play
+Learn
+Dress Up
+
+When child clicks an action:
+
+* Pet should animate
+* The room object should react
+* Status should update
+* Show a short cute message
+
+Examples:
+Feed:
+Pet walks/bounces to food bowl and eats.
+
+Water:
+Pet drinks water from bowl.
+
+Bath:
+Show bath bubbles around pet or in a small bath scene.
+
+Sleep:
+Pet moves to bed and sleeps.
+
+Play:
+Pet plays with ball/toy.
+
+Learn:
+Pet holds book or jumps excitedly and links to learning games.
+
+Dress Up:
+Open accessories screen.
+
+---
+
+6. Align buttons and UI properly
+
+Fix the layout and alignment.
+
+Requirements:
+
+* Top tabs aligned evenly
+* Home button aligned neatly
+* Care buttons same size
+* Care buttons evenly spaced
+* Status bars aligned
+* No random objects covering pet
+* No cramped layout
+* Looks good on desktop, tablet, iPad, and phone
+
+Pet should remain the focus.
+
+---
+
+7. Use initiative and make it polished
+
+Do not make another basic prototype-looking screen.
+
+Make it feel like a finished children’s app.
+
+It should look similar in quality to a proper kids virtual pet game:
+
+* Cute pet
+* Cosy bedroom
+* Soft colours
+* Nice shadows
+* Rounded UI
+* Animated pet
+* Clear action buttons
+* No clutter
+* No ugly placeholder objects
+
+Acceptance test:
+When I open My Pet, it should immediately look like:
+“A cute pet in a child’s bedroom that my child will want to look after.”
+
+It should not look like:
+“A small icon sitting in a flat yellow box.”
+
+Do not mark complete until:
+
+* Pet is large and cute
+* Pet is not floating
+* Room looks like a real child’s bedroom/playroom
+* Action buttons are clean and aligned
+* Random oval objects are removed
+* Pet has visible animations
+* iPad and phone layout still work properly

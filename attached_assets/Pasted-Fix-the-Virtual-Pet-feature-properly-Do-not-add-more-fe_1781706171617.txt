@@ -1,0 +1,90 @@
+Fix the Virtual Pet feature properly. Do not add more features until the pet looks and feels high quality.
+
+Current issue:
+The pet room looks cheap and unfinished. The animal is tiny, flat, floating, and does not look like a real pet. It has no proper body/legs, does not walk naturally, and the room looks basic.
+
+Goal:
+Make the pet area look like a polished premium children’s app.
+
+Pet design:
+
+* Replace emoji/simple icon pets with proper cute illustrated pets
+* Use high-quality 3D-style or soft cartoon-style pets
+* Large pet in the centre of the room
+* Full body visible
+* Proper legs/feet
+* Big expressive eyes
+* Cute face
+* Soft rounded body
+* Clear emotions
+* No floating
+* Pet must stand/sit on the floor/rug naturally
+
+Animations:
+
+* Pet should idle naturally
+* Blink
+* Breathe
+* Look around
+* Walk with legs moving
+* Sit
+* Jump when happy
+* React when tapped
+* Eat at food bowl
+* Drink at water bowl
+* Splash in bath
+* Sleep in bed
+* Play with toy
+
+Do not fake walking by sliding the image around. If the pet moves, animate legs/body properly or keep it sitting with high-quality idle animations.
+
+Room redesign:
+Replace the current flat yellow room with a cosy child’s bedroom/playroom.
+
+Include:
+
+* Soft rug
+* Bed
+* Window
+* Toy box
+* Bookshelf
+* Lamp
+* Wall posters
+* Food bowl
+* Water bowl
+* Pet bed
+* Warm lighting
+* Soft shadows
+* Better depth
+* Better colours
+
+Theme:
+
+* Girl theme: pastel bedroom, pink/purple, stars, hearts, plush toys
+* Boy theme: blue/green room, space, dinosaurs, cars, robots
+* Neutral: rainbow playroom, books, blocks, animals
+
+UI:
+
+* Make care buttons modern and polished
+* Keep the educational app feel
+* Do not make it look like a cheap web prototype
+* Pet should be the main focus
+* Room should look cosy and alive
+
+Important:
+If proper animated pet assets are not available, use CSS/SVG/Lottie-style illustrated pets with proper body parts and animations.
+
+Do not use:
+
+* Tiny emoji pets
+* Flat icons
+* Floating animals
+* Basic static images
+* Pets with no legs
+* Plain blocky backgrounds
+
+Acceptance test:
+When opening My Pet, it should immediately feel like the child owns a cute virtual pet in a bedroom, not a small icon in a flat box.
+
+The pet must look cute, large, alive, and interactive.

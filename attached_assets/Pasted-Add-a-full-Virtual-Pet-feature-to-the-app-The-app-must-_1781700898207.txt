@@ -1,0 +1,428 @@
+Add a full Virtual Pet feature to the app.
+
+The app must still feel like an educational learning app first, but the virtual pet should make children excited to come back, learn, and look after something.
+
+---
+
+Pet setup during child profile creation
+
+When creating a child profile, after entering the child’s name, age range, gender/theme, and reward settings, allow the child/adult to choose a pet.
+
+Show a large selection of cute pets.
+
+Pet options should include:
+
+* Puppy
+* Kitten
+* Bunny
+* Capybara
+* Hamster
+* Guinea pig
+* Panda
+* Fox
+* Penguin
+* Duckling
+* Turtle
+* Koala
+* Bear cub
+* Baby dragon
+* Baby dinosaur
+* Unicorn
+* Chick
+* Lamb
+* Baby elephant
+* Baby monkey
+
+Each pet should look:
+
+* Super cute
+* Big friendly eyes
+* Soft rounded style
+* Child-friendly
+* Expressive
+* Animated
+* Not scary
+
+Allow existing profiles that do not yet have a pet to choose one the next time they open the app.
+
+---
+
+Pet button / navigation
+
+Add a new main button called:
+
+“My Pet”
+
+This button takes the child to the virtual pet area.
+
+Show it clearly on the dashboard, but keep the rest of the app educational.
+
+The app should not become only a pet game. The pet should support learning.
+
+---
+
+Pet room
+
+When clicking My Pet, open the pet’s bedroom/playroom.
+
+The room should match the child’s selected theme.
+
+If the child has a girly theme:
+
+* Cute pastel bedroom
+* Stars, hearts, flowers, soft colours
+
+If the child has a boyish theme:
+
+* Adventure room
+* Space, dinosaurs, cars, robots, blue/green/orange colours
+
+Neutral:
+
+* Bright colourful playroom
+* Animals, stars, balloons, rainbow, planets
+
+The pet should not just sit still.
+
+The pet should:
+
+* Walk around the room
+* Blink
+* Smile
+* Bounce
+* Look around
+* React when tapped
+* Play with toys
+* Sleep when tired
+* Get excited when fed
+* Splash during bath time
+* Celebrate when the child completes learning
+
+Add small animations:
+
+* Tail wag
+* Ear wiggle
+* Jump
+* Spin
+* Happy hearts
+* Sparkles
+* Sleep bubbles
+* Bath bubbles
+
+---
+
+Pet needs
+
+The child should really look after the pet.
+
+Add pet needs:
+
+* Hunger
+* Thirst
+* Cleanliness
+* Sleep/Energy
+* Happiness
+* Learning
+
+Show these as cute status bars or icons.
+
+Examples:
+
+* Food bowl
+* Water bottle
+* Bath bubbles
+* Bed/moon
+* Heart
+* Book/star
+
+Needs should slowly go down over time.
+
+Important:
+Timers must continue while the app is closed.
+
+Do this by saving timestamps, not running timers in the background.
+
+Example:
+
+* Save lastFedTime
+* Save lastBathTime
+* Save lastWaterTime
+* Save lastSleepTime
+* Save lastPlayTime
+* When app opens, compare saved timestamps to current time
+* Update pet needs based on time passed
+
+Example timers:
+
+* Water needed every 2 hours
+* Bath needed every 3 hours
+* Food needed every 4 hours
+* Play needed every 3 hours
+* Sleep/rest needed every 6 hours
+* Learning boost once per day
+
+Keep it positive. Do not make the pet sad in a harsh way.
+
+Use friendly messages:
+
+* “Your capybara missed you!”
+* “Your puppy is ready for a bath!”
+* “Your bunny is thirsty!”
+* “Your dragon wants to learn with you!”
+* “Your pet feels happy after learning!”
+
+---
+
+Pet care actions
+
+Add buttons:
+
+* Feed
+* Give Water
+* Bath
+* Sleep
+* Play
+* Learn
+
+When clicked:
+
+* Animate the action
+* Improve the correct pet need
+* Save timestamp
+* Give small positive feedback
+
+Examples:
+Feed:
+
+* Food bowl appears
+* Pet eats happily
+* Hunger bar improves
+
+Bath:
+
+* Bubbles appear
+* Pet splashes
+* Cleanliness improves
+
+Sleep:
+
+* Pet lies in bed
+* Sleep bubbles appear
+* Energy improves
+
+Play:
+
+* Ball/toy animation
+* Happiness improves
+
+Learn:
+
+* Takes child to learning games
+* Completing educational games improves the pet’s Learning and Happiness
+
+---
+
+Pet growth system
+
+The pet should have many growth stages, not just 1–3.
+
+Create a proper growth journey.
+
+Example stages:
+
+1. Tiny baby
+2. Baby
+3. Curious baby
+4. Toddler pet
+5. Playful pet
+6. Little learner
+7. Growing pet
+8. Junior pet
+9. Clever pet
+10. Confident pet
+11. Big kid pet
+12. Teen pet
+13. Skilled pet
+14. Wise pet
+15. Fully grown pet
+
+Each stage should:
+
+* Slightly change the pet’s size/look
+* Unlock something new
+* Feel rewarding
+* Require learning progress, not just time
+
+Growth should depend on:
+
+* Games completed
+* Daily challenges completed
+* Learning streaks
+* Badges earned
+* Pet care completed
+* Accuracy in games
+
+Example:
+
+* Complete 10 games = grow to stage 2
+* Complete 25 games = grow to stage 3
+* Complete 50 questions = unlock accessory
+* Complete 5 daily challenges = grow again
+* Earn reading badge = unlock book accessory
+* Earn maths badge = unlock star collar
+
+Do not let children grow the pet only by tapping feed/play repeatedly.
+Learning must be the main way the pet grows.
+
+---
+
+Accessories and customisation
+
+Add pet accessories.
+
+Examples:
+
+* Hats
+* Bows
+* Glasses
+* Collars
+* Scarves
+* Crowns
+* Backpacks
+* Blankets
+* Beds
+* Toys
+* Food bowls
+* Rugs
+* Posters
+* Lamps
+* Room decorations
+
+Accessories unlock through:
+
+* Learning milestones
+* Badges
+* Points shop
+* Daily challenges
+* Streaks
+
+Allow children to equip/unequip accessories.
+
+Save all equipped items per child profile.
+
+---
+
+Changing pets
+
+Allow the pet to be changed in Settings or Edit Child Profile.
+
+Important warning:
+Changing pet resets the current pet’s progress and accessories.
+
+Show warning:
+“Changing your pet will reset this pet’s growth, care progress, and accessories. Your learning scores, badges, and child profile will stay safe.”
+
+If confirmed:
+
+* Reset pet growth
+* Reset pet accessories
+* Reset pet care stats
+* Choose new pet
+* Keep educational progress, scores, badges, notes, and profile data
+
+This helps existing app users add a pet even if they did not originally choose one.
+
+---
+
+Pet and education connection
+
+The pet should encourage learning.
+
+Examples:
+
+* Pet asks the child to complete a maths game
+* Pet cheers after a reading game
+* Pet grows after daily challenge progress
+* Pet unlocks items after learning milestones
+
+Messages:
+
+* “Let’s do 5 questions to make your pet happy!”
+* “Your pet learned with you!”
+* “Complete today’s challenge to unlock a treat!”
+* “Your pet is proud of you!”
+
+Add pet-related rewards:
+
+* Complete 5 questions = pet sparkle
+* Complete 10 questions = toy unlock chance
+* Complete Daily Challenge = pet growth XP
+* Complete Timed Play = room item unlock chance
+
+---
+
+Pet progress screen
+
+Inside My Pet, show:
+
+* Pet name/type
+* Growth stage
+* XP to next stage
+* Needs bars
+* Accessories
+* Care history
+* Learning boosts
+* Recent pet unlocks
+
+Allow adults to see:
+
+* How the pet is motivating learning
+* Games completed through pet prompts
+* Daily care consistency
+* Growth progress
+
+---
+
+Technical requirements
+
+Save pet data per child profile:
+
+* petType
+* petName if used
+* growthStage
+* petXP
+* hunger
+* thirst
+* cleanliness
+* energy
+* happiness
+* learning
+* lastFedTime
+* lastWaterTime
+* lastBathTime
+* lastSleepTime
+* lastPlayTime
+* lastCareUpdateTime
+* accessoriesUnlocked
+* accessoriesEquipped
+* roomTheme
+* petHistory
+
+Pet timers:
+
+* Must work after app closes
+* Must work after refresh
+* Must work on mobile/tablet/desktop
+* Use saved timestamps and current time comparison
+
+UI:
+
+* Mobile-friendly
+* iPad-friendly
+* Large buttons
+* Cute animations
+* No clutter
+* Smooth transitions
+* Keep educational dashboard clean
+
+The final result should feel like a premium kids learning app with a virtual pet companion, not a separate random game. The pet should make children want to learn, complete challenges, and return daily.

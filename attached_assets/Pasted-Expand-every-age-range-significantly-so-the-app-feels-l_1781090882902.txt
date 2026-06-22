@@ -1,0 +1,191 @@
+Expand every age range significantly so the app feels like a complete educational platform rather than a collection of a few games.
+
+The difficulty of every game, question, and activity must automatically match the child's selected age range.
+
+3–4 Years (Early Learning)
+
+Focus:
+
+* Number recognition
+* Colours
+* Shapes
+* Matching
+* Basic memory skills
+* Animal recognition
+* Hand-eye coordination
+
+Games:
+
+* Count 1–5 objects
+* Count animals
+* Count fruit
+* Match colours
+* Match shapes
+* Find the same animal
+* Tap the biggest animal
+* Tap the smallest animal
+* Simple memory card game
+* Animal sounds
+* Match parent and baby animals
+* Sort animals by colour
+* Find the missing object
+* Balloon popping with numbers
+* Bubble popping with colours
+* Drag and drop matching
+* Shape sorting
+* Number tracing
+* Colour recognition challenge
+* Simple puzzle pieces
+
+Question difficulty:
+
+* Numbers 1–5
+* Very simple instructions
+* Mostly pictures instead of text
+* Large buttons and visuals
+
+Rewards:
+
+* Stars
+* Smiley faces
+* Stickers
+* Animal badges
+
+5–6 Years (Foundation Learning)
+
+Focus:
+
+* Counting
+* Early maths
+* Problem solving
+* Observation skills
+* Animal knowledge
+* Pattern recognition
+
+Games:
+
+* Dice counting
+* Count 1–10
+* Count 1–20
+* Addition using pictures
+* Number matching
+* Missing number challenges
+* Which number is bigger?
+* Which number is smaller?
+* Animal habitats
+* Animal sounds quiz
+* Spot the difference
+* Match shadow to animal
+* Pattern completion
+* Sequence games
+* Memory cards
+* Find hidden objects
+* Sorting challenges
+* Number races
+* Shape combinations
+* Colour patterns
+* Simple maze games
+* Timed counting challenge
+* Match animal footprints
+* Animal food matching
+
+Question difficulty:
+
+* Numbers 1–20
+* Addition up to 10
+* More choices on screen
+* Simple problem solving
+
+Rewards:
+
+* Trophies
+* Achievement badges
+* Progress stars
+* Daily streak rewards
+
+7–8 Years (Developing Learners)
+
+Focus:
+
+* Maths confidence
+* Logic
+* Reading
+* Memory
+* Educational challenges
+
+Games:
+
+* Addition
+* Subtraction
+* Multiplication introduction
+* Division introduction
+* Number sequences
+* Missing number equations
+* Timed maths challenges
+* Mental maths
+* Number comparison
+* Animal classification
+* Habitats and environments
+* Food chains
+* Match facts to animals
+* Memory master game
+* Advanced spot the difference
+* Logic puzzles
+* Pattern solving
+* Educational quizzes
+* Treasure hunt challenges
+* Reading comprehension mini-games
+* Word matching
+* Animal fact explorer
+* Speed challenge rounds
+* Daily challenge mode
+* Weekly challenge mode
+
+Question difficulty:
+
+* Numbers up to 100
+* Addition and subtraction
+* Introductory multiplication
+* More reading required
+* Timed challenges
+* Larger question pools
+
+Additional Features For All Ages:
+
+Daily Challenge
+
+* New activities every day
+* Age appropriate questions only
+
+Achievement System
+
+* Hundreds of badges
+* Milestone rewards
+* Learning certificates
+
+Classroom Mode
+
+* Teachers can switch between students instantly
+* View progress for every child
+* Compare improvement over time
+
+Progress Reports
+
+* Maths performance
+* Animal knowledge
+* Memory skills
+* Activity completion
+* Time spent learning
+
+Learning Path System
+
+* Children unlock new games by completing previous ones
+* Progression should always stay appropriate for their age
+
+Question Generation
+
+* Generate hundreds of unique questions per game
+* Avoid repeating the same questions frequently
+* Scale difficulty automatically within the selected age range
+
+The entire app should feel like a premium educational learning platform used by nurseries, primary schools, and teachers, with enough content to keep children engaged for months.

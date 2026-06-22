@@ -1,0 +1,134 @@
+Fix these broken games immediately:
+
+* Colour Patterns
+* Sequence Memory
+* Animal Memory
+
+These games currently do not work when clicked. They must either be fully fixed or hidden until they are working.
+
+For each of these games, check and fix:
+
+* Game route/navigation
+* Start screen
+* Question/data generation
+* Answer button logic
+* Score saving
+* Review history saving
+* Exit Game button
+* Back button
+* End screen
+* Any missing imports, missing game IDs, missing question arrays, or undefined variables
+
+No game card should ever open an error screen, blank screen, or broken page.
+
+Also fix the Recent Games review screen properly.
+
+At the moment, the review screen only shows:
+“Question 1”
+“Question 2”
+etc.
+
+That is not enough.
+
+The review screen must show the actual question the child answered.
+
+Each review item must display:
+
+Question 1
+
+Question:
+[Show the full question that appeared during the game]
+
+Child answered:
+[Show the child’s selected answer]
+
+Correct answer:
+[Show the correct answer]
+
+Result:
+Correct / Incorrect
+
+Explanation:
+[Short child-friendly explanation]
+
+If the game used images, dice, colours, animals, shapes, cards, or patterns, show those too.
+
+Examples:
+
+Colour Patterns:
+Question:
+“What colour comes next? Red, Blue, Red, Blue, ___”
+
+Child answered:
+Green
+
+Correct answer:
+Red
+
+Result:
+Incorrect
+
+Explanation:
+“The colours repeat Red, Blue, so the next colour is Red.”
+
+Sequence Memory:
+Question:
+“Remember this sequence: Cat, Dog, Bird”
+
+Child answered:
+Cat, Bird, Dog
+
+Correct answer:
+Cat, Dog, Bird
+
+Result:
+Incorrect
+
+Explanation:
+“The correct order was Cat, Dog, Bird.”
+
+Animal Memory:
+Question:
+“Find the matching animal pair.”
+
+Child answered:
+Lion and Tiger
+
+Correct answer:
+Lion and Lion
+
+Result:
+Incorrect
+
+Explanation:
+“A matching pair means the two animals are the same.”
+
+Important data requirement:
+When a child answers any question, save the full question data, not just the question number.
+
+Each saved answer should include:
+
+* questionNumber
+* questionText
+* questionVisuals
+* childAnswer
+* correctAnswer
+* isCorrect
+* explanation
+* gameName
+* category
+* ageRange
+* datePlayed
+
+Update all games so this review data is saved consistently.
+
+After fixing, test:
+
+* Colour Patterns opens and plays
+* Sequence Memory opens and plays
+* Animal Memory opens and plays
+* Scores save
+* Recent Games shows the game
+* Clicking the recent game opens the review
+* Review shows the actual question and answer details
+* No review entry only says “Question 1” without the real question

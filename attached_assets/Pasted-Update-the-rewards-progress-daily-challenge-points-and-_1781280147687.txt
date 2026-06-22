@@ -1,0 +1,213 @@
+Update the rewards, progress, daily challenge, points, and category UI systems.
+
+Rewards approval system:
+
+When a child chooses a reward from the Rewards Shop:
+
+* Do not deduct points immediately
+* Create a pending reward request
+* Show the child:
+  “Reward request sent! Waiting for adult approval.”
+
+Adults must approve or deny every reward request.
+
+Important:
+Every approval must require the adult passcode.
+
+Even if the adult has already entered the passcode earlier, approving a reward must always ask for the passcode again.
+
+Approval flow:
+
+1. Child requests reward
+2. Request appears in adult area
+3. Adult clicks Approve
+4. Passcode screen opens
+5. Adult enters passcode
+6. If correct, points are deducted
+7. Reward is marked Approved
+8. Reward history is updated
+
+Deny flow:
+
+* Adult can deny the request
+* Denying should also require the adult passcode
+* Points are not deducted
+* Reward history is updated
+
+Children can cancel their own pending reward requests.
+
+Children must not be able to request a reward unless:
+
+* Rewards Shop is enabled
+* Reward is active
+* Child has enough points at the time of request
+
+---
+
+Daily Challenge changes:
+
+Daily Challenge should be 20 questions total.
+
+It must be split into 5 questions from each category.
+
+Use 4 categories per daily challenge:
+
+* Maths: 5 questions
+* Reading & Words: 5 questions
+* Animals: 5 questions
+* Health & Food or Science: 5 questions
+
+The child must complete one category before moving to the next.
+
+Example:
+Step 1: Maths 1/5 to 5/5
+Step 2: Reading 1/5 to 5/5
+Step 3: Animals 1/5 to 5/5
+Step 4: Health & Food 1/5 to 5/5
+
+Do not allow skipping ahead.
+
+Show progress clearly:
+
+* Current category
+* Question number in category
+* Overall question number out of 20
+* Category progress bar
+* Overall progress bar
+
+At the end, show:
+
+* Total score out of 20
+* Score by category
+* Strongest category
+* Needs practice category
+* Points earned
+* Badges earned
+
+---
+
+Points balance adjustment:
+
+Points are currently too easy to earn.
+
+Reduce points so low scores give very low rewards.
+
+New suggested points system:
+
+Per correct answer:
+
+* +5 points
+
+Per wrong answer:
+
+* +0 points
+
+Game completion bonus:
+
+* Only give bonus if score is 50% or higher
+
+Score bonuses:
+
+* 0–25% score: +0 bonus
+* 26–49% score: +5 bonus
+* 50–69% score: +15 bonus
+* 70–89% score: +30 bonus
+* 90–99% score: +50 bonus
+* 100% score: +75 bonus
+
+Daily Challenge:
+If child scores:
+
+* 1/20, they should earn almost nothing
+* 5/20 or lower, very low points
+* 10/20, moderate points
+* 15/20+, good points
+* 20/20, high points
+
+Example:
+1 correct out of 20 = 5 points only
+
+No large bonus should be given for very low scores.
+
+Timed Play:
+Points should be based mainly on correct answers and accuracy, not just time spent.
+
+---
+
+Progress privacy:
+
+Only adults should be able to view progress.
+
+Protect these areas with passcode every time:
+
+* My Progress
+* Class page
+* Recent Games review
+* Child progress details
+* Scores
+* Charts
+* Notes
+* Reward history
+* Edit child profile
+
+Important:
+Each time someone clicks My Progress, it should ask for the passcode.
+
+Do not allow children to open progress by clicking around.
+
+Games, Daily Challenge, Timed Play, sound toggle, and read aloud can stay child accessible.
+
+---
+
+Revamp category dashboard UI:
+
+The category section currently looks messy and cluttered.
+
+Redesign it to look cleaner, nicer, and more animated.
+
+Requirements:
+
+* More polished category cards
+* Better spacing
+* Better grouping
+* Larger icons
+* Softer shadows
+* Rounded modern cards
+* Animated hover/tap effects
+* Small bounce animation when tapped
+* Subtle floating icons or sparkle effects
+* Clear section title like “Choose Your Learning Adventure”
+* Make cards feel fun but organised
+
+Group categories neatly:
+Main Learning:
+
+* Maths
+* Reading
+* Science
+* Animals
+
+Creative & Memory:
+
+* Memory Games
+* Colours & Shapes
+* Health & Food
+
+Adult-only:
+
+* My Progress
+* Notes
+* Class
+
+My Progress should not look like a normal child game button.
+It should be lower on the page and clearly adult-only.
+
+Add a small lock icon to adult-only cards:
+
+* Progress
+* Notes
+* Class
+* Edit Profile
+* Reward approvals/history
+
+Make the whole dashboard feel like a premium animated kids learning app, not a cluttered grid of buttons.

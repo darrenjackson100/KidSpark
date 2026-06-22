@@ -1,0 +1,191 @@
+Remove all custom phonics pronunciation logic from the app and fix the tracing completion/scoring system.
+
+---
+
+Part 1: Stop phonics pronunciation across the app
+
+Current issue:
+
+The app is still trying to force phonics sounds when letters are spoken.
+
+Examples:
+
+* A is being spoken as "A A A"
+* R may be spoken multiple times
+* Letters are being repeated unnaturally
+* Questions sound strange because letters are being modified
+
+This is not wanted.
+
+New rule:
+
+Unless the child is specifically listening to a tracing rhyme, all letters should be spoken normally using standard English pronunciation.
+
+Examples:
+
+Letter A:
+Say:
+"A"
+
+Not:
+"A A A"
+Not:
+"ah"
+Not:
+"a-a-a"
+
+Letter B:
+Say:
+"B"
+
+Not:
+"buh"
+
+Letter S:
+Say:
+"S"
+
+Not:
+"sss"
+
+Letter R:
+Say:
+"R"
+
+Not:
+"rrr"
+
+Apply this everywhere:
+
+* Questions
+* Answers
+* Reading games
+* Fill The Letter
+* Build The Word
+* Daily Challenge
+* Timed Play
+* Review Screen
+* Health & Food
+* Science
+* Animals
+* Number Bonds
+* Maths
+* Progress Review
+
+If a question contains a letter, read it normally.
+
+Example:
+
+Question:
+"What letter comes after A?"
+
+Voice should say:
+"What letter comes after A?"
+
+Not:
+"What letter comes after A A A?"
+
+Example:
+
+Question:
+"Choose the letter B"
+
+Voice should say:
+"Choose the letter B"
+
+Not:
+"Choose the letter buh"
+
+Tracing game exception:
+
+Trace The Letter should ONLY use the tracing rhyme when the child presses the rhyme button.
+
+Example:
+
+Letter:
+a
+
+Rhyme:
+"Around the apple and down the leaf"
+
+Do not automatically speak:
+
+* A
+* a-a-a
+* ah
+
+Only play the rhyme.
+
+Technical fix:
+
+Remove any code that:
+
+* Repeats letters
+* Converts letters into phonics sounds
+* Replaces letters with custom audio text
+* Generates sounds by repeating characters
+
+Use the standard displayed text for speech in normal questions and answers.
+
+---
+
+Part 2: Fix Trace The Letter completing too early
+
+The tracing game is now mostly working, but it completes too early.
+
+Current issue:
+The app marks the letter as complete before the child has actually finished tracing the full letter.
+
+Example:
+For the letter “d”, the game says:
+
+* Progress 100%
+* Accuracy 100%
+* Excellent
+
+But the child has not traced all the way down to the bottom of the letter yet.
+
+Fix this.
+
+Requirements:
+
+* Do not complete the letter until the full required path is traced
+* Every important part of the letter path must be completed
+* For letters like d, b, p, h, l, etc., the vertical stroke must be traced fully from top to bottom
+* Do not allow completion just because the child traced most of the round part
+* The final stroke/end point must be reached before marking complete
+
+Improve scoring:
+
+* If the child scribbles outside the line, reduce accuracy
+* If the child traces far away from the guide line, reduce accuracy
+* If the child skips parts of the letter, reduce accuracy
+* If the child traces backwards or misses key checkpoints, reduce accuracy
+* Do not always give 100%
+
+Progress should mean:
+“How much of the correct letter path has been traced.”
+
+Accuracy should mean:
+“How closely the child stayed on the correct line.”
+
+Only give:
+
+* 100% accuracy if the child stayed very close to the guide line
+* Lower accuracy if they scribbled, went off path, or missed sections
+
+Completion rules:
+
+* Require at least 90% of path checkpoints completed
+* Require the end checkpoint to be reached
+* Require key segments to be completed in correct order where possible
+* Do not show “Excellent” unless both progress and accuracy are high
+
+Suggested scoring:
+
+* 90–100% accuracy = Excellent
+* 75–89% accuracy = Good
+* 50–74% accuracy = Needs practice
+* Below 50% = Try again
+
+Make the scoring honest so children can actually improve their tracing rather than always getting full marks.

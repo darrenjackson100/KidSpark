@@ -1,0 +1,254 @@
+Virtual Pet Simplification & Redesign Update
+
+The pet system is becoming too complicated and cluttered. Simplify it and make it feel more natural for children.
+
+Dashboard changes:
+
+Remove these cards completely:
+
+* Points
+* Stars
+* Badges
+* Streak
+* Games Played
+
+Replace them with only two large cards/buttons:
+
+1. Rewards Shop
+
+* Shows current points balance
+* Example:
+  Rewards Shop
+  146 Points Available
+* Opens the rewards shop
+* Children spend points here
+* Cleaner and easier to understand
+
+2. My Pet
+
+* Shows pet name
+* Shows pet mood
+* Shows pet growth stage
+* Example:
+  My Pet
+  Baby Monkey
+  Happy 😊
+* Opens pet room
+
+This will make the dashboard much cleaner.
+
+---
+
+Pet growth changes
+
+Current problem:
+
+The pet grows far too quickly.
+
+Example:
+One game with 10 questions and the pet is already 5/15 progress.
+
+This is far too fast.
+
+New goal:
+
+The pet should grow slowly over weeks, not a few games.
+
+Growth should feel special.
+
+Example growth path:
+
+Stage 1:
+Tiny Baby
+
+Stage 2:
+Little Baby
+
+Stage 3:
+Playful Baby
+
+Stage 4:
+Curious Baby
+
+Stage 5:
+Toddler Pet
+
+Stage 6:
+Young Pet
+
+Stage 7:
+Growing Pet
+
+Stage 8:
+Adventurer
+
+Stage 9:
+Explorer
+
+Stage 10:
+Learner
+
+Stage 11:
+Helper
+
+Stage 12:
+Friend
+
+Stage 13:
+Big Kid
+
+Stage 14:
+Teen Pet
+
+Stage 15:
+Young Adult
+
+Stage 16:
+Adult
+
+Stage 17:
+Wise Adult
+
+Stage 18:
+Master Companion
+
+Stage 19:
+Legendary Friend
+
+Stage 20:
+Fully Grown
+
+Make growth take significantly longer.
+
+Suggested:
+
+* Questions answered correctly
+* Daily challenges completed
+* Reading completed
+* Learning streaks
+
+A single game should only provide a very small amount of growth.
+
+The pet should not become fully grown after a few sessions.
+
+---
+
+Remove Growth tab
+
+Remove:
+
+* Growth tab
+
+Children do not need to see XP numbers.
+
+Children should simply:
+
+* Feed pet
+* Play with pet
+* Care for pet
+* Learn with pet
+
+The pet naturally grows over time.
+
+Keep growth hidden.
+
+---
+
+Remove Style tab
+
+Remove:
+
+* Style tab
+
+Remove:
+
+* Room decorations unlocking onto the pet
+
+Current issue:
+Achievements are placing decorations over the pet's face.
+
+Example:
+Flower unlock appeared on top of the pet.
+
+This looks broken.
+
+Remove decoration placement entirely for now.
+
+Keep the pet clean and uncluttered.
+
+---
+
+Pet speech bubble
+
+Current issue:
+Speech appears high up in the room.
+
+Move the speech bubble so it appears directly above the pet.
+
+Like a real speech bubble.
+
+Requirements:
+
+* Always stay above the pet
+* Follow pet position
+* Never appear at top of room
+* Never cover pet
+* Never cover buttons
+* Scale correctly as pet grows
+
+When pet grows:
+
+* Bubble should reposition automatically
+* Bubble should never sit on the pet's face
+
+---
+
+Pet room simplification
+
+Current pet room should have:
+
+Large pet in centre
+
+Simple room
+
+Food button
+
+Water button
+
+Bath button
+
+Sleep button
+
+Play button
+
+Learn button
+
+Nothing else.
+
+No clutter.
+
+No floating rewards.
+
+No flowers on faces.
+
+No random unlocks inside room.
+
+Keep it clean and polished.
+
+The pet should be the focus.
+
+---
+
+Pet progression philosophy
+
+Children should not think:
+
+"I need XP."
+
+Children should think:
+
+"I want to look after my pet."
+
+Learning should slowly help the pet grow naturally in the background.
+
+Make the system feel magical rather than showing lots of numbers.

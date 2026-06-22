@@ -1,0 +1,348 @@
+Fix the phonics, voice, tracing, and fill-the-letter games properly.
+
+Phonics sounds:
+
+The app must teach phonics sounds, not alphabet letter names.
+
+Current problem:
+
+* B is being read as “bee”
+* It should sound like “buh”
+* S should not say “ess”
+* It should sound like “sss”, like a snake
+
+Fix all phonics audio so each letter uses the correct synthetic phonics sound.
+
+Examples:
+
+* a = short “a” as in apple
+* b = “buh”, not “bee”
+* c = hard “c/k” sound, not “see”
+* d = “duh”, not “dee”
+* e = short “e” as in egg
+* f = “fff”
+* g = hard “g” as in goat
+* h = “hhh”
+* i = short “i” as in insect
+* j = “juh”
+* k = “kuh”
+* l = “lll”
+* m = “mmm”
+* n = “nnn”
+* o = short “o” as in orange
+* p = “puh”
+* q/qu = “qu”
+* r = “rrr”
+* s = “sss”
+* t = “tuh”
+* u = short “u” as in umbrella
+* v = “vvv”
+* w = “wuh”
+* x = “ks”
+* y = “yuh”
+* z = “zzz”
+* sh = “shhh”
+* ch = “ch”
+* th = “th”
+* ng = “ng”
+
+Do not rely on the browser reading the visible letter, because the browser will say the alphabet name.
+
+Create a separate phonicsAudioText value for each sound.
+
+Example:
+letter: "b"
+display: "b"
+phonicsAudioText: "buh"
+letterNameAudioText: "bee"
+
+When the child taps the phonics sound button, speak phonicsAudioText, not the letter name.
+
+---
+
+Voice quality and voice options:
+
+The voice is different on different devices, for example male on iPad and female on another device.
+
+Add a Voice Settings page.
+
+Allow adults to choose:
+
+* Voice
+* Voice gender if available
+* British English voice if available
+* Speed
+* Pitch
+* Volume
+
+Requirements:
+
+* Prefer British English voices: en-GB
+* Prefer calm female voices by default
+* Let the adult preview each voice
+* Save the chosen voice
+* Use the chosen voice everywhere
+
+If the device has no good British female voice:
+
+* Fall back to the best English voice
+* Still allow the adult to choose from available voices
+
+Add a note:
+“Voice options depend on the device/browser. For the most natural sound, choose a British English voice from the list.”
+
+Optional AI voice:
+If possible, add support for premium AI voice later, but do not break the app if it is unavailable.
+
+Add a setting:
+“Use browser voice”
+“Use AI voice if configured”
+
+If no AI voice API key is set, use browser voice.
+
+---
+
+Correct UK phonics tracing phrases:
+
+Use these UK Read Write Inc-style phrases.
+
+Important:
+If there are copyright concerns, allow these to be editable by the parent/teacher in Phonics Settings, but set these as the default phrases requested by the user.
+
+Set 1 sounds:
+
+m:
+Down Maisie, mountain, mountain
+
+a:
+Around the apple and down the leaf
+
+s:
+Slither down the snake
+
+d:
+Around his bottom, up his tall neck and down to his feet
+
+t:
+Down the tower, across the tower
+
+i:
+Down the insect’s body, dot for the head
+
+n:
+Down Nobby and over his net
+
+p:
+Down the plait and over the pirate’s face
+
+g:
+Around the girl’s face, down her hair and give her a curl
+
+o:
+All around the orange
+
+c:
+Curl around the caterpillar
+
+k:
+Down the kangaroo’s body, tail and leg
+
+u:
+Down and under, up to the top and draw the puddle
+
+b:
+Down the laces to the heel, round the toe
+
+f:
+Down the stem and draw the leaves
+
+e:
+Lift off the top and scoop out the egg
+
+l:
+Down the long leg
+
+h:
+Down the head to the hooves and over his back
+
+r:
+Down his back, then curl over his arm
+
+j:
+Down his body, curl and dot
+
+v:
+Down a wing, up a wing
+
+y:
+Down a horn, up a horn and under his head
+
+w:
+Down, up, down, up
+
+z:
+Zig-zag-zig
+
+x:
+Down the arm and leg, repeat the other side
+
+sh:
+Slither down the snake, then down the head to the hooves and over his back
+
+th:
+Down the tower, across the tower, then down the head to the hooves and over his back
+
+ch:
+Curl around the caterpillar, then down the head to the hooves and over his back
+
+qu:
+Round the queen’s head, up to her crown, down her hair and flick
+
+ng:
+Down Nobby and over his net, then around the girl’s face, down her hair and give her a curl
+
+nk:
+Down Nobby and over his net, then down the kangaroo’s body, tail and leg
+
+Make each sound card show:
+
+* Letter/sound
+* Phonics sound button
+* Rhyme button
+* Example word
+* Tracing button
+
+---
+
+Fix the tracing game properly:
+
+Current problem:
+
+* When the child tries to trace, the page scrolls instead
+* The letter is just an image
+* The tracing does not fill in
+* The child is not actually tracing anything
+
+Build the tracing game as a proper interactive tracing activity.
+
+When a child selects a letter:
+
+* Open a centred tracing modal / pop-up box
+* The modal must stay fixed on screen
+* The background page must not scroll
+* Disable body scrolling while tracing modal is open
+* Add an X close button
+* Show the large letter with dotted guide path
+* Show a clear start point
+* Show arrows or numbered dots
+* Let the child trace using finger, stylus, or mouse
+* Use pointer events
+* Prevent touch scrolling while tracing
+* Use touch-action: none on the tracing canvas
+* Fill or highlight the letter path as the child traces
+* Show progress percentage
+* When enough of the path is traced, mark complete
+* Give feedback:
+  “Great tracing!”
+  “Keep following the dots!”
+
+The child should not be able to drag the page while tracing.
+
+Technical requirements:
+
+* Use SVG or canvas tracing paths
+* Track pointer movement
+* Compare the child’s trace to the guide path
+* Fill in dots/segments as they trace over them
+* Require a reasonable completion threshold, for example 75–85%
+* Save tracing result to progress and review history
+
+The tracing box should not move or disappear unless:
+
+* The child presses X
+* The tracing is complete
+* Adult/child presses Back
+
+---
+
+Fix Fill The Letter / Build The Word game:
+
+Current problem:
+The child cannot select a wrong letter. The game only allows the correct letters, which means they cannot make mistakes and the score is always correct.
+
+Fix:
+
+* Allow the child to tap any option, including wrong letters
+* If the child chooses the wrong letter, accept the answer as wrong
+* Show feedback:
+  “Good try! The correct letter was ___.”
+* Move to the next question after feedback
+* Save it as incorrect in review history
+
+When the child taps any letter option:
+
+* Speak the phonics sound of that letter
+* Do not speak the alphabet name unless the adult chooses letter-name mode
+* Example:
+  Child taps “s”
+  Voice says “sss”
+  not “ess”
+
+For word building:
+
+* The child should be able to build the word using choices
+* If they build it wrong, mark incorrect
+* Show the correct word
+* Move to the next question
+
+Review history must save:
+
+* Word shown
+* Missing letter
+* Options shown
+* Child’s chosen letter
+* Correct letter
+* Whether correct
+* Explanation
+
+Example:
+Word:
+c _ t
+
+Child chose:
+o
+
+Correct answer:
+a
+
+Result:
+Incorrect
+
+Explanation:
+The word is cat. The missing sound is a.
+
+---
+
+Apply phonics audio everywhere:
+
+Use phonics sounds in:
+
+* Sound Board
+* Pick The Sound
+* Trace The Letter
+* Fill The Letter
+* Build The Word
+* Reading games for younger children
+
+Do not use alphabet names unless specifically in a “Letter Names” game.
+
+Make sure all phonics games:
+
+* Work on iPad
+* Work on mobile
+* Work with touch
+* Save progress
+* Save review history
+* Do not force only correct answers
+* Allow mistakes
+* Use calm British English voice where available

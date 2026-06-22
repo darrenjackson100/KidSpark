@@ -1,0 +1,255 @@
+Add Read Write Inc-style phonics learning for younger children, plus number bond and speech fixes.
+
+Important:
+Add this for younger age ranges only:
+
+* 3–4 Years
+* 5–6 Years
+
+Do not show Read Write Inc-style phonics games for 7–8 Years unless the adult manually enables phonics support later.
+
+---
+
+Phonics / Read Write Inc-style section
+
+Add a new Reading sub-section called:
+
+“Phonics Sounds”
+
+This should teach letter sounds, not just letter names.
+
+For each letter sound, include:
+
+* The letter
+* The sound
+* A short rhyme or phrase to help remember it
+* A speaker button to hear the sound
+* A speaker button to hear the rhyme
+
+Examples:
+
+* m: “mmmm” sound
+* a: “a-a-a”
+* s: “sss”
+* d: “d-d-d”
+* t: “t-t-t”
+* i: “i-i-i”
+* n: “nnn”
+* p: “p-p-p”
+* g: “g-g-g”
+* o: “o-o-o”
+* c: “c-c-c”
+* k: “k-k-k”
+* u: “u-u-u”
+* b: “b-b-b”
+* f: “fff”
+* e: “e-e-e”
+* l: “lll”
+* h: “h-h-h”
+* r: “rrr”
+* j: “j-j-j”
+* v: “vvv”
+* y: “y-y-y”
+* w: “w-w-w”
+* z: “zzz”
+* x: “ks”
+* sh: “shhh”
+* ch: “ch”
+* th: “th”
+* ng: “ng”
+* qu: “qu”
+
+Make sure the voice sounds out the phonics sound clearly, not just the alphabet letter name.
+
+Use child-friendly rhymes/phrases to help remember sounds. Avoid copying any copyrighted commercial text exactly. Create original short rhymes inspired by phonics learning.
+
+Example:
+
+* “m” sound: “mmmm, munching mangoes”
+* “s” sound: “sss, silly snake slides”
+* “a” sound: “a-a-a, ants on an apple”
+* “d” sound: “d-d-d, dinosaur drums”
+* “t” sound: “t-t-t, tiny tiger taps”
+
+---
+
+Add phonics games
+
+1. Hear The Sound
+   Child selects a letter and hears:
+
+* The phonics sound
+* The rhyme
+* Example word
+
+2. Pick The Sound
+   App plays a phonics sound.
+   Child chooses the correct letter from options.
+
+3. Trace The Letter
+   Child hears the phonics sound.
+   Then child traces the letter on screen.
+
+Requirements:
+
+* Show a large letter
+* Use dotted guide lines
+* Show start point
+* Show arrows or dots to follow
+* Let the child trace with finger or mouse
+* Give feedback:
+  “Great tracing!”
+  “Try following the dots!”
+* Save score/progress
+* Save review history
+
+4. Match Sound To Picture
+   Example:
+   App plays “sss”
+   Child chooses snake, apple, dog, etc.
+
+5. Build The Word
+   For 5–6 Years:
+   Child hears a simple word like “cat”
+   Child chooses letters to build it:
+   c - a - t
+
+Keep it age appropriate.
+
+---
+
+Add letter sound board
+
+Add a game called:
+
+“Sound Board”
+
+The child can choose any letter/sound tile.
+
+When clicked:
+
+* It says the sound
+* It says the rhyme
+* It shows a picture/example word
+
+Example:
+Child taps “m”
+Voice says:
+“mmmm. Munching mangoes. m is for mango.”
+
+Make this colourful, simple, and very child-friendly.
+
+---
+
+Number Bonds update
+
+Update Number Bonds game.
+
+Add:
+
+* Number bonds to 5
+* Number bonds to 10
+* Number bonds to 20 depending on age
+
+3–4 Years:
+
+* Number bonds to 5 only
+* Use objects/pictures
+
+5–6 Years:
+
+* Number bonds to 5 and 10
+* Use boxes and visual support
+
+7–8 Years:
+
+* Number bonds to 10, 20, and harder missing number questions
+
+Change the question style so it uses an empty box.
+
+Examples:
+Number bonds to 5:
+3 + [ empty box ] = 5
+
+Options:
+1, 2, 3, 4
+
+Correct answer:
+2
+
+Number bonds to 10:
+7 + [ empty box ] = 10
+
+Number bonds to 20:
+13 + [ empty box ] = 20
+
+Requirements:
+
+* Show the empty box clearly
+* Child chooses the number that belongs in the box
+* Save full review history
+* Read aloud should say:
+  “3 plus what equals 5?”
+  not “3 plus question mark equals 5”
+
+---
+
+Speech / Read Aloud fix for question marks
+
+When a question contains “?” in a maths expression or sentence, the voice should not ignore it or say it strangely.
+
+If “?” represents a missing answer, read it as:
+
+* “what”
+  or
+* “what number”
+
+Examples:
+3 + ? = 5
+Voice says:
+“3 plus what number equals 5?”
+
+7 + ? = 10
+Voice says:
+“7 plus what number equals 10?”
+
+If it is a normal question sentence:
+“What animal is this?”
+Voice should read it normally.
+
+Apply this to:
+
+* Maths
+* Number Bonds
+* Reading
+* Phonics
+* Daily Challenge
+* Timed Play
+* Review screen
+
+Also keep the previous maths speech rules:
+
+* * = plus
+* * = take away
+* × = times
+* ÷ = divided by
+* = = equals
+
+Voice:
+
+* Prefer calm British English voice
+* en-GB
+* Female if available
+* Slightly slower speech rate for children
+
+---
+
+Make sure all new phonics games:
+
+* Only show for the correct age ranges
+* Save scores
+* Save progress
+* Save full review history
+* Use speaker buttons
+* Work on mobile/tablet
+* Are child-friendly and visually polished

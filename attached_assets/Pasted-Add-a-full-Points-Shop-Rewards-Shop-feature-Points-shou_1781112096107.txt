@@ -1,0 +1,147 @@
+Add a full Points Shop / Rewards Shop feature.
+
+Points should only appear if the parent or teacher enables points when creating or editing a child profile.
+
+During child profile setup, add:
+
+“Enable Points & Rewards Shop?”
+Options:
+
+* Yes
+* No
+
+If No:
+
+* Hide the Points card from the dashboard
+* Hide the shop feature
+* Continue showing Stars, Badges, Streak, and Games
+
+If Yes:
+
+* Show the Points card
+* Make the Points card clickable
+* Clicking Points opens the Rewards Shop
+
+Rewards Shop:
+
+Parents/teachers should be able to create custom rewards for each child.
+
+When creating or editing a child profile, allow the adult to add shop rewards with:
+
+* Reward name
+* Point cost
+* Description
+* Icon/emoji
+* Active/inactive toggle
+
+Example rewards:
+
+* Extra TV time — 500 points
+* Choose dinner — 700 points
+* Pick a film — 400 points
+* Extra tablet time — 600 points
+* Stay up 15 minutes later — 800 points
+* Small toy reward — 1500 points
+* Trip to the park — 1000 points
+* Choose a bedtime story — 250 points
+
+Child shop screen:
+
+* Show available rewards
+* Show child’s current points balance
+* Show reward cards with cost
+* If child has enough points, allow purchase
+* If not enough points, show “Keep learning to earn more points!”
+* When purchased, deduct points immediately
+* Show celebration message:
+  “Reward unlocked!”
+
+Purchase logging:
+Every purchase must be saved in a Reward History log.
+
+Log:
+
+* Child name
+* Reward name
+* Points spent
+* Date and time
+* Remaining points
+* Adult approval status if needed
+
+Add Reward History to:
+
+* Child profile
+* Learners dashboard
+* Parent/teacher area
+* Progress page
+
+Optional adult approval:
+Add a setting:
+“Require adult approval before spending points?”
+
+If enabled:
+
+* Child can request reward
+* Points are not deducted until adult approves
+* Adult must enter passcode to approve
+* Once approved, points are deducted
+* Log approval date/time
+
+If disabled:
+
+* Child can buy immediately if they have enough points
+* Purchase is still logged
+
+Top stats explanation text:
+
+At the top where it shows:
+
+* Points
+* Stars
+* Badges
+* Streak
+* Games
+
+Add small centred text under each label explaining how they are earned.
+
+Examples:
+
+Points:
+“Earned by answering questions”
+
+Stars:
+“Earned from good scores”
+
+Badges:
+“Unlocked by achievements”
+
+Streak:
+“Days learned in a row”
+
+Games:
+“Gained by playing games”
+
+Keep this text small, neat, centred, and readable.
+
+Make sure the stats cards still look clean on mobile and desktop.
+
+Points earning:
+Points should be earned by:
+
+* Correct answers
+* Completing games
+* Daily challenges
+* Timed Play
+* Milestones
+* Perfect scores
+
+Example:
+
+* Correct answer: +10 points
+* Completing a game: +25 points
+* Perfect score: +50 bonus
+* Daily challenge complete: +100 bonus
+* Timed Play complete: +100 bonus
+* Every 5 completed questions: milestone bonus
+
+Make the whole shop feel fun, colourful, child-friendly, but controlled by the parent/teacher.

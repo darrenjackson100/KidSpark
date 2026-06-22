@@ -1,0 +1,163 @@
+Update the app with these fixes and new features.
+
+Fix answer randomisation:
+The correct answer is currently always appearing on the blue answer button. This makes the game too easy.
+
+For every question-based game:
+
+* Randomise the answer positions every time
+* The correct answer must appear in different coloured boxes randomly
+* Never always place the correct answer first or on the same colour
+* Shuffle all answer options before rendering them
+
+Add new maths memory dice game:
+Create a new maths game called “Dice Flash Challenge”.
+
+How it works:
+
+* Show a dice for a short time
+* Then hide the dice
+* Child must remember how many dots were shown
+* Child chooses the correct number
+* Score is saved
+* Review history must show the dice number that was shown
+
+Difficulty by age:
+3–4 Years:
+
+* Dice shows 1–5
+* Longer viewing time
+
+5–6 Years:
+
+* Dice shows 1–10 using one or two dice
+* Medium viewing time
+
+7–8 Years:
+
+* Two dice or three dice
+* Quick viewing time
+* May ask addition questions using the dice
+
+Make text/audio buttons bigger:
+The speaker buttons are too small.
+Make all speaker buttons:
+
+* Bigger
+* Easier to press
+* Clearly visible
+* Labelled where useful, for example “Hear Question”
+* Placed neatly under the question or beside answer options
+
+Resize visuals:
+Some animal pictures and question images are too small.
+
+Make all question visuals larger and more child friendly:
+
+* Bigger animal images
+* Bigger dice
+* Bigger shapes
+* Bigger food images
+* Bigger science images
+* Better spacing
+* Mobile/tablet friendly sizing
+* No tiny clickable buttons
+
+Daily Challenge:
+Change Daily Challenges to 20 questions.
+
+Daily Challenge must include a mixed variety of age-appropriate questions from:
+
+* Maths
+* Reading & Words
+* Animals
+* Science
+* Health & Food
+* Memory / Pattern questions
+
+The 20 questions must only use the selected child’s age range.
+
+Add new timed learning mode:
+Create a new button called “Timed Play”.
+
+When clicked, the child/adult can choose:
+
+* 5 minutes
+* 10 minutes
+* 15 minutes
+* 30 minutes
+
+After choosing a time:
+
+* Show a countdown timer on the screen
+* Let the child play a mix of games/questions during that time
+* Keep showing questions until time runs out
+* Use only age-appropriate questions
+* Include mixed categories
+* Save all answers
+* Save full review history
+
+When time is up, show a summary:
+
+* Total questions answered
+* Total correct
+* Total incorrect
+* Accuracy percentage
+* Categories played
+* Best category
+* Needs practice category
+* Points earned
+* Badges earned
+
+Save Timed Play results to:
+
+* Recent Games
+* Learners dashboard
+* Progress tracking
+* Review screen
+* Achievements
+
+Add milestones and points:
+Add a points system where children earn points for progress.
+
+Examples:
+
+* +10 points per correct answer
+* +5 points for trying
+* Bonus points for perfect scores
+* Bonus points for completing Daily Challenge
+* Bonus points for Timed Play
+
+Milestones:
+Award milestone bonuses every 5 completed questions/games.
+
+Examples:
+
+* Complete 5 questions = milestone reward
+* Complete 10 questions = milestone reward
+* Complete 15 questions = milestone reward
+* Complete 20 questions = milestone reward
+* Continue awarding rewards for every multiple of 5
+
+Add milestone badges:
+
+* First 5 Questions
+* 10 Question Star
+* 25 Question Hero
+* 50 Question Champion
+* 100 Question Master
+* 5 Games Completed
+* 10 Games Completed
+* 25 Games Completed
+* 50 Games Completed
+
+Show points and milestones on:
+
+* Home dashboard
+* Learners dashboard
+* Child profile
+* Game completion screen
+* Timed Play summary
+* Achievements page
+
+Make sure all new features save correctly and work with the universal review system.

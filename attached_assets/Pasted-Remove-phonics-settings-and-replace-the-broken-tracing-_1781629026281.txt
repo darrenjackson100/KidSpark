@@ -1,0 +1,170 @@
+Remove phonics settings and replace the broken tracing game with a new name-writing game.
+
+Remove phonics settings:
+
+Phonics is no longer being used in the app.
+
+Remove:
+
+* Phonics option from Settings
+* Phonics toggle
+* Phonics voice settings
+* Any phonics configuration pages
+* Any unused phonics menu items
+
+Do not remove normal Reading games.
+
+---
+
+Replace Trace The Letter with a new game:
+
+Remove the current Trace The Letter game because it is not working reliably.
+
+Create a new game called:
+
+“Write My Name”
+
+This game should help the child learn to write their own name.
+
+Use the child’s profile name automatically.
+
+Example:
+If the child profile name is Demi, the game should use:
+
+Demi
+
+The adult/child should not need to type the name again.
+
+---
+
+Write My Name game layout:
+
+Show:
+
+1. Title:
+   “Write My Name”
+
+2. Friendly instruction:
+   “Let’s practise writing Demi!”
+
+3. Top practice area:
+   Show the child’s name in large dotted letters.
+
+Example:
+D e m i
+
+The child can trace over the dotted name.
+
+4. Bottom free-write area:
+   Show an empty handwriting box underneath.
+
+The child can try writing their name by themselves without dots.
+
+Add a button:
+“Clear”
+
+Add a button:
+“Next Try” or “Finish”
+
+---
+
+Writing guidance:
+
+For the dotted name section:
+
+* Show start points for each letter
+* Show simple arrows/dots showing the writing direction
+* Allow the child to trace over the dotted letters
+* Do not make it too strict
+* Do not get stuck at 80%
+* Make it child-friendly and forgiving
+
+For the free-write section:
+
+* Let the child write freely
+* Do not require perfect accuracy
+* Save the attempt if possible
+* Let the adult review it later if possible
+
+---
+
+Scoring:
+
+This game should only give a very small amount of points because it can be repeated.
+
+Points:
+
+* Maximum 2 points per completed name-writing attempt
+* Do not give more than 2 points
+* Do not give large bonuses
+* Do not allow this game to be farmed for lots of points
+
+Suggested:
+
+* Trace only completed: +1 point
+* Trace and free-write completed: +2 points
+
+Add a repeat limit if needed:
+
+* Only award points once per day
+  or
+* Award points for first 3 attempts per day only
+
+Choose whichever is easier and works best.
+
+---
+
+Review history:
+
+Save:
+
+* Child name practised
+* Date/time
+* Whether dotted tracing was attempted
+* Whether free-write was attempted
+* Points earned
+* Image/canvas of the free-write attempt if possible
+
+In Recent Games, show:
+“Write My Name”
+
+In review, show:
+
+* Name practised
+* Points earned
+* Free-write attempt if saved
+
+---
+
+Important:
+
+The purpose of this game is not strict letter tracing anymore.
+
+The goal is:
+
+* Child sees their name
+* Child traces their name
+* Child tries writing their name independently
+* Parent/teacher can see practice history
+* Child gets small encouragement
+
+Make it work properly on:
+
+* iPad
+* phone
+* tablet
+* desktop
+
+Touch must work smoothly.
+
+The page must not scroll while the child is writing.
+
+Use:
+
+* canvas or SVG
+* touch-action: none
+* visible Clear button
+* large writing areas
+* no hidden buttons off-screen
+
+Make this feel like a simple, polished handwriting practice activity for young children.

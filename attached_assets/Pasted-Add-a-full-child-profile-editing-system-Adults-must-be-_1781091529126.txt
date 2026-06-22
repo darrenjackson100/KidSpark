@@ -1,0 +1,163 @@
+Add a full child profile editing system.
+
+Adults must be able to edit a child’s:
+
+* Name
+* Age range
+* Profile icon/avatar
+* Notes
+
+This is important because children may have birthdays and need to move into a new learning age group.
+
+When the child’s age range is changed:
+
+* Immediately update the games they can see.
+* Only show games for the new age range.
+* Keep old progress saved.
+* Keep old scores saved.
+* Separate progress by age range so nothing gets mixed together.
+* Add a message saying:
+  “Age range updated. [Child Name] is now learning with [Age Range] activities.”
+
+Age ranges:
+
+* 3–4 Years
+* 5–6 Years
+* 7–8 Years
+
+Add more educational sections:
+
+Reading & Words
+Make this age appropriate.
+
+3–4 Years:
+
+* Match picture to word
+* Match letter sounds
+* Find the first letter
+* Simple alphabet games
+* Tap the correct letter
+* Match uppercase and lowercase letters
+* Fill in missing letter with picture help
+* Example: C _ T with a cat picture
+
+5–6 Years:
+
+* Fill in missing words
+* Simple sentence completion
+* Rhyming words
+* Beginning and ending sounds
+* Match word to picture
+* Read short words
+* Choose the correct word
+* Example: “The dog can ___.” options: run, sun, red
+
+7–8 Years:
+
+* Fill in the correct word in a sentence
+* Short reading comprehension
+* Word meanings
+* Spelling challenges
+* Sentence ordering
+* Nouns, verbs and adjectives
+* Longer missing word questions
+* Example: “The rabbit quickly ran into the ___.” options: garden, pencil, moon
+
+Add more learning sections:
+
+* Maths
+* Animals
+* Reading & Words
+* Colours & Shapes
+* Memory Games
+* Problem Solving
+* Daily Challenge
+* Creative Learning
+* Science for Kids
+
+Science for Kids:
+3–4 Years:
+
+* Weather matching
+* Hot and cold
+* Day and night
+* Sink or float pictures
+
+5–6 Years:
+
+* Seasons
+* Body parts
+* Plants and animals
+* Healthy food choices
+
+7–8 Years:
+
+* Simple habitats
+* Life cycles
+* Materials
+* Basic space facts
+* Simple experiments quiz
+
+Add a bigger achievement and badge system.
+
+Badges:
+
+* First Game Played
+* First Maths Star
+* Counting Champion
+* Dice Master
+* Animal Expert
+* Reading Rocket
+* Word Wizard
+* Shape Superstar
+* Colour Champion
+* Memory Master
+* Problem Solver
+* Science Explorer
+* Daily Learner
+* 3 Day Streak
+* 7 Day Streak
+* 14 Day Streak
+* Perfect Score
+* 10 Perfect Scores
+* Tried Again Badge
+* Big Improvement Badge
+* Super Listener
+* Fast Thinker
+* Careful Counter
+* Animal Sound Pro
+* Sentence Superstar
+* Spelling Star
+* Little Scientist
+* Classroom Champion
+* Teacher’s Choice Badge
+* Parent Proud Badge
+
+Achievements:
+
+* Complete 5 games
+* Complete 10 games
+* Complete 25 games
+* Complete 50 games
+* Score 5/10
+* Score 8/10
+* Score 10/10
+* Complete every game in an age range
+* Improve a previous score
+* Complete a daily challenge
+* Learn 10 new words
+* Complete 10 reading questions
+* Complete 10 animal questions
+* Complete 10 maths questions
+* Complete 10 science questions
+
+Achievement screen:
+
+* Show locked and unlocked badges.
+* Show badge descriptions.
+* Show progress bars.
+* Show celebration animations when a badge is earned.
+* Save all badges per child profile.
+* Save badges separately by age range.
+
+Make the app feel much bigger and more educational, suitable for toddlers, reception children, and younger primary school children. Keep everything friendly, colourful, simple, and age appropriate.

@@ -1,0 +1,157 @@
+Fix Rewards settings and mobile phone layout issues.
+
+Rewards & Shop Settings:
+
+When a parent or teacher creates a new child profile:
+
+* Rewards & Shop must be OFF by default
+* Points card should be hidden unless Rewards & Shop is enabled
+* Shop should not appear anywhere unless enabled
+* Parents/teachers can enable it later by editing the child profile
+
+Reward Requests:
+
+Children should only be able to request rewards if:
+
+* Rewards Shop is enabled
+* The reward is active
+* They have enough points
+
+If they do not have enough points:
+
+* Do not allow the request
+* Do not create a pending request
+* Show:
+  "You need more points to unlock this reward."
+
+Allow children to:
+
+* Cancel/delete their own pending reward requests
+
+Allow parents/teachers to:
+
+* Approve requests
+* Deny requests
+
+Approving:
+
+* Deduct points
+* Add entry to reward history
+
+Denying:
+
+* Do not deduct points
+* Add entry to reward history
+
+Reward History should show:
+
+* Reward name
+* Cost
+* Requested date
+* Approved/Denied/Cancelled
+* Adult action date
+* Remaining points
+
+---
+
+IMPORTANT MOBILE PHONE LAYOUT FIX
+
+The alignment issue is happening on phone screens only.
+
+Desktop layout is fine.
+
+Do not change the desktop layout unless absolutely necessary.
+
+Focus specifically on:
+
+* Mobile phones
+* Small screens
+* Portrait mode
+
+Examples:
+
+* iPhone SE
+* iPhone 12/13/14
+* iPhone Pro Max
+* Samsung Galaxy devices
+* Small Android devices
+
+Current issue:
+
+In Dice Flash Challenge:
+
+* Dice overflow outside the white card
+* Dice are partially cut off
+* Elements are not centred correctly
+* Spacing is inconsistent
+* Some content appears outside its container
+
+Fix for mobile phones only:
+
+Question Card:
+
+* All content must remain inside the white card
+* Dice should always stay centred
+* Dice should never overflow outside the card
+* Dice should scale down automatically on smaller phones
+* Dice should remain large enough to see clearly
+
+Multiple Dice:
+
+* Fit neatly inside the question card
+* Use responsive sizing
+* Allow wrapping if needed
+* Keep equal spacing
+
+Header Area:
+
+* Exit button should remain aligned
+* Round counter should remain aligned
+* Nothing should overlap
+* No content should be pushed off-screen
+
+Question Text:
+
+* Centre aligned
+* Stay inside the card
+* No clipping
+* No overflow
+
+Answer Area:
+
+* Answer cards should remain centred
+* Equal spacing
+* No horizontal scrolling
+* No content touching screen edges
+
+Testing:
+
+Specifically test on:
+
+* 320px width
+* 360px width
+* 375px width
+* 390px width
+* 430px width
+
+Check:
+
+* Dice Flash Challenge
+* Animal games
+* Memory games
+* Reading games
+* Daily Challenge
+* Timed Play
+
+Success criteria:
+
+On mobile phones:
+
+* No clipped content
+* No overflowing dice
+* No horizontal scrolling
+* Everything centred
+* Everything contained inside its cards
+* Clean, polished appearance
+
+Desktop and tablet layouts should remain largely unchanged since they are already displaying correctly.

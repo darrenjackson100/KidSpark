@@ -1,0 +1,114 @@
+Add a parent/teacher passcode system and improve question randomisation.
+
+Passcode system:
+
+When the app is first opened and the adult selects either Parent mode or Teacher mode, ask them to create a passcode.
+
+Passcode requirements:
+
+* 1 to 4 digits only
+* Numbers only
+* Save the passcode locally
+* Confirm passcode during setup
+* Allow changing the passcode later in settings
+
+Protected areas:
+Require the passcode before opening:
+
+* Parent/Teacher Notes
+* Learners dashboard
+* Edit child profile
+* Progress review details
+* Any adult-only settings
+
+Children should still be able to access:
+
+* Games
+* Daily Challenge
+* Timed Play
+* Sound toggle
+* Read aloud toggle
+
+Passcode screen:
+
+* Large number keypad
+* Clear child-safe design
+* “Enter adult passcode”
+* Error message if wrong
+* Back button
+* Option to reset passcode from settings if adult is already verified
+
+Do not make the whole app locked. Only adult sections should require the passcode.
+
+---
+
+Fix repeated questions in games:
+
+During a set of questions, do not repeat the exact same question.
+
+Example problem:
+In Dice Flash Challenge, the app showed dice total 9 three times in a row with the same dice layout.
+
+Fix this for every game.
+
+Rules:
+
+* No identical question should appear twice in the same 10-question game.
+* No identical question should appear twice in Daily Challenge.
+* No identical question should appear twice in Timed Play unless the question pool is completely exhausted.
+* Dice games must avoid repeating the same dice total and same dice arrangement back-to-back.
+* Pattern games must avoid repeating the same pattern.
+* Animal games must avoid repeating the same animal question.
+* Reading games must avoid repeating the same word/sentence question.
+
+Implementation:
+Create a usedQuestions tracker for each active game session.
+
+Each generated question should have a unique questionId based on:
+
+* gameId
+* question text
+* correct answer
+* visual/dice/pattern data
+
+Before showing a question:
+
+* Check if questionId has already been used in this session
+* If yes, generate another question
+* Try multiple times before falling back
+
+For Dice Flash Challenge:
+Also track:
+
+* diceTotal
+* diceFaces/order
+* question type
+
+Do not show the same total and same dice order repeatedly.
+
+If the question pool is too small:
+
+* Expand the question pool
+* Add more dice combinations
+* Add more answer choices
+* Add more visual variations
+* Only repeat if absolutely unavoidable
+
+Review history:
+Still save the full question data for every question:
+
+* questionId
+* questionText
+* questionVisual
+* optionsShown
+* childAnswer
+* correctAnswer
+* isCorrect
+* explanation
+
+Test:
+
+* Play Dice Flash Challenge several times
+* Confirm the same dice total/layout does not repeat in a row
+* Confirm all 10 questions are different where possible
+* Confirm other games also avoid repeated questions

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Toddler Learning App"
+version = "1.0.0"
+id = "artifacts/toddler-app"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24622
+
+[services.development]
+run = "pnpm --filter @workspace/toddler-app run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/toddler-app", "run", "build" ]
+publicDir = "artifacts/toddler-app/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24622"
+BASE_PATH = "/"

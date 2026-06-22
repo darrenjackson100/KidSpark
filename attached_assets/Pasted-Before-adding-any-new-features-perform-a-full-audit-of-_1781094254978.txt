@@ -1,0 +1,394 @@
+Before adding any new features, perform a full audit of the entire application.
+
+Priority 1: Stability & Bug Fixes
+
+Audit every game, screen, button, navigation route, profile function, score system, review screen, achievement system, and progress tracker.
+
+Fix any issues where:
+
+* A game fails to load
+* A game throws an error
+* A game opens a blank screen
+* Scores are not saved
+* Progress is not saved
+* Review history is incomplete
+* Buttons do not work
+* Navigation breaks
+* Recent Games entries are missing information
+
+If a game is not fully built, either:
+
+* Fully complete it, or
+* Hide it until it is complete
+
+No visible game should ever produce an error.
+
+---
+
+Priority 2: Age Appropriate Learning System
+
+The current difficulty scaling is not strict enough.
+
+The app must ensure every activity matches the child's age range.
+
+Age Ranges:
+
+* 3–4 Years
+* 5–6 Years
+* 7–8 Years
+
+3–4 Years:
+Focus on:
+
+* Counting 1–5
+* Colours
+* Shapes
+* Matching
+* Animal recognition
+* Memory skills
+* Visual learning
+
+Minimal reading.
+
+5–6 Years:
+Focus on:
+
+* Counting 1–20
+* Addition up to 10
+* Picture subtraction
+* Rhyming
+* Missing letters
+* Animal habitats
+* Patterns
+* Early reading
+
+7–8 Years:
+Focus on:
+
+* Addition and subtraction up to 100
+* Multiplication
+* Division basics
+* Times tables
+* Money
+* Time telling
+* Reading comprehension
+* Sentence building
+* Spelling
+* Science facts
+* Logic puzzles
+* Memory challenges
+* Timed challenges
+
+Remove baby-level questions from 7–8 content.
+
+A 7–8 year old should never receive questions such as:
+
+* Is 1 bigger than 2?
+* Count 3 objects
+* Identify basic colours
+
+Difficulty must genuinely increase with age.
+
+---
+
+Priority 3: Fix Review Screen
+
+Currently the review screen only shows:
+
+Question 1
+
+This is not enough.
+
+Store and display:
+
+* Full question text
+* Any images used
+* Dice shown
+* Animal shown
+* Shape shown
+* Child's answer
+* Correct answer
+* Correct/Incorrect result
+* Explanation
+
+Example:
+
+Question 1
+
+Question:
+Mia has 24 stickers and gets 18 more. How many does she have now?
+
+Child Answer:
+42
+
+Correct Answer:
+42
+
+Result:
+Correct
+
+Explanation:
+24 + 18 = 42
+
+Every completed game should save its complete question history.
+
+---
+
+Priority 4: Profile Improvements
+
+Add:
+
+* Name
+* Age Range
+* Gender
+* Avatar
+* Theme
+
+Gender options:
+
+* Girl
+* Boy
+* Neutral / Prefer not to say
+
+Gender should only suggest a theme.
+
+Allow theme changes independently.
+
+Girl theme examples:
+
+* Pink
+* Purple
+* Pastel rainbow
+* Unicorns
+* Stars
+* Flowers
+
+Boy theme examples:
+
+* Blue
+* Green
+* Space
+* Dinosaurs
+* Robots
+* Adventure
+
+Neutral:
+
+* Rainbow classroom
+* Animals
+* Shapes
+* Balloons
+* Planets
+
+Allow editing:
+
+* Name
+* Age
+* Gender
+* Theme
+* Avatar
+
+Keep all progress when edited.
+
+---
+
+Priority 5: Expand Game Library
+
+Every game must:
+
+* Work correctly
+* Save progress
+* Save score
+* Save review history
+* Match age range
+
+Maths:
+
+* Number Ninja
+* Missing Number Mission
+* Maths Treasure Hunt
+* Quick Fire Sums
+* Shape Counting
+* Money Shop
+* Time Telling
+* Word Problems
+* Times Table Challenge
+* Fraction Starter (7–8)
+* Maths Maze
+* Number Detective
+
+Reading & Words:
+
+* Missing Word
+* Sentence Builder
+* Rhyming Pairs
+* Spelling Stars
+* Story Order
+* Word Meanings
+* Picture To Word
+* Reading Quiz
+* Reading Comprehension
+* Opposites
+* Synonyms Starter
+* Alphabet Adventure
+
+Animals:
+
+* Animal Homes
+* Animal Sounds
+* Baby Animals
+* Animal Diets
+* Animal Groups
+* Animal Footprints
+* Animal Facts
+* Endangered Animals
+* Ocean Animals
+* Farm Animals
+* Jungle Explorer
+* Animal Classification
+
+Memory:
+
+* Animal Memory
+* Sequence Memory
+* Colour Memory
+* Number Memory
+* Shape Memory
+* Sound Memory
+* Pattern Memory
+* Picture Pairs
+* Visual Recall
+* Sequence Recall
+* Memory Challenge
+
+Science:
+
+* Weather Quiz
+* Seasons Quiz
+* Sink Or Float
+* Materials Quiz
+* Space Starter
+* Plant Life Cycle
+* Body Parts
+* Experiments Quiz
+* Habitats
+* Life Cycles
+* Solar System
+* Human Body Basics
+
+---
+
+Priority 6: Health & Food Section
+
+Add a completely new category.
+
+3–4 Years:
+
+* Pick The Fruit
+* Pick The Vegetable
+* Healthy Plate
+* Water Or Fizzy Drink
+* Brush Teeth Quiz
+* Sleep Matching
+* Food Colours
+
+5–6 Years:
+
+* Healthy Or Sometimes Food
+* Fruit Sorting
+* Healthy Lunchbox
+* Teeth Care
+* Exercise Matching
+* Drink Choices
+* Hygiene Quiz
+* Food Groups Starter
+
+7–8 Years:
+
+* Balanced Plate Quiz
+* Food Groups
+* Vitamins
+* Sugar Awareness
+* Hydration
+* Heart Health
+* Sleep And Energy
+* Germs And Hygiene
+* Healthy Meal Builder
+* Nutrition Labels
+
+---
+
+Priority 7: Achievements & Badges
+
+Add many more badges:
+
+Health:
+
+* Fruit Finder
+* Veggie Hero
+* Healthy Plate Star
+* Water Champion
+* Tooth Care Hero
+* Hygiene Helper
+* Balanced Meal Builder
+* Super Health Learner
+
+Reading:
+
+* Reading Rocket
+* Word Wizard
+* Story Master
+* Spelling Champion
+
+Maths:
+
+* Counting Champion
+* Number Ninja
+* Times Table Star
+* Maths Explorer
+
+Science:
+
+* Science Explorer
+* Little Scientist
+* Space Explorer
+
+Memory:
+
+* Memory Master
+* Recall Champion
+
+Progress:
+
+* 5 Games Completed
+* 10 Games Completed
+* 25 Games Completed
+* 50 Games Completed
+* Perfect Score
+* 10 Perfect Scores
+* 7 Day Streak
+* 30 Day Streak
+
+---
+
+Priority 8: Teacher Features
+
+Teachers should be able to:
+
+* View Recent Games
+* Open a game review
+* See every question answered
+* See weak areas
+* See strong areas
+* View progress over time
+* Leave notes
+* Edit notes
+* Mark:
+
+  * Excellent
+  * Good
+  * Needs Practice
+
+Generate progress summaries automatically.
+
+The final result should feel like a premium educational platform used by nurseries, reception classes, primary schools, teachers, and parents rather than a small demo app.

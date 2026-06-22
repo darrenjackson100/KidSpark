@@ -1,0 +1,409 @@
+Upgrade the Phonics, Voice, Tracing, Fill The Letter, and AI Voice systems.
+
+---
+
+AI Voice System
+
+Current issue:
+Browser voices sound robotic and pronounce phonics incorrectly.
+
+Examples:
+
+* b = "bee" (wrong)
+* s = "ess" (wrong)
+
+Children need to hear phonics sounds, not alphabet names.
+
+Add Voice Types:
+
+* Browser Voice (free fallback)
+* AI Voice (preferred)
+
+Add a setting:
+
+Voice Type:
+
+* Browser Voice
+* AI Voice
+
+Default:
+
+* AI Voice if configured
+* Browser Voice if AI is unavailable
+
+Preferred AI providers:
+
+* ElevenLabs
+* OpenAI TTS
+* Azure Neural Voices
+
+Voice requirements:
+
+* Natural sounding
+* Calm
+* Friendly
+* Child appropriate
+* British English
+* Clear phonics pronunciation
+
+Add Voice Settings:
+
+Allow adults to choose:
+
+* British Female (recommended)
+* British Male
+* American Female
+* American Male
+
+Allow:
+
+* Voice preview
+* Speech speed
+* Volume
+* Pitch
+
+Save chosen voice settings.
+
+If no AI voice is available:
+
+* Fall back to browser voice
+* Continue working normally
+
+---
+
+Correct Phonics Audio
+
+Store separate values:
+
+Example:
+
+displayLetter:
+b
+
+letterName:
+bee
+
+phonicsSound:
+buh
+
+The app must speak phonicsSound during phonics activities.
+
+Examples:
+
+a = short "a" sound
+b = "buh"
+c = hard "c/k"
+d = "duh"
+e = short "e"
+f = "fff"
+g = hard "g"
+h = "hhh"
+i = short "i"
+j = "juh"
+k = "kuh"
+l = "lll"
+m = "mmm"
+n = "nnn"
+o = short "o"
+p = "puh"
+qu = "qu"
+r = "rrr"
+s = "sss"
+t = "tuh"
+u = short "u"
+v = "vvv"
+w = "wuh"
+x = "ks"
+y = "yuh"
+z = "zzz"
+sh = "shhh"
+ch = "ch"
+th = "th"
+ng = "ng"
+
+Do not allow the voice engine to guess pronunciation from the displayed letter.
+
+---
+
+UK Phonics Tracing Phrases
+
+Use these default tracing phrases:
+
+m:
+Down Maisie, mountain, mountain
+
+a:
+Around the apple and down the leaf
+
+s:
+Slither down the snake
+
+d:
+Around his bottom, up his tall neck and down to his feet
+
+t:
+Down the tower, across the tower
+
+i:
+Down the insect's body, dot for the head
+
+n:
+Down Nobby and over his net
+
+p:
+Down the plait and over the pirate's face
+
+g:
+Around the girl's face, down her hair and give her a curl
+
+o:
+All around the orange
+
+c:
+Curl around the caterpillar
+
+k:
+Down the kangaroo's body, tail and leg
+
+u:
+Down and under, up to the top and draw the puddle
+
+b:
+Down the laces to the heel, round the toe
+
+f:
+Down the stem and draw the leaves
+
+e:
+Lift off the top and scoop out the egg
+
+l:
+Down the long leg
+
+h:
+Down the head to the hooves and over his back
+
+r:
+Down his back, then curl over his arm
+
+j:
+Down his body, curl and dot
+
+v:
+Down a wing, up a wing
+
+y:
+Down a horn, up a horn and under his head
+
+w:
+Down, up, down, up
+
+z:
+Zig-zag-zig
+
+x:
+Down the arm and leg, repeat the other side
+
+sh:
+Slither down the snake, then down the head to the hooves and over his back
+
+th:
+Down the tower, across the tower, then down the head to the hooves and over his back
+
+ch:
+Curl around the caterpillar, then down the head to the hooves and over his back
+
+qu:
+Round the queen's head, up to her crown, down her hair and flick
+
+ng:
+Down Nobby and over his net, then around the girl's face, down her hair and give her a curl
+
+nk:
+Down Nobby and over his net, then down the kangaroo's body, tail and leg
+
+Allow parents/teachers to edit these later in settings if desired.
+
+---
+
+Fix Tracing Game
+
+Current problems:
+
+* Page scrolls while tracing
+* Letter is only an image
+* Child is not actually tracing
+* Tracing does not fill in
+
+Build a real tracing activity.
+
+When a child selects a letter:
+
+* Open a centred tracing modal
+* Lock background scrolling
+* Disable page movement
+* Add X close button
+* Show large dotted tracing path
+* Show start point
+* Show arrows or numbered guide dots
+* Support finger, stylus, and mouse
+
+Use:
+
+* Canvas or SVG
+* Pointer events
+* touch-action: none
+
+Track:
+
+* Trace accuracy
+* Progress percentage
+* Completion status
+
+Require:
+
+* 75–85% completion before success
+
+Show feedback:
+
+* Great tracing!
+* Keep following the dots!
+
+The tracing modal must remain fixed until:
+
+* Closed with X
+* Completed
+* Back pressed
+
+Save:
+
+* Progress
+* Score
+* Review history
+
+---
+
+Fix Fill The Letter / Build The Word
+
+Current problem:
+Children cannot choose incorrect letters.
+
+Fix:
+Allow all answer options to be selected.
+
+Example:
+
+Word:
+c _ t
+
+Options:
+a
+o
+i
+u
+
+If child picks:
+o
+
+Result:
+Incorrect
+
+Explanation:
+The word is cat. The missing sound is a.
+
+Move to next question after feedback.
+
+Do not force the correct answer.
+
+When any letter is tapped:
+
+* Speak the phonics sound immediately
+
+Example:
+
+Child taps:
+s
+
+Voice says:
+sss
+
+NOT:
+ess
+
+Apply this to:
+
+* Fill The Letter
+* Build The Word
+* Missing Letter games
+
+Review history must save:
+
+* Word shown
+* Options shown
+* Child answer
+* Correct answer
+* Correct/incorrect
+* Explanation
+
+---
+
+Apply Phonics Audio Everywhere
+
+Use phonics sounds in:
+
+* Sound Board
+* Pick The Sound
+* Trace The Letter
+* Fill The Letter
+* Build The Word
+* Reading Games
+* Phonics Games
+
+Do not use alphabet letter names unless the game specifically teaches alphabet names.
+
+---
+
+Speech Improvements
+
+Convert symbols before speaking.
+
+Examples:
+
+5 + 2
+Speak:
+"Five plus two"
+
+3 - 1
+Speak:
+"Three take away one"
+
+7 + ? = 10
+Speak:
+"Seven plus what number equals ten?"
+
+Do not read symbols literally.
+
+Create:
+
+* speakQuestion()
+* speakAnswer()
+* speakPhonicsSound()
+
+All games should use these shared functions.
+
+---
+
+Requirements
+
+Everything must:
+
+* Work on iPad
+* Work on phones
+* Work with touch controls
+* Save scores
+* Save progress
+* Save review history
+* Use British English where available
+* Use AI voice when available
+* Fall back gracefully if AI voice is unavailable
+* Allow mistakes naturally like other educational games

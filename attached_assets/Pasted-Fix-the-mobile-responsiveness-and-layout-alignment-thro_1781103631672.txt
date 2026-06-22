@@ -1,0 +1,120 @@
+Fix the mobile responsiveness and layout alignment throughout the app.
+
+Current issue:
+
+On mobile devices the dashboard cards and buttons are not aligned properly.
+
+Examples:
+
+* Statistics cards (Points, Stars, Badges, Streak, Games) do not size evenly.
+* Some cards are slightly taller or wider than others.
+* Text positioning is inconsistent.
+* Dashboard buttons wrap awkwardly.
+* Buttons are different heights.
+* The layout looks cramped and uneven.
+
+Requirements:
+
+Statistics Cards:
+
+* All statistic cards must have identical width and height.
+* Icons should be centered.
+* Numbers should align consistently.
+* Labels should align consistently.
+* Equal spacing between all cards.
+* Cards should automatically resize for smaller screens.
+* No overlapping or clipping.
+
+Dashboard Buttons:
+Current buttons:
+
+* Sound
+* Reading
+* Learners
+* Edit
+* Switch
+
+Requirements:
+
+* Same height
+* Same border radius
+* Consistent spacing
+* Consistent padding
+* Responsive layout on phones and tablets
+
+On smaller screens:
+
+* Buttons should wrap cleanly
+* Maintain equal spacing
+* Remain easy for children to tap
+
+---
+
+Sound & Reading Controls
+
+Current issue:
+Users must click the icon itself to toggle sound or reading.
+
+Replace this with proper toggle switches.
+
+Under the Sound button:
+
+Show:
+
+Sound
+[ ON/OFF Toggle ]
+
+Under the Reading button:
+
+Read Aloud
+[ ON/OFF Toggle ]
+
+Requirements:
+
+* Modern iOS/Android style toggle switch
+* Clearly show ON and OFF state
+* Easy to press
+* Save preference automatically
+* Update immediately when toggled
+* Do not require clicking the icon
+
+Examples:
+
+🔊 Sound
+[ ON ]
+
+📖 Read Aloud
+[ OFF ]
+
+The icon can remain as a visual indicator but should not be the primary control.
+
+---
+
+Mobile UI Improvements
+
+Review the entire app on:
+
+* Small phones
+* Large phones
+* Tablets
+
+Check:
+
+* Dashboard
+* Learners page
+* Recent Games
+* Review Screens
+* Game Screens
+* Achievements
+* Timed Play
+* Daily Challenges
+
+Ensure:
+
+* No elements overflow the screen
+* No buttons overlap
+* No text is cut off
+* No horizontal scrolling
+* All controls remain large and child-friendly
+
+The app should feel like a polished mobile-first educational application rather than a desktop website squeezed onto a phone screen.

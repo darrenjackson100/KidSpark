@@ -1,0 +1,111 @@
+Add an adult-only Reset Points option.
+
+Reset Points requirements:
+
+* Only adults can use it
+* Require the adult passcode every time
+* Add it inside Edit Child Profile or Rewards & Shop Settings
+* Show a warning before resetting
+
+Warning text:
+“Are you sure you want to reset this child’s points to 0? This cannot be undone.”
+
+If confirmed:
+
+* Set points to 0
+* Save this action in Reward/Points History
+
+Log:
+
+* Child name
+* Old points balance
+* New points balance
+* Date/time
+* Action: Points reset by adult
+
+---
+
+Redesign the Learning Games category section.
+
+Current issue:
+The Maths, Animals, Reading, Science, Colours & Shapes, Health & Food, and Memory Games section looks boring, plain, and messy.
+
+Make it look much more fun, organised, animated, and premium.
+
+Requirements:
+
+* Create a new section title:
+  “Choose Your Adventure”
+* Add a short subtitle:
+  “Pick a world and start learning!”
+
+Change category cards into themed “learning worlds”.
+
+Examples:
+
+Maths World:
+
+* Theme: numbers, dice, stars, treasure
+* Animated floating numbers
+* Small sparkle effects
+
+Animal Safari:
+
+* Theme: jungle, animals, paw prints
+* Animated animal bounce
+
+Reading Kingdom:
+
+* Theme: books, letters, magic pages
+* Floating letters
+
+Science Lab:
+
+* Theme: bubbles, planets, experiments
+* Soft bubbling animation
+
+Colour Castle:
+
+* Theme: paint, shapes, rainbows
+* Animated colour dots
+
+Health Hero:
+
+* Theme: fruit, veg, water, healthy body
+* Friendly food icons
+
+Memory Mountain:
+
+* Theme: cards, brain, puzzle pieces
+* Flip-card style animation
+
+Layout:
+
+* Cards should be grouped neatly
+* Better spacing
+* Better alignment
+* Less clutter
+* Bigger icons
+* More depth/shadows
+* Rounded premium cards
+* Cards should not all look the same
+* Add small descriptions under each world
+* Make them feel like clickable adventures, not plain buttons
+
+Animations:
+
+* Gentle hover/tap bounce
+* Floating icons
+* Sparkle effect on tap
+* Soft glow on active card
+* No annoying or distracting animations
+
+Mobile:
+
+* Cards should stack cleanly
+* Large tap areas
+* No overflow
+* No tiny icons
+* No cramped text
+
+The category section should look exciting for children and polished for parents/teachers.

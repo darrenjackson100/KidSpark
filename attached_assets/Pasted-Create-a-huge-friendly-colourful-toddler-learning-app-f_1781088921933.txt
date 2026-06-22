@@ -1,0 +1,52 @@
+Create a huge, friendly, colourful toddler learning app for teachers and parents.
+
+The app should feel extremely welcoming, safe, fun, and professional. It is for toddlers/young children, mainly around ages 3–6. Use bright soft colours, rounded buttons, big simple fonts, cute icons, friendly animations, and a clean layout that is easy for children to understand.
+
+When the app first opens, ask the adult to enter:
+Child’s name
+Age range, for example: 3–4, 4–5, 5–6
+Teacher or parent mode
+
+Use the age range to change the difficulty of questions and games.
+
+Main sections:
+Maths / Number Games
+Animal Games
+Parent / Teacher Notes
+Progress & Scores
+
+Maths section:
+Create lots of number games. One example should be a dice counting game for ages 5–6. When the child clicks Start, show a dice with dots or a number. The child must choose the correct answer from large number buttons. They answer 10 questions, then see a fun score screen at the end. Save their score under their name.
+
+Add more maths games too, such as:
+Counting objects
+Matching numbers to pictures
+Simple addition with pictures
+Which number is bigger
+Number tracing style practice
+Missing number game
+
+Animal section:
+Create fun toddler animal games, such as:
+Match the animal to its name
+Match baby animals to adult animals
+Animal sounds quiz
+Spot the odd animal out
+Animal counting game
+Simple “where does this animal live?” game
+
+Parent / teacher section:
+Create a private adult section where parents or teachers can leave notes about the child’s progress, behaviour, strengths, struggles, and anything they noticed. Notes should save under the child’s profile.
+
+Progress section:
+Save each child’s scores, completed games, best scores, latest scores, and notes. Show progress in a simple, friendly way using stars, badges, smiley faces, and easy charts.
+
+Make the app feel big and full of options, not like a small demo. Add a homepage with large cards for each section. Make everything mobile/tablet friendly and suitable for classroom use. Use child-friendly language, for example “Great job!”, “Try again!”, “You’re amazing!”, and “Well done!”.
+
+Important:
+Make all buttons large and easy to press.
+Use simple instructions.
+Make it visually polished and professional.
+Make the app suitable for teachers using it with multiple students.
+Allow adding, switching, and saving multiple child profiles.
+Save data locally so scores and notes remain after closing the app.

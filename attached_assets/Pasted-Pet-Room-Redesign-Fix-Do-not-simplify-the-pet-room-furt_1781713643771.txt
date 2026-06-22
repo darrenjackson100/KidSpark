@@ -1,0 +1,208 @@
+Pet Room Redesign Fix
+
+Do not simplify the pet room further.
+
+The last update removed too much.
+
+Current problems:
+
+* Food, Water, Clean, Energy, Fun and Learning bars are gone from the pet room.
+* The room looks empty and lifeless.
+* It looks like a basic prototype.
+* The pet is sitting in an empty room with bowls on the floor.
+* The room does not feel like a child's bedroom.
+* The pet still does not feel alive.
+* The room no longer gives enough information about how the pet is feeling.
+
+---
+
+Bring the status bars back
+
+Add back:
+
+* Food
+* Water
+* Cleanliness
+* Energy
+* Fun
+* Learning
+
+These must always be visible while viewing the pet.
+
+Do not hide them.
+
+The child should instantly know:
+
+* Is my pet hungry?
+* Is my pet thirsty?
+* Is my pet tired?
+* Does my pet want to play?
+* Does my pet want to learn?
+
+Make the bars visually attractive.
+
+Examples:
+
+* Food = bowl icon
+* Water = water icon
+* Clean = bubbles icon
+* Energy = moon icon
+* Fun = toy icon
+* Learning = book icon
+
+If Learning drops:
+
+Pet may say:
+"Can we do some learning together?"
+
+If Fun drops:
+
+Pet may say:
+"I want to play!"
+
+If Food drops:
+
+Pet may say:
+"I'm hungry!"
+
+The speech should match the actual bars.
+
+---
+
+Stop making the room look empty
+
+Current room looks like:
+
+* Empty walls
+* Empty floor
+* Random bowl on floor
+* Random pet
+
+This is not a child's bedroom.
+
+Create a proper room.
+
+Include:
+
+* Bed
+* Pet bed
+* Window with curtains
+* Bookshelf
+* Toy shelf
+* Wall paintings
+* Posters
+* Plush toys
+* Lamp
+* Rug
+* Small decorations
+* Storage boxes
+
+The room should feel warm and lived in.
+
+---
+
+Make the room look like a real bedroom
+
+Do not use:
+
+* Plain coloured walls
+* Huge empty spaces
+* Random floating objects
+
+Use:
+
+* Textures
+* Depth
+* Shadows
+* Decorations
+* Layered furniture
+
+The room should look like somewhere a child would actually sleep and play.
+
+---
+
+Pet should feel alive
+
+The pet still feels like a sticker.
+
+Requirements:
+
+* Blink
+* Look around
+* Breathe
+* Smile
+* Sit
+* Lie down
+* React when tapped
+* Move slightly around room
+
+If proper walking is difficult:
+
+Do not fake it.
+
+Instead:
+
+* Make the pet mostly stay on the rug
+* Use high quality idle animations
+* Make it feel alive through movement
+
+This is better than awkward sliding.
+
+---
+
+Pet speech bubble
+
+Keep speech bubble above the pet.
+
+Not at the top of the room.
+
+Not on the pet's face.
+
+Not overlapping furniture.
+
+Speech bubble should track pet position.
+
+---
+
+Care buttons
+
+Keep:
+
+* Feed
+* Water
+* Bath
+* Rest
+* Play
+* Learn
+
+But make them look premium.
+
+Consistent sizing.
+Consistent spacing.
+
+---
+
+Important visual direction
+
+The pet room should feel closer to:
+
+* A premium children's virtual pet game
+* A cosy bedroom
+* A child looking after a pet companion
+
+It should NOT feel like:
+
+* A prototype
+* A dashboard
+* An empty room
+* A pet sitting in a box
+
+The pet must be the star of the room.
+
+The room must support the pet, not replace it.
+
+Do not remove the bars again.
+
+Do not simplify the room further.
+
+Improve quality rather than removing things.

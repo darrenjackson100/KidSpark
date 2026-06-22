@@ -1,0 +1,8 @@
+- [KidSpark responsive patterns](kidspark-responsive.md) — mobile-first Tailwind conventions + variable-question-count overflow gotcha for the toddler-app game screens.
+- [KidSpark points balance is derived](kidspark-points-balance.md) — balance = earned − approved-spent; adjust/reset by appending offset RewardPurchase entries, never a stored counter.
+- [KidSpark passcode gate & dedup](kidspark-passcode-dedup.md) — adultUnlocked is session-only (reload re-locks); must unlockAdult() on first-setup passcode create; question no-repeat via dedup.ts.
+- [KidSpark points shop](kidspark-points-shop.md) — derived balance; enforce enabled+active+ownership+affordability (reserve pending) in AppContext not UI; consistent 4-status history labels across Shop/Progress/Class.
+- [KidSpark child-name validation](kidspark-name-validation.md) — names letters+spaces only via lib/name.ts; gated at create/edit/Write-My-Name; legacy invalid names gated at point-of-use, never deleted.
+- [KidSpark virtual pet](kidspark-virtual-pet.md) — education-first: XP/stage/needs/unlocks all DERIVED (learning + timestamps), only species/name/equipped/care-timestamps stored; care never adds XP.
+- [KidSpark Write My Name](kidspark-write-my-name.md) — forgiving coverage trace (no 80% stuck); max 2 pts/attempt, first-3-earning/day cap; localStorage image pruning; lowercase-only glyphs.
+- [KidSpark voice policy](kidspark-tracing-and-voice.md) — all letters spoken as standard English letter NAMES (no phonics speech/UI/gating anywhere); keep lib/phonics.ts only as Build-the-Word data; Trace-the-Letter removed (see Write My Name).

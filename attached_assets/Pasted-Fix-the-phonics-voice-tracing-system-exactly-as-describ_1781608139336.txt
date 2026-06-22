@@ -1,0 +1,150 @@
+Fix the phonics/voice/tracing system exactly as described below.
+
+Voice Settings:
+
+Simplify the voice list.
+
+Only show 2 voice options:
+
+* British Female
+* British Male
+
+Do not show long device/browser voice lists to the user.
+
+Default:
+
+* British Female
+
+If the exact British Female or British Male voice is not available on the device:
+
+* Pick the closest available en-GB voice automatically
+* Keep the UI showing only British Female and British Male
+
+Remove unwanted phonics games:
+
+Remove these games completely from the child-facing app:
+
+* Phonics Sounds
+* Pick The Sound
+* Sound and Picture / Match Sound to Picture
+
+They are not wanted.
+
+Keep:
+
+* Trace The Letter
+* Fill The Letter / Build The Word if already working
+
+Trace The Letter changes:
+
+The Trace The Letter game should only read the rhyme/instruction.
+
+Do not say the letter sound first.
+Do not say the letter name first.
+
+Example:
+For “a”, it should only say:
+“Around the apple and down the leaf”
+
+Add a “Hear rhyme” button so the child can listen to the rhyme again as many times as needed.
+
+Tracing must be properly accurate.
+
+Current problems:
+
+* Child can scribble anywhere and the progress bar fills
+* It says well done even when not traced properly
+* Progress bar fills before the letter is actually traced
+* It ends too early before the full letter is traced
+* The child does not need to follow the line properly
+* The Clear button is not visible on iPad/mobile
+
+Fix tracing mechanics:
+
+The child must trace on or very close to the guide line.
+
+Do not count random scribbles.
+
+Use a real tracing validation system:
+
+* Convert the letter path into trace checkpoints or segments
+* Only count progress when the child’s pointer/finger is near the correct letter path
+* Ignore touches far away from the guide line
+* Track how many checkpoints/segments are completed
+* Calculate an accuracy percentage
+* Only complete when enough of the actual path has been traced
+
+Completion rules:
+
+* Do not auto-complete too early
+* Require at least 80% path completion
+* Require reasonable accuracy
+* Award points based on accuracy
+
+Example scoring:
+
+* 90–100% accuracy: Excellent, full points
+* 75–89% accuracy: Good, medium points
+* 50–74% accuracy: Needs practice, low points
+* Below 50%: Try again, very low or no points
+
+Show:
+
+* Accuracy percentage
+* Progress percentage
+* Friendly feedback
+
+Do not just say “Well done” for scribbling.
+
+Letter “a” fix:
+
+Change the letter “a” to the correct phonics-style lowercase a used for:
+“Around the apple and down the leaf”
+
+Do not use the normal typed “a” if it does not match the phonics tracing shape.
+
+Use a single-storey lowercase “a” shape, like the handwritten phonics “a”.
+
+Make sure the tracing path follows the correct handwritten phonics shape.
+
+Clear button visibility:
+
+The Clear button must always be visible on all screen sizes, especially iPad and phone.
+
+Current issue:
+On iPad, the Clear button is outside the visible screen and cannot be reached.
+
+Fix:
+
+* Keep Clear button in the tracing modal header or sticky footer
+* It must always be visible without scrolling
+* Do not place it below content that gets cut off
+* Layout must fit within the screen height
+* Modal should not overflow off-screen
+* Add X close button in top corner
+* Add Clear button next to it or in a fixed visible control bar
+
+Tracing modal requirements:
+
+* Fixed centred modal
+* Background page locked
+* No page scrolling while tracing
+* Canvas/SVG fits within screen
+* Buttons always visible
+* Works on iPad, phone, tablet, and desktop
+* touch-action: none on tracing area
+
+Acceptance tests:
+
+1. Open Trace The Letter on iPad.
+2. Select letter “a”.
+3. It shows the correct phonics handwritten a.
+4. Press Hear rhyme.
+5. It only says “Around the apple and down the leaf.”
+6. Try scribbling away from the letter line.
+7. Progress should not increase much or at all.
+8. Trace properly on the line.
+9. Progress should increase correctly.
+10. Clear button must be visible at all times.
+11. Complete tracing only when the path is actually traced properly.
+12. Points should depend on accuracy, not just touching the screen.

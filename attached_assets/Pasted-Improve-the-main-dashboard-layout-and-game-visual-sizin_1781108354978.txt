@@ -1,0 +1,75 @@
+Improve the main dashboard layout and game visual sizing.
+
+Main screen issue:
+The category buttons currently look cluttered and too similar to each other. The dashboard should feel cleaner, more organised, and more premium.
+
+Redesign the category area:
+
+* Group learning categories into a cleaner layout
+* Use larger cards with better spacing
+* Avoid making everything look like equal random buttons
+* Make the layout feel intentional and less cluttered
+* Use section headings if needed, for example:
+  “Learning Games”
+  “Practice & Progress”
+  “Parent / Teacher Tools”
+
+Category cards should:
+
+* Be evenly spaced
+* Have consistent sizing
+* Have bigger icons
+* Have clear labels
+* Look more polished
+* Work nicely on desktop, tablet, and mobile
+
+Move “My Progress”:
+Do not show “My Progress” as a normal small category card.
+
+Instead:
+
+* Move My Progress to the bottom of the dashboard
+* Make it a full-width button/card across the screen
+* Make it visually different from game categories
+* Show it as a progress summary card
+
+Example:
+“My Progress”
+“See scores, badges, reviews and learning journey”
+Include progress bar, stars, or badge preview.
+
+Game icon/image sizing:
+In games, the icons/images are too small.
+
+Make all question visuals much bigger:
+
+* Fruit icons
+* Animal icons
+* Food icons
+* Dice
+* Shapes
+* Science images
+* Memory cards
+* Pattern items
+
+For answer cards:
+
+* Make icons at least 2x larger than they are now
+* Use responsive sizing so they stay large on phones and tablets
+* Centre the icons properly
+* Do not leave huge empty space around tiny icons
+* Make the visuals child-friendly and easy to see
+
+Example issue:
+In the “Find 2 objects” game, the apples are too small inside large answer boxes. The apples should be large and obvious.
+
+Also improve spacing in game screens:
+
+* Make question card cleaner
+* Make answer cards more balanced
+* Bigger icons
+* Bigger answer visuals
+* Better vertical spacing
+* No cramped or tiny visuals
+
+The app should feel like a polished toddler learning app with big, clear, colourful, easy-to-tap visuals.

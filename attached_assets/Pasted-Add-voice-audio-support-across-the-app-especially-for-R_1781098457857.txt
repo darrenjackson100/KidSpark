@@ -1,0 +1,94 @@
+Add voice/audio support across the app, especially for Reading, Writing, and Word Play games.
+
+Main requirement:
+For any game that has a question and answer format, add a small speaker/play sound button.
+
+The speaker button should read aloud:
+
+* The question
+* The answer options
+* Individual words when tapped
+* The correct answer after the child answers
+* Short encouragement feedback
+
+Use a clear, friendly female English voice.
+
+Reading / Writing / Word Play games:
+Add games where children choose the correct word to fill in the blank.
+
+Examples:
+
+3–4 Years:
+Question:
+“C _ T”
+Options:
+A, O, B
+
+Audio:
+
+* Speaker reads: “Cat”
+* Each option can be tapped to hear the letter sound
+
+5–6 Years:
+Question:
+“The dog can ___.”
+Options:
+run, sun, red
+
+Audio:
+
+* Speaker reads: “The dog can blank.”
+* Each word option has a speaker button
+* Tapping “run” says “run”
+
+7–8 Years:
+Question:
+“The rabbit quickly ran into the ___.”
+Options:
+garden, pencil, moon
+
+Audio:
+
+* Speaker reads the full sentence
+* Speaker can read each answer option
+* After answering, it reads the correct sentence
+
+Add audio to every question-based game:
+
+* Maths
+* Reading
+* Writing
+* Word Play
+* Animals
+* Science
+* Health & Food
+* Memory games where useful
+* Daily Challenges
+
+Audio requirements:
+
+* Use browser text-to-speech if possible
+* Prefer an English female voice
+* Keep the voice friendly and clear
+* Add a sound on/off toggle in Settings
+* Save the sound preference
+* Do not autoplay loud sounds
+* Only play voice when the child or adult presses the speaker button
+* Button click sounds should remain subtle
+
+Review screen audio:
+On the review screen, add speaker buttons so adults/children can hear:
+
+* The question
+* The child’s answer
+* The correct answer
+* The explanation
+
+Accessibility:
+
+* Make speaker icons large and easy to press
+* Add labels such as “Hear question” and “Hear word”
+* Make it useful for children who cannot read confidently yet
+
+Important:
+This must work consistently across every game that has questions and answers, not only some reading games.
