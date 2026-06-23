@@ -7,12 +7,66 @@ function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
 }
 
-const GROUPS: { category: string; animals: string[] }[] = [
-  { category: "Farm", animals: ["🐮", "🐷", "🐑", "🐔", "🐴", "🐄"] },
-  { category: "Ocean", animals: ["🐬", "🐳", "🦈", "🐙", "🐠", "🦞"] },
-  { category: "Jungle", animals: ["🦁", "🐯", "🐘", "🦒", "🦍", "🦊"] },
-  { category: "Sky", animals: ["🦅", "🦆", "🦜", "🦚", "🐦", "🦋"] },
-  { category: "Arctic", animals: ["🐧", "🐻‍❄️", "🦭", "🦊", "🐺"] },
+interface AnimalOption {
+  emoji: string;
+  name: string;
+}
+
+const GROUPS: { category: string; animals: AnimalOption[] }[] = [
+  {
+    category: "Farm",
+    animals: [
+      { emoji: "🐮", name: "Cow" },
+      { emoji: "🐷", name: "Pig" },
+      { emoji: "🐑", name: "Sheep" },
+      { emoji: "🐔", name: "Chicken" },
+      { emoji: "🐴", name: "Horse" },
+      { emoji: "🐄", name: "Cow" },
+    ],
+  },
+  {
+    category: "Ocean",
+    animals: [
+      { emoji: "🐬", name: "Dolphin" },
+      { emoji: "🐳", name: "Whale" },
+      { emoji: "🦈", name: "Shark" },
+      { emoji: "🐙", name: "Octopus" },
+      { emoji: "🐠", name: "Fish" },
+      { emoji: "🦞", name: "Lobster" },
+    ],
+  },
+  {
+    category: "Jungle",
+    animals: [
+      { emoji: "🦁", name: "Lion" },
+      { emoji: "🐯", name: "Tiger" },
+      { emoji: "🐘", name: "Elephant" },
+      { emoji: "🦒", name: "Giraffe" },
+      { emoji: "🦍", name: "Gorilla" },
+      { emoji: "🦊", name: "Fox" },
+    ],
+  },
+  {
+    category: "Sky",
+    animals: [
+      { emoji: "🦅", name: "Eagle" },
+      { emoji: "🦆", name: "Duck" },
+      { emoji: "🦜", name: "Parrot" },
+      { emoji: "🦚", name: "Peacock" },
+      { emoji: "🐦", name: "Bird" },
+      { emoji: "🦋", name: "Butterfly" },
+    ],
+  },
+  {
+    category: "Arctic",
+    animals: [
+      { emoji: "🐧", name: "Penguin" },
+      { emoji: "🐻‍❄️", name: "Polar bear" },
+      { emoji: "🦭", name: "Seal" },
+      { emoji: "🦊", name: "Fox" },
+      { emoji: "🐺", name: "Wolf" },
+    ],
+  },
 ];
 
 export default function OddOneOut() {
@@ -36,12 +90,13 @@ export default function OddOneOut() {
             <p className="text-xl font-bold text-muted-foreground">3 animals belong together. Which one doesn't fit?</p>
           </div>
         ),
-        options: all.map((emoji, j) => ({
+        options: all.map((animal, j) => ({
           id: `opt${j}`,
-          label: emoji,
-          isCorrect: emoji === odd,
-          color: colors[j % colors.length]
-        }))
+          label: animal.emoji,
+          labelText: animal.name,
+          isCorrect: animal === odd,
+          color: colors[j % colors.length],
+        })),
       };
     });
   }, []);
