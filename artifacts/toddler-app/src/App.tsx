@@ -216,6 +216,7 @@ function App() {
         <SoundProvider>
           <TooltipProvider>
             <ThemeApplier />
+            <AppAssetPreloader />
             <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
               <GameErrorBoundary>
                 <Router />
