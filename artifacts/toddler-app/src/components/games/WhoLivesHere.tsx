@@ -1,8 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext, QuestionRecord } from "@/context/AppContext";
 import { sounds } from "@/lib/sounds";
+import { computeGamePoints } from "@/lib/points";
+import SpeakerButton from "@/components/SpeakerButton";
 
 type AgeRange = "3-4" | "5-6" | "7-8";
 type HabitatName = "Farm" | "Ocean" | "Jungle" | "Sky" | "Bugs";
@@ -16,7 +18,6 @@ interface Animal {
 interface Habitat {
   name: HabitatName;
   image: string;
-  clue: string;
   fact: string;
   animals: Animal[];
 }
@@ -31,12 +32,19 @@ interface RoundState {
   correctCount: number;
 }
 
+interface HabitatReview {
+  habitat: HabitatName;
+  animalsShown: string[];
+  correctPlaced: string[];
+  wrongAttempted: string[];
+  explanation: string;
+}
+
 const HABITATS: Habitat[] = [
   {
     name: "Farm",
     image: "Farm.png",
-    clue: "Who lives on the farm?",
-    fact: "Farm animals often live close to people and help us with food, wool, or work.",
+    fact: "Farm animals often live close to people.",
     animals: [
       { emoji: "🐮", name: "Cow", category: "Farm" },
       { emoji: "🐷", name: "Pig", category: "Farm" },
@@ -49,8 +57,7 @@ const HABITATS: Habitat[] = [
   {
     name: "Ocean",
     image: "Ocean.png",
-    clue: "Who lives in the ocean?",
-    fact: "Ocean animals live in salty water and many of them swim, float, or crawl along the sea floor.",
+    fact: "Ocean animals live in salty water.",
     animals: [
       { emoji: "🐬", name: "Dolphin", category: "Ocean" },
       { emoji: "🐳", name: "Whale", category: "Ocean" },
@@ -63,8 +70,7 @@ const HABITATS: Habitat[] = [
   {
     name: "Jungle",
     image: "Jungle.png",
-    clue: "Who lives in the jungle?",
-    fact: "Jungles are warm, leafy places where many animals climb, hide, and hunt.",
+    fact: "Jungle animals live in warm, leafy places.",
     animals: [
       { emoji: "🐒", name: "Monkey", category: "Jungle" },
       { emoji: "🦍", name: "Gorilla", category: "Jungle" },
@@ -77,8 +83,7 @@ const HABITATS: Habitat[] = [
   {
     name: "Sky",
     image: "Sky.png",
-    clue: "Who belongs in the sky?",
-    fact: "Many sky animals have wings, feathers, or special bodies that help them fly.",
+    fact: "Sky animals often have wings or feathers.",
     animals: [
       { emoji: "🦅", name: "Eagle", category: "Sky" },
       { emoji: "🦆", name: "Duck", category: "Sky" },
@@ -91,8 +96,7 @@ const HABITATS: Habitat[] = [
   {
     name: "Bugs",
     image: "Bugs.png",
-    clue: "Who lives with the bugs?",
-    fact: "Bugs are small creatures. Many have tiny legs, wings, feelers, or hard shells.",
+    fact: "Bugs are small creatures with tiny legs, wings, feelers, or shells.",
     animals: [
       { emoji: "🐝", name: "Bee", category: "Bugs" },
       { emoji: "🐞", name: "Ladybird", category: "Bugs" },
@@ -104,30 +108,62 @@ const HABITATS: Habitat[] = [
   },
 ];
 
+const OBVIOUS_WRONGS: Record<HabitatName, HabitatName[]> = {
+  Farm: ["Ocean", "Bugs", "Sky"],
+  Ocean: ["Farm", "Sky", "Bugs"],
+  Jungle: ["Ocean", "Farm", "Sky"],
+  Sky: ["Ocean", "Farm", "Bugs"],
+  Bugs: ["Ocean", "Farm", "Sky"],
+};
+
 function shuffle<T>(items: T[]): T[] {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
 function difficulty(ageRange: AgeRange) {
-  if (ageRange === "3-4") return { correct: 3, wrong: 1, showNames: false };
-  if (ageRange === "5-6") return { correct: 4, wrong: 2, showNames: true };
-  return { correct: 6, wrong: 3, showNames: true };
+  if (ageRange === "3-4") return { correct: 3, wrongMin: 1, wrongMax: 1, showNames: false };
+  if (ageRange === "5-6") return { correct: 4, wrongMin: 2, wrongMax: 2, showNames: true };
+  return { correct: 6, wrongMin: 2, wrongMax: 3, showNames: true };
 }
 
-function createRound(ageRange: AgeRange): RoundState {
-  const habitat = shuffle(HABITATS)[0];
+function habitatInstruction(habitat: HabitatName): string {
+  if (habitat === "Farm") return "Drag the animals that live on the farm into their home.";
+  if (habitat === "Ocean") return "Drag the animals that live in the ocean into their home.";
+  if (habitat === "Jungle") return "Drag the animals that live in the jungle into their home.";
+  if (habitat === "Sky") return "Drag the animals that live in the sky into their home.";
+  return "Drag the bugs into their home.";
+}
+
+function explanationFor(animal: Animal): string {
+  if (animal.category === "Farm") return `${animal.name}s live on farms.`;
+  if (animal.category === "Ocean") return `${animal.name}s live in the ocean.`;
+  if (animal.category === "Jungle") return `${animal.name}s live in the jungle.`;
+  if (animal.category === "Sky") return `${animal.name}s fly in the sky.`;
+  return `${animal.name}s are bugs.`;
+}
+
+function createRound(habitat: Habitat, ageRange: AgeRange): RoundState {
   const settings = difficulty(ageRange);
   const correct = shuffle(habitat.animals).slice(0, settings.correct);
+  const wrongCount =
+    settings.wrongMin === settings.wrongMax
+      ? settings.wrongMin
+      : settings.wrongMin + Math.floor(Math.random() * (settings.wrongMax - settings.wrongMin + 1));
+
+  const wrongCategories =
+    ageRange === "3-4"
+      ? OBVIOUS_WRONGS[habitat.name]
+      : shuffle(HABITATS.filter(group => group.name !== habitat.name).map(group => group.name));
 
   const wrongPool = shuffle(
-    HABITATS
-      .filter(group => group.name !== habitat.name)
-      .flatMap(group => group.animals)
-  ).slice(0, settings.wrong);
+    wrongCategories
+      .flatMap(name => HABITATS.find(group => group.name === name)?.animals ?? [])
+      .filter(animal => animal.category !== habitat.name)
+  ).slice(0, wrongCount);
 
   const animals = shuffle([...correct, ...wrongPool]).map((animal, index) => ({
     ...animal,
-    id: `${Date.now()}-${index}-${animal.category}-${animal.name}`,
+    id: `${Date.now()}-${index}-${animal.category}-${animal.name}-${animal.emoji}`,
   }));
 
   return {
@@ -137,43 +173,120 @@ function createRound(ageRange: AgeRange): RoundState {
   };
 }
 
+function starsFor(score: number, total: number): number {
+  const pct = total > 0 ? score / total : 0;
+  if (pct >= 0.8) return 3;
+  if (pct >= 0.5) return 2;
+  return 1;
+}
+
 export default function WhoLivesHere() {
   const [, setLocation] = useLocation();
   const { activeProfile, addGameResult } = useAppContext();
   const ageRange = activeProfile?.ageRange ?? "5-6";
   const settings = difficulty(ageRange);
 
-  const [round, setRound] = useState<RoundState>(() => createRound(ageRange));
+  const [habitatOrder, setHabitatOrder] = useState<Habitat[]>(() => shuffle(HABITATS));
+  const [habitatIndex, setHabitatIndex] = useState(0);
+  const [round, setRound] = useState<RoundState>(() => {
+    const order = shuffle(HABITATS);
+    return createRound(order[0], ageRange);
+  });
   const [placedIds, setPlacedIds] = useState<string[]>([]);
-  const [wrongAttempts, setWrongAttempts] = useState(0);
-  const [message, setMessage] = useState("Drag the animals into the right home!");
+  const [wrongAttempts, setWrongAttempts] = useState<Animal[]>([]);
   const [wrongId, setWrongId] = useState<string | null>(null);
-  const [finished, setFinished] = useState(false);
+  const [message, setMessage] = useState("Drag the animals into their home!");
+  const [roundComplete, setRoundComplete] = useState(false);
+  const [gameComplete, setGameComplete] = useState(false);
+  const [reviews, setReviews] = useState<HabitatReview[]>([]);
+  const [finalScore, setFinalScore] = useState(0);
+  const [pointsEarned, setPointsEarned] = useState(0);
+
+  const startTimeRef = useRef(Date.now());
+  const questionHistoryRef = useRef<QuestionRecord[]>([]);
 
   const imageBase = useMemo(() => import.meta.env.BASE_URL.replace(/\/?$/, "/"), []);
   const habitatImage = `${imageBase}who-lives-here/${round.habitat.image}`;
+  const instruction = habitatInstruction(round.habitat.name);
   const placedAnimals = round.animals.filter(animal => placedIds.includes(animal.id));
   const trayAnimals = round.animals.filter(animal => !placedIds.includes(animal.id));
+  const totalHabitats = HABITATS.length;
+  const totalCorrectTargets = habitatOrder.reduce((sum, habitat) => {
+    return sum + Math.min(difficulty(ageRange).correct, habitat.animals.length);
+  }, 0);
 
   useEffect(() => {
     if (!activeProfile) setLocation("/");
   }, [activeProfile, setLocation]);
 
   useEffect(() => {
-    setRound(createRound(ageRange));
-    setPlacedIds([]);
-    setWrongAttempts(0);
-    setMessage("Drag the animals into the right home!");
-    setWrongId(null);
-    setFinished(false);
+    startNewSession();
   }, [ageRange]);
 
   if (!activeProfile) return null;
 
-  const finishRound = (nextPlacedIds: string[]) => {
-    const score = Math.max(0, round.correctCount - wrongAttempts);
-    const pct = score / round.correctCount;
-    const stars = pct >= 0.8 ? 3 : pct >= 0.5 ? 2 : 1;
+  function startNewSession() {
+    const order = shuffle(HABITATS);
+    setHabitatOrder(order);
+    setHabitatIndex(0);
+    setRound(createRound(order[0], ageRange));
+    setPlacedIds([]);
+    setWrongAttempts([]);
+    setWrongId(null);
+    setMessage("Drag the animals into their home!");
+    setRoundComplete(false);
+    setGameComplete(false);
+    setReviews([]);
+    setFinalScore(0);
+    setPointsEarned(0);
+    startTimeRef.current = Date.now();
+    questionHistoryRef.current = [];
+  }
+
+  function addHistory(animal: Animal, isCorrect: boolean) {
+    questionHistoryRef.current = [
+      ...questionHistoryRef.current,
+      {
+        questionId: `${round.habitat.name}-${questionHistoryRef.current.length + 1}-${animal.name}`,
+        questionText: instruction,
+        childAnswerText: animal.name,
+        correctAnswerText: isCorrect ? animal.name : `${animal.name} belongs in ${animal.category}`,
+        isCorrect,
+        explanation: explanationFor(animal),
+      },
+    ];
+  }
+
+  function completeHabitat(nextPlacedIds: string[]) {
+    const correctPlaced = round.animals.filter(
+      animal => animal.category === round.habitat.name && nextPlacedIds.includes(animal.id)
+    );
+
+    const review: HabitatReview = {
+      habitat: round.habitat.name,
+      animalsShown: round.animals.map(animal => `${animal.emoji} ${animal.name}`),
+      correctPlaced: correctPlaced.map(animal => `${animal.emoji} ${animal.name}`),
+      wrongAttempted: wrongAttempts.map(animal => `${animal.emoji} ${animal.name}`),
+      explanation: round.habitat.fact,
+    };
+
+    setPlacedIds(nextPlacedIds);
+    setReviews(prev => [...prev, review]);
+    setRoundComplete(true);
+    sounds.celebrate();
+    setMessage(`Great job! You found the ${round.habitat.name.toLowerCase()} animals!`);
+  }
+
+  function finishFullGame(nextReviews: HabitatReview[]) {
+    const totalWrong = nextReviews.reduce((sum, review) => sum + review.wrongAttempted.length, 0);
+    const score = Math.max(0, totalCorrectTargets - totalWrong);
+    const stars = starsFor(score, totalCorrectTargets);
+    const points = computeGamePoints({
+      score,
+      total: totalCorrectTargets,
+      stars,
+      gameId: "who-lives-here",
+    });
 
     addGameResult({
       childId: activeProfile.id,
@@ -181,53 +294,163 @@ export default function WhoLivesHere() {
       gameName: "Who Lives Here?",
       category: "animals",
       score,
-      total: round.correctCount,
+      total: totalCorrectTargets,
       stars,
+      timeTakenSeconds: Math.round((Date.now() - startTimeRef.current) / 1000),
+      questionHistory: questionHistoryRef.current,
     });
 
-    setPlacedIds(nextPlacedIds);
-    setFinished(true);
+    setFinalScore(score);
+    setPointsEarned(points);
+    setGameComplete(true);
     sounds.celebrate();
-    setMessage(`Great job! You found all the ${round.habitat.name.toLowerCase()} animals!`);
-  };
+  }
 
-  const handleDropAnimal = (id: string) => {
-    if (finished || placedIds.includes(id)) return;
+  function handleDropAnimal(id: string) {
+    if (roundComplete || gameComplete || placedIds.includes(id)) return;
+
     const animal = round.animals.find(item => item.id === id);
     if (!animal) return;
 
     if (animal.category === round.habitat.name) {
       const nextPlacedIds = [...placedIds, id];
-      const correctPlaced = round.animals.filter(item =>
-        item.category === round.habitat.name && nextPlacedIds.includes(item.id)
+      const correctPlaced = round.animals.filter(
+        item => item.category === round.habitat.name && nextPlacedIds.includes(item.id)
       ).length;
 
+      addHistory(animal, true);
       sounds.correct();
 
       if (correctPlaced >= round.correctCount) {
-        finishRound(nextPlacedIds);
+        const correctAnimals = round.animals.filter(
+          item => item.category === round.habitat.name && nextPlacedIds.includes(item.id)
+        );
+
+        const review: HabitatReview = {
+          habitat: round.habitat.name,
+          animalsShown: round.animals.map(item => `${item.emoji} ${item.name}`),
+          correctPlaced: correctAnimals.map(item => `${item.emoji} ${item.name}`),
+          wrongAttempted: wrongAttempts.map(item => `${item.emoji} ${item.name}`),
+          explanation: round.habitat.fact,
+        };
+
+        const nextReviews = [...reviews, review];
+        setPlacedIds(nextPlacedIds);
+        setReviews(nextReviews);
+        setRoundComplete(true);
+        setMessage(`Great job! You found the ${round.habitat.name.toLowerCase()} animals!`);
+
+        if (habitatIndex >= totalHabitats - 1) {
+          finishFullGame(nextReviews);
+        } else {
+          sounds.celebrate();
+        }
       } else {
         setPlacedIds(nextPlacedIds);
         setMessage(`Yes! ${animal.name} lives here.`);
       }
     } else {
+      addHistory(animal, false);
       sounds.wrong();
-      setWrongAttempts(count => count + 1);
+      setWrongAttempts(prev => [...prev, animal]);
       setWrongId(id);
       setMessage(`${animal.name} lives somewhere else. Try another animal!`);
       window.setTimeout(() => setWrongId(null), 550);
     }
-  };
+  }
 
-  const nextRound = () => {
-    setRound(createRound(ageRange));
+  function nextHabitat() {
+    const nextIndex = habitatIndex + 1;
+    const nextHabitat = habitatOrder[nextIndex];
+
+    setHabitatIndex(nextIndex);
+    setRound(createRound(nextHabitat, ageRange));
     setPlacedIds([]);
-    setWrongAttempts(0);
-    setMessage("Drag the animals into the right home!");
+    setWrongAttempts([]);
     setWrongId(null);
-    setFinished(false);
+    setMessage("Drag the animals into their home!");
+    setRoundComplete(false);
     sounds.pop();
-  };
+  }
+
+  if (gameComplete) {
+    const stars = starsFor(finalScore, totalCorrectTargets);
+
+    return (
+      <div className="min-h-screen bg-background p-4 sm:p-6 md:p-10">
+        <div className="max-w-5xl mx-auto">
+          <section className="bg-card rounded-[2rem] border-4 border-card-border shadow-2xl p-5 sm:p-8 text-center">
+            <div className="text-7xl sm:text-8xl mb-4">🎉</div>
+            <h1 className="text-3xl sm:text-5xl font-black text-foreground mb-3">Habitats Complete!</h1>
+            <p className="text-xl sm:text-2xl font-bold text-muted-foreground mb-5">
+              You helped every animal find its home.
+            </p>
+
+            <div className="flex justify-center gap-2 sm:gap-4 mb-5">
+              {[1, 2, 3].map(star => (
+                <span key={star} className={`text-5xl sm:text-7xl ${star <= stars ? "" : "opacity-25 grayscale"}`}>
+                  ⭐
+                </span>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="rounded-2xl bg-emerald-50 border-4 border-emerald-200 p-4">
+                <p className="text-sm font-black text-emerald-700">Final Score</p>
+                <p className="text-3xl font-black text-emerald-900">
+                  {finalScore} / {totalCorrectTargets}
+                </p>
+              </div>
+              <div className="rounded-2xl bg-amber-50 border-4 border-amber-200 p-4">
+                <p className="text-sm font-black text-amber-700">Points Earned</p>
+                <p className="text-3xl font-black text-amber-900">+{pointsEarned}</p>
+              </div>
+            </div>
+
+            <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              {reviews.map(review => (
+                <div key={review.habitat} className="rounded-2xl border-4 border-border bg-muted p-4">
+                  <h2 className="text-xl font-black text-foreground mb-2">{review.habitat}</h2>
+                  <p className="text-sm font-bold text-muted-foreground mb-2">
+                    Animals shown: {review.animalsShown.join(", ")}
+                  </p>
+                  <p className="text-sm font-bold text-green-700 mb-2">
+                    Correct: {review.correctPlaced.join(", ")}
+                  </p>
+                  <p className="text-sm font-bold text-red-700 mb-2">
+                    Wrong tries: {review.wrongAttempted.length ? review.wrongAttempted.join(", ") : "None"}
+                  </p>
+                  <p className="text-sm font-bold text-foreground">{review.explanation}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                onClick={() => {
+                  sounds.click();
+                  setLocation("/animals");
+                }}
+                className="h-14 px-8 rounded-full bg-muted hover:bg-muted/80 text-foreground border-4 border-border font-black text-lg"
+              >
+                ← Back to Animals
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                onClick={startNewSession}
+                className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-black text-lg shadow-lg"
+              >
+                Play Again
+              </motion.button>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background p-4 sm:p-5 md:p-8">
@@ -236,14 +459,28 @@ export default function WhoLivesHere() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => { sounds.click(); setLocation("/animals"); }}
+            onClick={() => {
+              sounds.click();
+              setLocation("/animals");
+            }}
             className="h-12 sm:h-16 px-4 sm:px-6 rounded-2xl bg-muted hover:bg-muted/80 text-muted-foreground font-black text-base sm:text-xl border-4 border-border transition-colors"
           >
             ← Back
           </motion.button>
-          <div className="min-w-0">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight">Who Lives Here?</h1>
-            <p className="text-base sm:text-xl font-bold text-muted-foreground">{round.habitat.clue}</p>
+
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-3">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight">
+                Who Lives Here?
+              </h1>
+              <span className="rounded-full bg-primary/10 text-primary border-2 border-primary/20 px-3 py-1 text-sm sm:text-base font-black">
+                Habitat {habitatIndex + 1} of {totalHabitats}
+              </span>
+            </div>
+            <div className="mt-2 flex items-center gap-2">
+              <p className="text-base sm:text-xl font-bold text-muted-foreground">{instruction}</p>
+              <SpeakerButton text={instruction} label="Read the instruction" size="xs" />
+            </div>
           </div>
         </header>
 
@@ -291,7 +528,7 @@ export default function WhoLivesHere() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 8 }}
                 className={`rounded-2xl border-4 px-4 py-3 mb-4 font-black text-center ${
-                  finished ? "bg-green-50 border-green-300 text-green-800" : "bg-blue-50 border-blue-200 text-blue-800"
+                  roundComplete ? "bg-green-50 border-green-300 text-green-800" : "bg-blue-50 border-blue-200 text-blue-800"
                 }`}
               >
                 {message}
@@ -306,12 +543,12 @@ export default function WhoLivesHere() {
                   showName={settings.showNames}
                   isWrong={wrongId === animal.id}
                   onDrop={handleDropAnimal}
-                  disabled={finished}
+                  disabled={roundComplete}
                 />
               ))}
             </div>
 
-            {finished && (
+            {roundComplete && !gameComplete && (
               <div className="mt-5 text-center">
                 {ageRange === "7-8" && (
                   <p className="text-sm sm:text-base font-bold text-muted-foreground mb-4 bg-muted rounded-2xl p-3">
@@ -321,7 +558,7 @@ export default function WhoLivesHere() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  onClick={nextRound}
+                  onClick={nextHabitat}
                   className="h-14 px-7 rounded-full bg-primary hover:bg-primary/90 text-white font-black text-lg shadow-lg"
                 >
                   Next Habitat →
@@ -330,7 +567,7 @@ export default function WhoLivesHere() {
             )}
 
             <p className="text-xs sm:text-sm font-bold text-muted-foreground text-center mt-4">
-              Drag an animal onto the picture.
+              Drag an animal onto the habitat picture.
             </p>
           </aside>
         </div>
@@ -355,7 +592,7 @@ function DraggableAnimal({
   const [dragging, setDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const startDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+  const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (disabled) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     setDragging(true);
@@ -363,12 +600,12 @@ function DraggableAnimal({
     sounds.click();
   };
 
-  const moveDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+  const moveDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
     setPosition({ x: event.clientX, y: event.clientY });
   };
 
-  const endDrag = (event: React.PointerEvent<HTMLButtonElement>) => {
+  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
     setDragging(false);
 
@@ -380,22 +617,26 @@ function DraggableAnimal({
 
   return (
     <>
-      <motion.button
-        type="button"
+      <motion.div
+        role="button"
+        tabIndex={0}
         onPointerDown={startDrag}
         onPointerMove={moveDrag}
         onPointerUp={endDrag}
         onPointerCancel={() => setDragging(false)}
         animate={isWrong ? { x: [0, -10, 10, -6, 6, 0] } : { x: 0 }}
         transition={{ duration: 0.45 }}
-        className={`touch-none select-none rounded-2xl border-4 p-3 min-h-[116px] bg-white shadow-md flex flex-col items-center justify-center ${
+        className={`relative touch-none select-none rounded-2xl border-4 p-3 min-h-[116px] bg-white shadow-md flex flex-col items-center justify-center ${
           disabled ? "opacity-40" : "cursor-grab active:cursor-grabbing active:scale-95"
         } ${isWrong ? "border-red-300 bg-red-50" : "border-border"}`}
         aria-label={`Drag ${animal.name}`}
       >
+        <div className="absolute right-2 top-2" onPointerDown={event => event.stopPropagation()}>
+          <SpeakerButton text={animal.name} label={`Hear ${animal.name}`} size="xs" />
+        </div>
         <span className="text-5xl sm:text-6xl leading-none">{animal.emoji}</span>
         {showName && <span className="mt-2 text-sm font-black text-foreground">{animal.name}</span>}
-      </motion.button>
+      </motion.div>
 
       {dragging && (
         <div
