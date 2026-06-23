@@ -555,7 +555,19 @@ export default function WhoLivesHere() {
             data-drop-zone="habitat"
             className="relative overflow-hidden rounded-[2rem] border-4 border-card-border shadow-2xl min-h-[360px] sm:min-h-[460px] bg-muted"
           >
-            <img src={habitatImage} alt={`${round.habitat.name} habitat`} className="absolute inset-0 w-full h-full object-cover" />
+            {habitatImageReady && visibleHabitatImage ? (
+  <img
+    src={visibleHabitatImage}
+    alt={`${round.habitat.name} habitat`}
+    className="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    decoding="async"
+  />
+) : (
+  <div className="absolute inset-0 grid place-items-center bg-muted">
+    <p className="text-xl sm:text-2xl font-black text-muted-foreground">Loading habitat...</p>
+  </div>
+)}
             <div className="absolute inset-0 bg-black/5" />
 
             <div className="absolute left-4 right-4 top-4 flex flex-wrap items-center justify-between gap-3">
