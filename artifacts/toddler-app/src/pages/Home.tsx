@@ -102,7 +102,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-3 w-full md:w-auto">
             {/* Toggle switches */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
               <ToggleControl
                 emoji={muted ? "🔇" : "🔊"} label="Sound" on={!muted}
                 onToggle={() => { sounds.click(); toggleMute(); }}
@@ -113,7 +113,7 @@ export default function Home() {
                 testId="button-toggle-tts" />
             </div>
             {/* Action buttons */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
               {activeProfile.mode === "teacher" && (
                 <button onClick={() => nav("/classroom")}
                   className="h-12 flex-1 min-w-[6rem] px-3 sm:px-4 rounded-xl bg-purple-500 hover:bg-purple-600 active:scale-95 text-white font-black text-sm sm:text-base border-4 border-purple-600 transition-all shadow-md flex items-center justify-center gap-1 whitespace-nowrap"
@@ -413,15 +413,14 @@ function ToggleControl({ emoji, label, on, onToggle, testId }: {
 }) {
   return (
     <button onClick={onToggle} role="switch" aria-checked={on} aria-label={`${label} ${on ? "on" : "off"}`}
-      className="flex items-center gap-2 h-12 px-3 rounded-xl border-4 border-border bg-muted hover:bg-muted/70 active:scale-95 transition-all"
+      className="w-full sm:w-auto flex items-center justify-center gap-1.5 sm:gap-2 h-12 px-2 sm:px-3 rounded-xl border-4 border-border bg-muted hover:bg-muted/70 active:scale-95 transition-all"
       data-testid={testId}>
       <span className="text-xl leading-none flex-shrink-0">{emoji}</span>
-      <span className="font-bold text-sm text-foreground whitespace-nowrap">{label}</span>
-      <span className={`relative w-11 h-6 rounded-full flex-shrink-0 transition-colors ${on ? "bg-green-500" : "bg-gray-300"}`}>
+     <span className="font-bold text-xs sm:text-sm text-foreground whitespace-nowrap">{label}</span>
+     <span className={`relative w-10 sm:w-11 h-6 rounded-full flex-shrink-0 transition-colors ${on ? "bg-green-500" : "bg-gray-300"}`}>
         <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform ${on ? "translate-x-5" : "translate-x-0"}`} />
       </span>
-      <span className={`text-[10px] font-black w-7 text-center flex-shrink-0 ${on ? "text-green-600" : "text-gray-400"}`}>
-        {on ? "ON" : "OFF"}
+      <span className={`text-[9px] sm:text-[10px] font-black w-6 sm:w-7 text-center flex-shrink-0 ${on ? "text-green-600" : "text-gray-400"}`}>        {on ? "ON" : "OFF"}
       </span>
     </button>
   );
