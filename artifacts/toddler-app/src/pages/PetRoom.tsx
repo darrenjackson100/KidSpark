@@ -236,11 +236,12 @@ function PetRoomInner() {
             data-testid="button-pet-back">← Home</button>
         </header>
 
-        <RoomTab
-          theme={theme} pet={pet} action={action} burst={burst} scale={ctx.stage.scale}
-          needs={needs} petName={petName} toast={toast} mood={idleMood} speech={speech}
-          onTapPet={tapPet} onCare={doCare} onLearn={() => { sounds.pop(); setLocation("/home"); }}
-        />
+<RoomTab
+  roomFamily={roomFamilyFromGender(activeProfile!.gender)}
+  pet={pet} action={action} burst={burst} scale={ctx.stage.scale}
+  needs={needs} petName={petName} toast={toast} mood={idleMood} speech={speech}
+  onTapPet={tapPet} onCare={doCare} onLearn={() => { sounds.pop(); setLocation("/home"); }}
+/>
       </div>
     </div>
   );
@@ -253,10 +254,10 @@ function PetRoomInner() {
 // row of care buttons, and always-visible status bars.
 // No tabs, no unlocks, no XP numbers, no Dress Up.
 function RoomTab({
-  theme, pet, action, burst, scale, needs, petName, toast, mood, speech,
+  roomFamily, pet, action, burst, scale, needs, petName, toast, mood, speech,
   onTapPet, onCare, onLearn,
 }: {
-  theme: (typeof THEMES)[string];
+  roomFamily: DecorFamily;
   pet: PetState;
   action: PetAction; burst: number; scale: number;
   needs: Record<NeedKey, number>;
@@ -265,9 +266,8 @@ function RoomTab({
   onTapPet: () => void; onCare: (c: CareMeta) => void; onLearn: () => void;
 }) {
   const bubble = toast ?? speech;
-const family = familyOf(theme);
-const roomBg = ROOM_BG[family];
-const roomBgPhone = ROOM_BG_PHONE[family];
+const roomBg = ROOM_BG[roomFamily];
+const roomBgPhone = ROOM_BG_PHONE[roomFamily];
 
   return (
     <div className="space-y-4">
