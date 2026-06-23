@@ -7,10 +7,18 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const SOUND_ANIMALS = [
-  { emoji: "🐯", sound: "ROAR" }, { emoji: "🐮", sound: "MOO" }, { emoji: "🐸", sound: "RIBBIT" },
-  { emoji: "🐥", sound: "CHEEP" }, { emoji: "🐶", sound: "WOOF" }, { emoji: "🐱", sound: "MEOW" },
-  { emoji: "🐑", sound: "BAA" }, { emoji: "🐴", sound: "NEIGH" }, { emoji: "🐷", sound: "OINK" },
-  { emoji: "🦆", sound: "QUACK" }, { emoji: "🦁", sound: "ROAR" }, { emoji: "🐍", sound: "HISS" },
+  { emoji: "🐯", name: "Tiger", sound: "ROAR" },
+  { emoji: "🐮", name: "Cow", sound: "MOO" },
+  { emoji: "🐸", name: "Frog", sound: "RIBBIT" },
+  { emoji: "🐥", name: "Chick", sound: "CHEEP" },
+  { emoji: "🐶", name: "Dog", sound: "WOOF" },
+  { emoji: "🐱", name: "Cat", sound: "MEOW" },
+  { emoji: "🐑", name: "Sheep", sound: "BAA" },
+  { emoji: "🐴", name: "Horse", sound: "NEIGH" },
+  { emoji: "🐷", name: "Pig", sound: "OINK" },
+  { emoji: "🦆", name: "Duck", sound: "QUACK" },
+  { emoji: "🦁", name: "Lion", sound: "ROAR" },
+  { emoji: "🐍", name: "Snake", sound: "HISS" },
 ];
 
 export default function AnimalSounds() {
@@ -31,10 +39,10 @@ export default function AnimalSounds() {
             <p className="text-3xl font-black text-muted-foreground">Which animal says this?</p>
           </div>
         ),
-        options: shuffle([
-          { id: "c", label: animal.emoji, isCorrect: true, color: colors[0] },
-          ...wrongs.map((w, j) => ({ id: `w${j}`, label: w.emoji, isCorrect: false, color: colors[j + 1] }))
-        ])
+options: shuffle([
+  { id: "c", label: animal.emoji, labelText: animal.name, isCorrect: true, color: colors[0] },
+  ...wrongs.map((w, j) => ({ id: `w${j}`, label: w.emoji, labelText: w.name, isCorrect: false, color: colors[j + 1] }))
+])
       };
     });
   }, []);
