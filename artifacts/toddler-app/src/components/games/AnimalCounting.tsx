@@ -8,7 +8,18 @@ function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
 }
 
-const ANIMALS = ["🐶", "🐱", "🐸", "🐥", "🦋", "🐠", "🐰", "🐮", "🐧", "🐢"];
+const ANIMALS = [
+  { emoji: "🐶", name: "dogs" },
+  { emoji: "🐱", name: "cats" },
+  { emoji: "🐸", name: "frogs" },
+  { emoji: "🐥", name: "chicks" },
+  { emoji: "🦋", name: "butterflies" },
+  { emoji: "🐠", name: "fish" },
+  { emoji: "🐰", name: "rabbits" },
+  { emoji: "🐮", name: "cows" },
+  { emoji: "🐧", name: "penguins" },
+  { emoji: "🐢", name: "turtles" },
+];
 
 function makeOptions(correct: number, max: number) {
   const wrong = new Set<number>();
@@ -35,12 +46,12 @@ export default function AnimalCounting() {
       const animal = ANIMALS[i % ANIMALS.length];
       return {
         id: `q${i}`,
-        questionText: `How many ${animal} are there? Count the animals!`,
+        questionText: `How many ${animal.name} are there? Count the animals!`,
         prompt: (
           <div className="text-center">
             <div className="flex flex-wrap justify-center gap-1 sm:gap-2 max-w-md sm:max-w-xl mx-auto mb-4">
               {Array.from({ length: count }, (_, j) => (
-                <span key={j} className="text-6xl sm:text-7xl leading-none">{animal}</span>
+                <span key={j} className="text-6xl sm:text-7xl leading-none">{animal.emoji}</span>
               ))}
             </div>
             <p className="text-3xl font-black text-muted-foreground">How many animals?</p>
