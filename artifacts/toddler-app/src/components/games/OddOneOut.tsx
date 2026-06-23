@@ -35,15 +35,15 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
       { emoji: "🦞", name: "Lobster" },
     ],
   },
-  {
+{
     category: "Jungle",
     animals: [
-      { emoji: "🦁", name: "Lion" },
-      { emoji: "🐯", name: "Tiger" },
-      { emoji: "🐘", name: "Elephant" },
-      { emoji: "🦒", name: "Giraffe" },
+      { emoji: "🐒", name: "Monkey" },
       { emoji: "🦍", name: "Gorilla" },
-      { emoji: "🦊", name: "Fox" },
+      { emoji: "🐯", name: "Tiger" },
+      { emoji: "🐍", name: "Snake" },
+      { emoji: "🐊", name: "Crocodile" },
+      { emoji: "🐆", name: "Leopard" },
     ],
   },
   {
@@ -58,15 +58,16 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
     ],
   },
   {
-    category: "Arctic",
+    category: "Bugs",
     animals: [
-      { emoji: "🐧", name: "Penguin" },
-      { emoji: "🐻‍❄️", name: "Polar bear" },
-      { emoji: "🦭", name: "Seal" },
-      { emoji: "🦊", name: "Fox" },
-      { emoji: "🐺", name: "Wolf" },
+      { emoji: "🐝", name: "Bee" },
+      { emoji: "🐞", name: "Ladybird" },
+      { emoji: "🦋", name: "Butterfly" },
+      { emoji: "🐜", name: "Ant" },
+      { emoji: "🪲", name: "Beetle" },
+      { emoji: "🦗", name: "Cricket" },
     ],
-  },
+  }
 ];
 
 export default function OddOneOut() {
@@ -106,7 +107,7 @@ export default function OddOneOut() {
       gameId="odd-one-out"
       gameName="Odd One Out"
       category="animals"
-      description="Find the animal that doesn't belong!"
+      description="Find the animal that doesn't belong here!"
       questions={questions}
       onExit={() => setLocation("/animals")}
     />
