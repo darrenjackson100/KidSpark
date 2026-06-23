@@ -522,34 +522,34 @@ export default function WhoLivesHere() {
   return (
     <div className="min-h-screen bg-background p-4 sm:p-5 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <header className="flex items-center gap-3 sm:gap-5 mb-5 bg-card rounded-[2rem] p-4 sm:p-6 border-4 border-card-border shadow-md">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              sounds.click();
-              setLocation("/animals");
-            }}
-            className="h-12 sm:h-16 px-4 sm:px-6 rounded-2xl bg-muted hover:bg-muted/80 text-muted-foreground font-black text-base sm:text-xl border-4 border-border transition-colors"
-          >
-            ← Back
-          </motion.button>
+       <header className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mb-5 bg-card rounded-[2rem] p-4 sm:p-6 border-4 border-card-border shadow-md">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={() => {
+      sounds.click();
+      setLocation("/animals");
+    }}
+    className="self-start h-12 sm:h-16 px-4 sm:px-6 rounded-2xl bg-muted hover:bg-muted/80 text-muted-foreground font-black text-base sm:text-xl border-4 border-border transition-colors"
+  >
+    ← Back
+  </motion.button>
 
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight">
-                Who Lives Here?
-              </h1>
-              <span className="rounded-full bg-primary/10 text-primary border-2 border-primary/20 px-3 py-1 text-sm sm:text-base font-black">
-                Habitat {habitatIndex + 1} of {totalHabitats}
-              </span>
-            </div>
-            <div className="mt-2 flex items-center gap-2">
-              <p className="text-base sm:text-xl font-bold text-muted-foreground">{instruction}</p>
-              <SpeakerButton text={instruction} label="Read the instruction" size="xs" />
-            </div>
-          </div>
-        </header>
+  <div className="min-w-0 flex-1 w-full text-center sm:text-left">
+    <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight">
+        Who Lives Here?
+      </h1>
+      <span className="rounded-full bg-primary/10 text-primary border-2 border-primary/20 px-3 py-1 text-sm sm:text-base font-black">
+        Habitat {habitatIndex + 1} of {totalHabitats}
+      </span>
+    </div>
+    <div className="mt-2 flex items-center justify-center sm:justify-start gap-2">
+      <p className="text-base sm:text-xl font-bold text-muted-foreground">{instruction}</p>
+      <SpeakerButton text={instruction} label="Read the instruction" size="xs" />
+    </div>
+  </div>
+</header>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.8fr] gap-5">
           <section
