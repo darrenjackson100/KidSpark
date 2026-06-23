@@ -41,7 +41,7 @@ export default function AnimalHabitat() {
       const wrongHabitats = HABITATS.filter(h => h.label !== animal.habitat);
       return {
         id: `q${i}`,
-        questionText: `Where does the ${animal.name} ${animal.emoji} live?`,
+        questionText: `Where does the ${animal.name} live?`,
         prompt: (
           <div className="text-center">
             <div className="text-[8rem] leading-none mb-4">{animal.emoji}</div>
