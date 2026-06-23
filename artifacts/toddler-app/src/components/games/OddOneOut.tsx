@@ -12,9 +12,18 @@ interface AnimalOption {
   name: string;
 }
 
-const GROUPS: { category: string; animals: AnimalOption[] }[] = [
+interface AnimalGroup {
+  category: string;
+  clue: string;
+  badgeClass: string;
+  animals: AnimalOption[];
+}
+
+const GROUPS: AnimalGroup[] = [
   {
     category: "Farm",
+    clue: "farm animals",
+    badgeClass: "bg-amber-100 text-amber-800 border-amber-300",
     animals: [
       { emoji: "🐮", name: "Cow" },
       { emoji: "🐷", name: "Pig" },
@@ -26,6 +35,8 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
   },
   {
     category: "Ocean",
+    clue: "ocean animals",
+    badgeClass: "bg-sky-100 text-sky-800 border-sky-300",
     animals: [
       { emoji: "🐬", name: "Dolphin" },
       { emoji: "🐳", name: "Whale" },
@@ -35,8 +46,10 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
       { emoji: "🦞", name: "Lobster" },
     ],
   },
-{
+  {
     category: "Jungle",
+    clue: "jungle animals",
+    badgeClass: "bg-lime-100 text-lime-800 border-lime-300",
     animals: [
       { emoji: "🐒", name: "Monkey" },
       { emoji: "🦍", name: "Gorilla" },
@@ -48,17 +61,21 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
   },
   {
     category: "Sky",
+    clue: "sky animals",
+    badgeClass: "bg-blue-100 text-blue-800 border-blue-300",
     animals: [
       { emoji: "🦅", name: "Eagle" },
       { emoji: "🦆", name: "Duck" },
       { emoji: "🦜", name: "Parrot" },
       { emoji: "🦚", name: "Peacock" },
       { emoji: "🐦", name: "Bird" },
-      { emoji: "🦋", name: "Butterfly" },
+      { emoji: "🦉", name: "Owl" },
     ],
   },
   {
     category: "Bugs",
+    clue: "bugs",
+    badgeClass: "bg-green-100 text-green-800 border-green-300",
     animals: [
       { emoji: "🐝", name: "Bee" },
       { emoji: "🐞", name: "Ladybird" },
@@ -67,7 +84,7 @@ const GROUPS: { category: string; animals: AnimalOption[] }[] = [
       { emoji: "🪲", name: "Beetle" },
       { emoji: "🦗", name: "Cricket" },
     ],
-  }
+  },
 ];
 
 export default function OddOneOut() {
@@ -84,11 +101,16 @@ export default function OddOneOut() {
 
       return {
         id: `q${i}`,
-        questionText: `Spot the odd one out! 3 animals belong together — which one doesn't fit?`,
+        questionText: `Three are ${mainGroup.clue}. Which one is different?`,
         prompt: (
           <div className="text-center">
-            <p className="text-3xl font-black text-muted-foreground mb-2">Spot the odd one out!</p>
-            <p className="text-xl font-bold text-muted-foreground">3 animals belong together. Which one doesn't fit?</p>
+            <div className={`inline-flex items-center justify-center rounded-full border-4 px-5 py-2 text-lg font-black mb-4 ${mainGroup.badgeClass}`}>
+              {mainGroup.category}
+            </div>
+            <p className="text-3xl font-black text-foreground mb-2">Spot the odd one out!</p>
+            <p className="text-xl font-bold text-muted-foreground">
+              Three are {mainGroup.clue}. Which one is different?
+            </p>
           </div>
         ),
         options: all.map((animal, j) => ({
