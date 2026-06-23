@@ -12,6 +12,11 @@ import {
   NEED_META, CARE_ACTIONS,
   type CareAction, type CareMeta, type NeedKey,
 } from "@/lib/pets";
+
+import roomBgGirlPhone from "@assets/GirlPhone.png";
+import roomBgBoyPhone from "@assets/BoyPhone.png";
+import roomBgNeutralPhone from "@assets/NeutralPhone.png";
+
 import roomBgGirl from "@assets/Girl.png";
 import roomBgBoy from "@assets/Boy.png";
 import roomBgNeutral from "@assets/Neutral.png";
@@ -56,7 +61,11 @@ const ROOM_BG: Record<DecorFamily, string> = {
   boy: roomBgBoy,
   neutral: roomBgNeutral,
 };
-
+const ROOM_BG_PHONE: Record<DecorFamily, string> = {
+  girl: roomBgGirlPhone,
+  boy: roomBgBoyPhone,
+  neutral: roomBgNeutralPhone,
+};
 export default function PetRoom() {
   const [, setLocation] = useLocation();
   const { activeProfile } = useAppContext();
