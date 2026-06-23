@@ -552,48 +552,50 @@ export default function WhoLivesHere() {
 </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.8fr] gap-5">
-          <section
-            data-drop-zone="habitat"
-            className="relative overflow-hidden rounded-[2rem] border-4 border-card-border shadow-2xl min-h-[360px] sm:min-h-[460px] bg-muted"
-          >
-            {habitatImageReady && visibleHabitatImage ? (
-  <img
-    src={visibleHabitatImage}
-    alt={`${round.habitat.name} habitat`}
-    className="absolute inset-0 w-full h-full object-cover"
-    loading="eager"
-    decoding="async"
-  />
-) : (
-  <div className="absolute inset-0 grid place-items-center bg-muted">
-    <p className="text-xl sm:text-2xl font-black text-muted-foreground">Loading habitat...</p>
-  </div>
-)}
-            <div className="absolute inset-0 bg-black/5" />
+         <section
+  data-drop-zone="habitat"
+  className="relative overflow-hidden rounded-[2rem] border-4 border-card-border shadow-2xl min-h-[360px] sm:min-h-[460px] bg-muted"
+>
+  {habitatImageReady && visibleHabitatImage ? (
+    <img
+      src={visibleHabitatImage}
+      alt={`${round.habitat.name} habitat`}
+      className="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+  ) : (
+    <div className="absolute inset-0 grid place-items-center bg-muted">
+      <p className="text-xl sm:text-2xl font-black text-muted-foreground">Loading habitat...</p>
+    </div>
+  )}
 
-            <div className="absolute inset-x-4 bottom-4 min-h-[130px] rounded-[1.5rem] border-4 border-white/70 bg-white/25 backdrop-blur-sm p-3">
-              <div className="flex flex-wrap gap-3 items-center justify-center">
-                {placedAnimals.map(animal => (
-                  <motion.div
-                    key={animal.id}
-                    initial={{ scale: 0.5, y: 20, opacity: 0 }}
-                    animate={{ scale: 1, y: 0, opacity: 1 }}
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/90 border-4 border-green-300 shadow-lg flex flex-col items-center justify-center"
-                  >
-                    <span className="text-4xl sm:text-5xl">{animal.emoji}</span>
-                    {settings.showNames && <span className="text-xs font-black text-green-800">{animal.name}</span>}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-          <div className="mt-3 flex justify-center">
-  <div className="rounded-2xl bg-card border-4 border-card-border px-5 py-2 shadow-md">
-    <p className="text-base sm:text-lg font-black text-foreground">
-      {placedAnimals.length} / {round.correctCount} found
-    </p>
+  <div className="absolute inset-0 bg-black/5" />
+
+  <div className="absolute inset-x-4 bottom-16 sm:bottom-20 min-h-[116px] sm:min-h-[130px] rounded-[1.5rem] border-4 border-white/70 bg-white/25 backdrop-blur-sm p-3">
+    <div className="flex flex-wrap gap-3 items-center justify-center">
+      {placedAnimals.map(animal => (
+        <motion.div
+          key={animal.id}
+          initial={{ scale: 0.5, y: 20, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/90 border-4 border-green-300 shadow-lg flex flex-col items-center justify-center"
+        >
+          <span className="text-4xl sm:text-5xl">{animal.emoji}</span>
+          {settings.showNames && <span className="text-xs font-black text-green-800">{animal.name}</span>}
+        </motion.div>
+      ))}
+    </div>
   </div>
-</div>
+
+  <div className="absolute inset-x-0 bottom-3 flex justify-center px-4">
+    <div className="rounded-2xl bg-white/95 border-4 border-white px-5 py-2 shadow-md">
+      <p className="text-base sm:text-lg font-black text-foreground">
+        {placedAnimals.length} / {round.correctCount} found
+      </p>
+    </div>
+  </div>
+</section>
           
           <aside className="bg-card rounded-[2rem] border-4 border-card-border shadow-xl p-4 sm:p-5">
             <AnimatePresence mode="wait">
