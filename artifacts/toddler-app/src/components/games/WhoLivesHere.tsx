@@ -109,6 +109,37 @@ const HABITATS: Habitat[] = [
 ];
 
 const OBVIOUS_WRONGS: Record<HabitatName, HabitatName[]> = {
+  const CONFUSING_WRONG_CATEGORIES: Partial<Record<HabitatName, HabitatName[]>> = {
+  Sky: ["Bugs"],
+  Bugs: ["Sky"],
+};
+
+const CONFUSING_WRONG_NAMES: Partial<Record<HabitatName, string[]>> = {
+  Farm: ["Duck"],
+  Ocean: ["Duck"],
+};
+
+function isClearWrongChoice(habitat: HabitatName, animal: Animal): boolean {
+  if (animal.category === habitat) return false;
+  if (CONFUSING_WRONG_CATEGORIES[habitat]?.includes(animal.category)) return false;
+  if (CONFUSING_WRONG_NAMES[habitat]?.includes(animal.name)) return false;
+  return true;
+}
+
+function preloadHabitatImages(base: string) {
+  HABITATS.forEach(habitat => {
+    const img = new Image();
+    img.src = `${base}who-lives-here/${habitat.image}`;
+  });
+}
+
+function createInitialSession(ageRange: AgeRange) {
+  const order = shuffle(HABITATS);
+  return {
+    order,
+    round: createRound(order[0], ageRange),
+  };
+}
   Farm: ["Ocean", "Bugs", "Sky"],
   Ocean: ["Farm", "Sky", "Bugs"],
   Jungle: ["Ocean", "Farm", "Sky"],
@@ -155,11 +186,16 @@ function createRound(habitat: Habitat, ageRange: AgeRange): RoundState {
       ? OBVIOUS_WRONGS[habitat.name]
       : shuffle(HABITATS.filter(group => group.name !== habitat.name).map(group => group.name));
 
-  const wrongPool = shuffle(
-    wrongCategories
-      .flatMap(name => HABITATS.find(group => group.name === name)?.animals ?? [])
-      .filter(animal => animal.category !== habitat.name)
-  ).slice(0, wrongCount);
+  const clearWrongPool = wrongCategories
+    .flatMap(name => HABITATS.find(group => group.name === name)?.animals ?? [])
+    .filter(animal => isClearWrongChoice(habitat.name, animal));
+
+  const fallbackWrongPool = HABITATS
+    .filter(group => group.name !== habitat.name)
+    .flatMap(group => group.animals)
+    .filter(animal => isClearWrongChoice(habitat.name, animal));
+
+  const wrongPool = shuffle(clearWrongPool.length >= wrongCount ? clearWrongPool : fallbackWrongPool).slice(0, wrongCount);
 
   const animals = shuffle([...correct, ...wrongPool]).map((animal, index) => ({
     ...animal,
