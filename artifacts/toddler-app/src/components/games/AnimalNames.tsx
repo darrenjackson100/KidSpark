@@ -27,7 +27,7 @@ export default function AnimalNames() {
       const wrongs = shuffle(wrongPool).slice(0, 3);
       return {
         id: `q${i}`,
-        questionText: `What animal is this? ${animal.emoji}`,
+        questionText: "What animal is this?",
         prompt: (
           <div className="text-center">
             <div className="text-[10rem] leading-none mb-4">{animal.emoji}</div>
