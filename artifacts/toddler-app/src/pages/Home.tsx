@@ -412,15 +412,21 @@ function ToggleControl({ emoji, label, on, onToggle, testId }: {
   emoji: string; label: string; on: boolean; onToggle: () => void; testId: string;
 }) {
   return (
-    <button onClick={onToggle} role="switch" aria-checked={on} aria-label={`${label} ${on ? "on" : "off"}`}
-      className="w-full sm:w-auto flex items-center justify-center gap-1.5 sm:gap-2 h-12 px-2 sm:px-3 rounded-xl border-4 border-border bg-muted hover:bg-muted/70 active:scale-95 transition-all"
-      data-testid={testId}>
-      <span className="text-xl leading-none flex-shrink-0">{emoji}</span>
-     <span className="font-bold text-xs sm:text-sm text-foreground whitespace-nowrap">{label}</span>
-     <span className={`relative w-10 sm:w-11 h-6 rounded-full flex-shrink-0 transition-colors ${on ? "bg-green-500" : "bg-gray-300"}`}>
-        <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform ${on ? "translate-x-5" : "translate-x-0"}`} />
+    <button
+      onClick={onToggle}
+      role="switch"
+      aria-checked={on}
+      aria-label={`${label} ${on ? "on" : "off"}`}
+      className="w-full sm:w-auto flex items-center justify-center gap-1 sm:gap-2 h-12 px-2 sm:px-3 rounded-xl border-4 border-border bg-muted hover:bg-muted/70 active:scale-95 transition-all overflow-hidden"
+      data-testid={testId}
+    >
+      <span className="text-base sm:text-xl leading-none flex-shrink-0">{emoji}</span>
+      <span className="font-bold text-xs sm:text-sm text-foreground whitespace-nowrap">{label}</span>
+      <span className={`relative w-10 sm:w-11 h-6 rounded-full flex-shrink-0 transition-colors ${on ? "bg-green-500" : "bg-gray-300"}`}>
+        <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform ${on ? "translate-x-4 sm:translate-x-5" : "translate-x-0"}`} />
       </span>
-      <span className={`text-[9px] sm:text-[10px] font-black w-6 sm:w-7 text-center flex-shrink-0 ${on ? "text-green-600" : "text-gray-400"}`}>        {on ? "ON" : "OFF"}
+      <span className={`hidden sm:inline text-[10px] font-black w-7 text-center flex-shrink-0 ${on ? "text-green-600" : "text-gray-400"}`}>
+        {on ? "ON" : "OFF"}
       </span>
     </button>
   );
