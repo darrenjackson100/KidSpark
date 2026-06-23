@@ -222,12 +222,11 @@ export default function WhoLivesHere() {
   const ageRange = activeProfile?.ageRange ?? "5-6";
   const settings = difficulty(ageRange);
 
-  const [habitatOrder, setHabitatOrder] = useState<Habitat[]>(() => shuffle(HABITATS));
+  const initialSession = useMemo(() => createInitialSession(ageRange), []);
+  const [habitatOrder, setHabitatOrder] = useState<Habitat[]>(initialSession.order);
   const [habitatIndex, setHabitatIndex] = useState(0);
-  const [round, setRound] = useState<RoundState>(() => {
-    const order = shuffle(HABITATS);
-    return createRound(order[0], ageRange);
-  });
+  const [round, setRound] = useState<RoundState>(initialSession.round);
+  
   const [placedIds, setPlacedIds] = useState<string[]>([]);
   const [wrongAttempts, setWrongAttempts] = useState<Animal[]>([]);
   const [wrongId, setWrongId] = useState<string | null>(null);
@@ -243,6 +242,8 @@ export default function WhoLivesHere() {
 
   const imageBase = useMemo(() => import.meta.env.BASE_URL.replace(/\/?$/, "/"), []);
   const habitatImage = `${imageBase}who-lives-here/${round.habitat.image}`;
+  const [visibleHabitatImage, setVisibleHabitatImage] = useState("");
+  const [habitatImageReady, setHabitatImageReady] = useState(false);
   const instruction = habitatInstruction(round.habitat.name);
   const placedAnimals = round.animals.filter(animal => placedIds.includes(animal.id));
   const trayAnimals = round.animals.filter(animal => !placedIds.includes(animal.id));
@@ -259,6 +260,35 @@ export default function WhoLivesHere() {
     startNewSession();
   }, [ageRange]);
 
+   useEffect(() => {
+    preloadHabitatImages(imageBase);
+  }, [imageBase]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setHabitatImageReady(false);
+    setVisibleHabitatImage("");
+
+    const img = new Image();
+    img.onload = () => {
+      if (!cancelled) {
+        setVisibleHabitatImage(habitatImage);
+        setHabitatImageReady(true);
+      }
+    };
+    img.onerror = () => {
+      if (!cancelled) {
+        setVisibleHabitatImage(habitatImage);
+        setHabitatImageReady(true);
+      }
+    };
+    img.src = habitatImage;
+
+    return () => {
+      cancelled = true;
+    };
+  }, [habitatImage]);
+  
   if (!activeProfile) return null;
 
   function startNewSession() {
