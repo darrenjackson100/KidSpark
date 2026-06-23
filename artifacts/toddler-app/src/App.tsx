@@ -92,6 +92,21 @@ import TimeTelling from "@/components/games/TimeTelling";
 
 const queryClient = new QueryClient();
 
+const WHO_LIVES_HERE_IMAGES = ["Farm.png", "Ocean.png", "Jungle.png", "Sky.png", "Bugs.png"];
+
+function AppAssetPreloader() {
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+
+    WHO_LIVES_HERE_IMAGES.forEach(file => {
+      const img = new Image();
+      img.src = `${base}who-lives-here/${file}`;
+    });
+  }, []);
+
+  return null;
+}
+
 function ThemeApplier() {
   const { activeProfile } = useAppContext();
   useEffect(() => {
