@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAppContext, type PetState } from "@/context/AppContext";
 import { sounds } from "@/lib/sounds";
-import { THEMES, type ThemeDef } from "@/lib/themes";
+import { THEMES } from "@/lib/themes";
 import PetAvatar, { PetAction } from "@/components/pet/PetAvatar";
 import PetCharacter, { type PetExpression } from "@/components/pet/PetCharacter";
 import PetPicker from "@/components/pet/PetPicker";
@@ -52,8 +52,10 @@ const HAPPY_LINES = [
 // pick the matching uploaded room photo as the full-bleed scene background.
 type DecorFamily = "girl" | "boy" | "neutral";
 
-function familyOf(theme: ThemeDef): DecorFamily {
-  return (theme.suggestedFor?.[0] as DecorFamily) ?? "neutral";
+function roomFamilyFromGender(gender: "girl" | "boy" | "neutral" | undefined): DecorFamily {
+  if (gender === "girl") return "girl";
+  if (gender === "boy") return "boy";
+  return "neutral";
 }
 
 const ROOM_BG: Record<DecorFamily, string> = {
