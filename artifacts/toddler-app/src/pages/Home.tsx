@@ -136,22 +136,23 @@ export default function Home() {
         </header>
 
         {/* Two big cards: Rewards Shop + My Pet */}
-          <div className={`grid gap-3 sm:gap-4 mb-5 ${pointsEnabled ? "grid-cols-2" : "grid-cols-1"}`}>          {pointsEnabled && (
+        <div className={`grid gap-3 sm:gap-4 mb-5 ${pointsEnabled ? "grid-cols-2" : "grid-cols-1"}`}>
+          {pointsEnabled && (
             <motion.button type="button"
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => nav("/shop")}
-              className="text-left cursor-pointer rounded-[2rem] p-5 sm:p-6 shadow-lg border-4 border-transparent bg-gradient-to-br from-amber-400 via-orange-400 to-amber-500 text-white fflex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-2 sm:gap-5 min-h-[120px]"
+              className="cursor-pointer rounded-[1.5rem] sm:rounded-[2rem] p-3 sm:p-6 shadow-lg border-4 border-transparent bg-gradient-to-br from-amber-400 via-orange-400 to-amber-500 text-white flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-2 sm:gap-5 min-h-[132px] sm:min-h-[120px]"
               data-testid="card-rewards-shop">
               <motion.div className="text-5xl sm:text-6xl flex-shrink-0 drop-shadow-md"
                 animate={{ y: [0, -6, 0], rotate: [0, 6, -6, 0] }}
                 transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}>
                 🛍️
               </motion.div>
-              <div className="flex-1 min-w-0">
-                <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">Rewards Shop</h2>
-                <p className="text-2xl sm:text-3xl font-black text-white leading-tight mt-0.5">{pointsBalance} 💰</p>
-                <p className="text-sm sm:text-base font-bold text-white/90 leading-snug">Points available to spend</p>
+              <div className="w-full sm:flex-1 min-w-0 flex flex-col items-center sm:items-start">
+                <h2 className="text-base sm:text-2xl font-black text-white leading-tight text-center sm:text-left">Rewards Shop</h2>
+                <p className="text-xl sm:text-3xl font-black text-white leading-tight mt-0.5">{pointsBalance} 💰</p>
+                <p className="text-xs sm:text-base font-bold text-white/90 leading-snug">Points available to spend</p>
               </div>
               <div className="hidden sm:flex bg-white/20 text-white font-black text-base px-4 py-2 rounded-2xl flex-shrink-0">Open →</div>
             </motion.button>
@@ -161,7 +162,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
             onClick={() => nav("/pet")}
-            className={`text-left cursor-pointer rounded-[2rem] p-5 sm:p-6 shadow-lg border-4 border-transparent text-white flex items-center gap-4 sm:gap-5 min-h-[120px] ${
+            className={`cursor-pointer rounded-[1.5rem] sm:rounded-[2rem] p-3 sm:p-6 shadow-lg border-4 border-transparent text-white flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-2 sm:gap-5 min-h-[132px] sm:min-h-[120px] ${
               pet
                 ? "bg-gradient-to-br from-rose-400 via-pink-500 to-fuchsia-500"
                 : "bg-gradient-to-br from-violet-400 via-purple-400 to-fuchsia-400"
@@ -172,26 +173,26 @@ export default function Home() {
               transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}>
               {pet && petSpecies ? petSpecies.emoji : "🐣"}
             </motion.div>
-            <div className="flex-1 min-w-0">
-              <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">My Pet</h2>
+            <div className="w-full sm:flex-1 min-w-0 flex flex-col items-center sm:items-start">
+              <h2 className="text-base sm:text-2xl font-black text-white leading-tight text-center sm:text-left">My Pet</h2>
               {pet && petSpecies && petCtx && petMood ? (
                 <>
-                  <p className="text-2xl sm:text-3xl font-black text-white leading-tight mt-0.5 truncate">
+                  <p className="max-w-full text-xl sm:text-3xl font-black text-white leading-tight mt-0.5 truncate">
                     {pet.petName || petSpecies.name}
                   </p>
-                  <p className="text-sm sm:text-base font-bold text-white/90 leading-snug">
+                  <p className="text-xs sm:text-base font-bold text-white/90 leading-snug">
                     {petMood.emoji} {petMood.label} · {petCtx.stage.label}
                   </p>
                 </>
               ) : (
                 <>
-                  <p className="text-2xl sm:text-3xl font-black text-white leading-tight mt-0.5">Adopt a Pet!</p>
-                  <p className="text-sm sm:text-base font-bold text-white/90 leading-snug">A friend that grows as you learn</p>
+                  <p className="text-xl sm:text-3xl font-black text-white leading-tight mt-0.5">Adopt a Pet!</p>
+                  <p className="text-xs sm:text-base font-bold text-white/90 leading-snug">A friend that grows as you learn</p>
                 </>
               )}
             </div>
             {petNeedsCare && (
-              <span className="bg-white text-rose-600 font-black text-xs sm:text-sm px-3 py-1 rounded-full flex-shrink-0 animate-pulse">
+              <span className="bg-white text-rose-600 font-black text-[10px] sm:text-sm px-2 sm:px-3 py-1 rounded-full flex-shrink-0 animate-pulse">
                 Needs you!
               </span>
             )}
