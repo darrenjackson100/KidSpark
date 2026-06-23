@@ -12,9 +12,9 @@ import {
   NEED_META, CARE_ACTIONS,
   type CareAction, type CareMeta, type NeedKey,
 } from "@/lib/pets";
-import roomBgGirl from "@assets/Girl_1781866898636.png";
-import roomBgBoy from "@assets/Boy_1781866898636.png";
-import roomBgNeutral from "@assets/Neutral_1781866898636.png";
+import roomBgGirl from "@assets/Girl.png";
+import roomBgBoy from "@assets/Boy.png";
+import roomBgNeutral from "@assets/Neutral.png";
 
 // Maps a care action to the body animation the pet plays.
 const CARE_TO_ACTION: Record<CareAction, PetAction> = {
