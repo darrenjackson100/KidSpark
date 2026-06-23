@@ -141,7 +141,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               onClick={() => nav("/shop")}
-              className="text-left cursor-pointer rounded-[2rem] p-5 sm:p-6 shadow-lg border-4 border-transparent bg-gradient-to-br from-amber-400 via-orange-400 to-amber-500 text-white flex items-center gap-4 sm:gap-5 min-h-[120px]"
+              className="text-left cursor-pointer rounded-[2rem] p-5 sm:p-6 shadow-lg border-4 border-transparent bg-gradient-to-br from-amber-400 via-orange-400 to-amber-500 text-white fflex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-2 sm:gap-5 min-h-[120px]"
               data-testid="card-rewards-shop">
               <motion.div className="text-5xl sm:text-6xl flex-shrink-0 drop-shadow-md"
                 animate={{ y: [0, -6, 0], rotate: [0, 6, -6, 0] }}
