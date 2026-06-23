@@ -571,17 +571,6 @@ export default function WhoLivesHere() {
 )}
             <div className="absolute inset-0 bg-black/5" />
 
-            <div className="absolute left-4 right-4 top-4 flex flex-wrap items-center justify-between gap-3">
-              <div className="rounded-2xl bg-white/90 border-4 border-white px-4 py-2 shadow-md">
-                <p className="text-lg sm:text-2xl font-black text-foreground">{round.habitat.name}</p>
-              </div>
-              <div className="rounded-2xl bg-white/90 border-4 border-white px-4 py-2 shadow-md">
-                <p className="text-sm sm:text-base font-black text-foreground">
-                  {placedAnimals.length} / {round.correctCount} found
-                </p>
-              </div>
-            </div>
-
             <div className="absolute inset-x-4 bottom-4 min-h-[130px] rounded-[1.5rem] border-4 border-white/70 bg-white/25 backdrop-blur-sm p-3">
               <div className="flex flex-wrap gap-3 items-center justify-center">
                 {placedAnimals.map(animal => (
@@ -598,7 +587,14 @@ export default function WhoLivesHere() {
               </div>
             </div>
           </section>
-
+          <div className="mt-3 flex justify-center">
+  <div className="rounded-2xl bg-card border-4 border-card-border px-5 py-2 shadow-md">
+    <p className="text-base sm:text-lg font-black text-foreground">
+      {placedAnimals.length} / {round.correctCount} found
+    </p>
+  </div>
+</div>
+          
           <aside className="bg-card rounded-[2rem] border-4 border-card-border shadow-xl p-4 sm:p-5">
             <AnimatePresence mode="wait">
               <motion.div
