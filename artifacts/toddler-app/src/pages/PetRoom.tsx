@@ -263,7 +263,9 @@ function RoomTab({
   onTapPet: () => void; onCare: (c: CareMeta) => void; onLearn: () => void;
 }) {
   const bubble = toast ?? speech;
-  const roomBg = ROOM_BG[familyOf(theme)];
+const family = familyOf(theme);
+const roomBg = ROOM_BG[family];
+const roomBgPhone = ROOM_BG_PHONE[family];
 
   return (
     <div className="space-y-4">
@@ -273,14 +275,17 @@ function RoomTab({
         {/* full-bleed room background — fills the area, keeps proportions
             (object-cover, never stretches) and favours the floor/rug centre so
             the pet sits naturally on the rug. Responsive across all sizes. */}
-        <img
-          src={roomBg}
-          alt=""
-          aria-hidden
-          draggable={false}
-          className="pointer-events-none absolute inset-0 w-full h-full object-cover object-[center_70%] select-none"
-          data-testid="room-background"
-        />
+<picture>
+  <source media="(max-width: 639px)" srcSet={roomBgPhone} />
+  <img
+    src={roomBg}
+    alt=""
+    aria-hidden
+    draggable={false}
+    className="pointer-events-none absolute inset-0 w-full h-full object-cover object-[center_70%] select-none"
+    data-testid="room-background"
+  />
+</picture>
 
         {/* the pet, centered on the rug, with its speech bubble pinned directly
             above its head — the bubble lives in the same wrapper as the pet, so
