@@ -109,7 +109,14 @@ const HABITATS: Habitat[] = [
 ];
 
 const OBVIOUS_WRONGS: Record<HabitatName, HabitatName[]> = {
-  const CONFUSING_WRONG_CATEGORIES: Partial<Record<HabitatName, HabitatName[]>> = {
+  Farm: ["Ocean", "Bugs", "Sky"],
+  Ocean: ["Farm", "Sky", "Bugs"],
+  Jungle: ["Ocean", "Farm", "Sky"],
+  Sky: ["Ocean", "Farm", "Bugs"],
+  Bugs: ["Ocean", "Farm", "Sky"],
+};
+
+const CONFUSING_WRONG_CATEGORIES: Partial<Record<HabitatName, HabitatName[]>> = {
   Sky: ["Bugs"],
   Bugs: ["Sky"],
 };
@@ -140,12 +147,6 @@ function createInitialSession(ageRange: AgeRange) {
     round: createRound(order[0], ageRange),
   };
 }
-  Farm: ["Ocean", "Bugs", "Sky"],
-  Ocean: ["Farm", "Sky", "Bugs"],
-  Jungle: ["Ocean", "Farm", "Sky"],
-  Sky: ["Ocean", "Farm", "Bugs"],
-  Bugs: ["Ocean", "Farm", "Sky"],
-};
 
 function shuffle<T>(items: T[]): T[] {
   return [...items].sort(() => Math.random() - 0.5);
