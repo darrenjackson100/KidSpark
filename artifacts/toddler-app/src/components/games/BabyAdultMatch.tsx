@@ -30,7 +30,7 @@ export default function BabyAdultMatch() {
       const wrongs = shuffle(wrongPool).slice(0, 3);
       return {
         id: `q${i}`,
-        questionText: `Who is the grown-up of this baby? ${pair.baby} ${pair.babyName}`,
+        questionText: `Who is the grown-up of this ${pair.babyName}?`,
         prompt: (
           <div className="text-center">
             <div className="text-[8rem] leading-none mb-2">{pair.baby}</div>
@@ -38,8 +38,8 @@ export default function BabyAdultMatch() {
           </div>
         ),
         options: shuffle([
-          { id: "c", label: <span>{pair.adult} {pair.adultName}</span>, labelText: `${pair.adult} ${pair.adultName}`, isCorrect: true, color: colors[0] },
-          ...wrongs.map((w, j) => ({ id: `w${j}`, label: <span>{w.adult} {w.adultName}</span>, labelText: `${w.adult} ${w.adultName}`, isCorrect: false, color: colors[j + 1] }))
+          { id: "c", label: <span>{pair.adult} {pair.adultName}</span>, labelText: pair.adultName, isCorrect: true, color: colors[0] },
+          ...wrongs.map((w, j) => ({ id: `w${j}`, label: <span>{w.adult} {w.adultName}</span>, labelText: w.adultName, isCorrect: false, color: colors[j + 1] }))
         ])
       };
     });
