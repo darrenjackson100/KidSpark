@@ -136,8 +136,7 @@ export default function Home() {
         </header>
 
         {/* Two big cards: Rewards Shop + My Pet */}
-        <div className={`grid gap-3 sm:gap-4 mb-5 ${pointsEnabled ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
-          {pointsEnabled && (
+          <div className={`grid gap-3 sm:gap-4 mb-5 ${pointsEnabled ? "grid-cols-2" : "grid-cols-1"}`}>          {pointsEnabled && (
             <motion.button type="button"
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
