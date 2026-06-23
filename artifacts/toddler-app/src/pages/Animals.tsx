@@ -7,10 +7,12 @@ import { sounds } from "@/lib/sounds";
 interface GameDef { path: string; title: string; description: string; emoji: string; color: string; ages: ("3-4"|"5-6"|"7-8")[]; gameId: string; }
 
 const ALL_GAMES: GameDef[] = [
+  
   { path: "/animals/names",   title: "Animal Names",      description: "What animal is this?",              emoji: "🐶", color: "from-amber-500 to-amber-700",   ages: ["3-4","5-6","7-8"], gameId: "animal-names" },
   { path: "/animals/sounds",  title: "Animal Sounds",     description: "Who makes this sound?",             emoji: "🔊", color: "from-blue-500 to-blue-700",     ages: ["3-4","5-6"],       gameId: "animal-sounds" },
   { path: "/animals/baby",    title: "Baby & Grown-Up",   description: "Match baby to its parent!",         emoji: "🐥", color: "from-orange-500 to-orange-700", ages: ["3-4","5-6"],       gameId: "baby-adult-match" },
   { path: "/animals/counting",title: "Animal Counting",   description: "Count all the animals!",            emoji: "🦋", color: "from-green-500 to-green-700",   ages: ["3-4","5-6"],       gameId: "animal-counting" },
+  { path: "/animals/who-lives-here", title: "Who Lives Here?", description: "Drag animals into their home!", emoji: "🏡", color: "from-lime-500 to-emerald-700", ages: ["3-4","5-6","7-8"], gameId: "who-lives-here" },
   { path: "/animals/odd",     title: "Odd One Out",       description: "Find the one that doesn't fit!",   emoji: "🔍", color: "from-purple-500 to-purple-700", ages: ["5-6","7-8"],       gameId: "odd-one-out" },
   { path: "/animals/habitat", title: "Animal Habitats",   description: "Where does this animal live?",      emoji: "🌍", color: "from-teal-500 to-teal-700",     ages: ["5-6","7-8"],       gameId: "animal-habitat" },
   { path: "/animals/diet",    title: "Animal Diets",      description: "Herbivore, carnivore or omnivore?", emoji: "🥩", color: "from-rose-500 to-rose-700",     ages: ["5-6","7-8"],       gameId: "animal-diet" },
