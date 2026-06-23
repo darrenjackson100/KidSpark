@@ -29,6 +29,7 @@ import Shop from "@/pages/Shop";
 import PetRoom from "@/pages/PetRoom";
 import PasscodeGate from "@/components/PasscodeGate";
 
+import WhoLivesHere from "@/components/games/WhoLivesHere";
 import DiceCounting from "@/components/games/DiceCounting";
 import CountObjects from "@/components/games/CountObjects";
 import MatchNumbers from "@/components/games/MatchNumbers";
@@ -129,7 +130,8 @@ function Router() {
       <Route path="/maths/money" component={MoneyCount} />
       <Route path="/maths/ninja" component={NumberNinja} />
       <Route path="/maths/diceflash" component={DiceFlash} />
-
+      
+      <Route path="/animals/who-lives-here" component={WhoLivesHere} />
       <Route path="/animals" component={Animals} />
       <Route path="/animals/names" component={AnimalNames} />
       <Route path="/animals/baby" component={BabyAdultMatch} />
