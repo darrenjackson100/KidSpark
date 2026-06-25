@@ -40,7 +40,8 @@ function buildDeck(pairs: string[][]): Card[] {
 }
 
 export default function MemoryCards() {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+  const backPath = location.startsWith("/memory") ? "/memory-hub" : "/maths";
   const { activeProfile, addGameResult } = useAppContext();
   const ageRange = activeProfile?.ageRange ?? "5-6";
 
@@ -154,7 +155,7 @@ export default function MemoryCards() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              onClick={() => { sounds.click(); setLocation("/maths"); }}
+              onClick={() => { sounds.click(); setLocation(backPath); }}
               className="h-16 sm:h-20 px-10 rounded-full text-2xl font-black border-4 border-border bg-muted hover:bg-muted/80 transition-colors">
               ← Back
             </motion.button>
@@ -191,7 +192,7 @@ export default function MemoryCards() {
           <p className="text-xl sm:text-2xl font-bold text-muted-foreground mb-10">You took {moves} moves</p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              onClick={() => { sounds.click(); setLocation("/maths"); }}
+              onClick={() => { sounds.click(); setLocation(backPath); }}
               className="h-16 sm:h-20 px-10 rounded-full text-2xl font-black border-4 border-border bg-muted hover:bg-muted/80 transition-colors">
               ← Back to Games
             </motion.button>
@@ -212,7 +213,7 @@ export default function MemoryCards() {
     <div className="min-h-screen bg-background p-3 sm:p-5">
       <div className="flex justify-between items-center gap-2 mb-6 max-w-3xl mx-auto">
         <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-          onClick={() => { sounds.click(); setLocation("/maths"); }}
+          onClick={() => { sounds.click(); setLocation(backPath); }}
           className="h-12 sm:h-16 px-4 sm:px-7 rounded-2xl border-4 border-border bg-muted hover:bg-muted/80 font-black text-base sm:text-xl transition-colors flex-shrink-0">
           ← Exit
         </motion.button>
