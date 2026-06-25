@@ -6,6 +6,7 @@ function shuffle<T>(arr: T[]): T[] { return [...arr].sort(() => Math.random() - 
 
 type FoodItem = { emoji: string; name: string; category: "healthy" | "treat" | "sometimes" };
 
+// Foods used in the Healthy Food sorting game.
 const FOODS: FoodItem[] = [
   { emoji: "🥦", name: "Broccoli",    category: "healthy" },
   { emoji: "🥕", name: "Carrot",      category: "healthy" },
