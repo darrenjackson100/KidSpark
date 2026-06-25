@@ -440,84 +440,77 @@ export default function WhoLivesHere() {
     sounds.pop();
   }
 
-  if (gameComplete) {
-    const stars = starsFor(finalScore, totalCorrectTargets);
+ if (gameComplete) {
+  const stars = starsFor(finalScore, totalCorrectTargets);
+  const scoreMessage = stars === 3 ? "You're AMAZING! 🏆" : stars === 2 ? "Fantastic Work! 🌟" : "Great Effort! 💪";
 
-    return (
-      <div className="min-h-screen bg-background p-4 sm:p-6 md:p-10">
-        <div className="max-w-5xl mx-auto">
-          <section className="bg-card rounded-[2rem] border-4 border-card-border shadow-2xl p-5 sm:p-8 text-center">
-            <div className="text-7xl sm:text-8xl mb-4">🎉</div>
-            <h1 className="text-3xl sm:text-5xl font-black text-foreground mb-3">Habitats Complete!</h1>
-            <p className="text-xl sm:text-2xl font-bold text-muted-foreground mb-5">
-              You helped every animal find its home.
-            </p>
-
-            <div className="flex justify-center gap-2 sm:gap-4 mb-5">
-              {[1, 2, 3].map(star => (
-                <span key={star} className={`text-5xl sm:text-7xl ${star <= stars ? "" : "opacity-25 grayscale"}`}>
-                  ⭐
-                </span>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="rounded-2xl bg-emerald-50 border-4 border-emerald-200 p-4">
-                <p className="text-sm font-black text-emerald-700">Final Score</p>
-                <p className="text-3xl font-black text-emerald-900">
-                  {finalScore} / {totalCorrectTargets}
-                </p>
-              </div>
-              <div className="rounded-2xl bg-amber-50 border-4 border-amber-200 p-4">
-                <p className="text-sm font-black text-amber-700">Points Earned</p>
-                <p className="text-3xl font-black text-amber-900">+{pointsEarned}</p>
-              </div>
-            </div>
-
-            <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              {reviews.map(review => (
-                <div key={review.habitat} className="rounded-2xl border-4 border-border bg-muted p-4">
-                  <h2 className="text-xl font-black text-foreground mb-2">{review.habitat}</h2>
-                  <p className="text-sm font-bold text-muted-foreground mb-2">
-                    Animals shown: {review.animalsShown.join(", ")}
-                  </p>
-                  <p className="text-sm font-bold text-green-700 mb-2">
-                    Correct: {review.correctPlaced.join(", ")}
-                  </p>
-                  <p className="text-sm font-bold text-red-700 mb-2">
-                    Wrong tries: {review.wrongAttempted.length ? review.wrongAttempted.join(", ") : "None"}
-                  </p>
-                  <p className="text-sm font-bold text-foreground">{review.explanation}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={() => {
-                  sounds.click();
-                  setLocation("/animals");
-                }}
-                className="h-14 px-8 rounded-full bg-muted hover:bg-muted/80 text-foreground border-4 border-border font-black text-lg"
-              >
-                ← Back to Animals
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={startNewSession}
-                className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-black text-lg shadow-lg"
-              >
-                Play Again
-              </motion.button>
-            </div>
-          </section>
+  return (
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6">
+      <motion.div
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", bounce: 0.5 }}
+        className="max-w-2xl w-full bg-card rounded-[3rem] p-6 sm:p-10 text-center shadow-2xl border-4 border-card-border"
+      >
+        <div className="flex justify-center gap-2 sm:gap-4 mb-5 sm:mb-6">
+          {[1, 2, 3].map(star => (
+            <motion.div
+              key={star}
+              initial={{ scale: 0, rotate: -30 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: star * 0.25, type: "spring", stiffness: 200 }}
+              className={`text-6xl sm:text-8xl ${star <= stars ? "" : "opacity-20 grayscale"}`}
+            >
+              ⭐
+            </motion.div>
+          ))}
         </div>
-      </div>
-    );
-  }
+
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="text-4xl sm:text-5xl font-black text-foreground mb-3 leading-tight"
+        >
+          {scoreMessage}
+        </motion.h1>
+
+        <p className="text-3xl sm:text-4xl font-bold text-muted-foreground mb-4">
+          {finalScore} out of {totalCorrectTargets}
+        </p>
+
+        <div className="bg-amber-50 border-4 border-amber-200 rounded-2xl px-5 sm:px-6 py-3 inline-block mb-6">
+          <p className="text-2xl sm:text-3xl font-black text-amber-800">
+            +{pointsEarned} points earned! 💰
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center mt-2">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              sounds.click();
+              setLocation("/animals");
+            }}
+            className="h-14 sm:h-16 px-8 sm:px-10 rounded-full text-lg sm:text-xl font-black border-4 border-border bg-muted hover:bg-muted/80 text-foreground transition-colors"
+          >
+            ← Back to Games
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={startNewSession}
+            className="h-14 sm:h-16 px-10 sm:px-12 rounded-full text-lg sm:text-xl font-black bg-secondary hover:bg-secondary/90 text-white shadow-lg transition-colors"
+          >
+            Play Again 🔄
+          </motion.button>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
 
   return (
     <div className="min-h-screen bg-background p-4 sm:p-5 md:p-8">
