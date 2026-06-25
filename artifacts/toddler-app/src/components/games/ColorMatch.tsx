@@ -27,7 +27,10 @@ const SHAPES = [
 ];
 
 export default function ColorMatch() {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+  const openedFromColours = location.startsWith("/colours");
+  const backPath = openedFromColours ? "/colours" : "/maths";
+  const category: "colours" | "maths" = openedFromColours ? "colours" : "maths";
   const { activeProfile } = useAppContext();
   const ageRange = activeProfile?.ageRange ?? "3-4";
   const useShapes = ageRange === "5-6" || ageRange === "7-8";
@@ -75,10 +78,10 @@ export default function ColorMatch() {
     <GameEngine
       gameId="color-match"
       gameName="Colour Match"
-      category="maths"
+      category={category}
       description="Look at the colour and pick the right name!"
       questions={questions}
-      onExit={() => setLocation("/maths")}
+      onExit={() => setLocation(backPath)}
     />
   );
 }
