@@ -9,7 +9,7 @@ interface GameDef { path: string; title: string; description: string; emoji: str
 const ALL_GAMES: GameDef[] = [
   { path: "/health/fruitveg",  title: "Fruit or Veg?",      description: "Can you tell a fruit from a vegetable?",  emoji: "🍎", color: "from-green-500 to-emerald-700",  ages: ["3-4","5-6"],       gameId: "pick-fruit-veg" },
   { path: "/health/drinks",    title: "Drink Choices",       description: "Which drinks are good for you?",          emoji: "💧", color: "from-blue-400 to-blue-600",      ages: ["3-4","5-6"],       gameId: "drink-choices" },
-  { path: "/science/food",     title: "Healthy Food",        description: "Which foods help you grow strong?",       emoji: "🥦", color: "from-teal-500 to-teal-700",      ages: ["3-4","5-6"],       gameId: "food-sorting" },
+ { path: "/health/food",      title: "Healthy Food",        description: "Which foods help you grow strong?",       emoji: "🥦", color: "from-teal-500 to-teal-700",      ages: ["3-4","5-6"],       gameId: "food-sorting" },
   { path: "/health/lunchbox",  title: "Healthy Lunchbox",    description: "Build a great lunchbox!",                 emoji: "🥪", color: "from-lime-500 to-lime-700",      ages: ["5-6","7-8"],       gameId: "healthy-lunchbox" },
   { path: "/health/foodgroups",title: "Food Groups",         description: "Which food group is it?",                emoji: "🍽️", color: "from-orange-500 to-orange-700",  ages: ["7-8"],             gameId: "food-groups" },
   { path: "/health/time",      title: "Time Telling",        description: "What does the clock say?",                emoji: "🕐", color: "from-indigo-500 to-indigo-700",  ages: ["7-8"],             gameId: "time-telling" },
