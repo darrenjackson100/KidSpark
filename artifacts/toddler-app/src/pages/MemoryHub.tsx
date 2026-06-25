@@ -5,7 +5,7 @@ import { useAppContext } from "@/context/AppContext";
 import { sounds } from "@/lib/sounds";
 
 const GAMES = [
-  { path: "/maths/memory",    title: "Memory Cards",     description: "Find the matching pairs!", emoji: "🃏", color: "from-teal-500 to-teal-700",    gameId: "memory-cards" },
+  { path: "/memory/cards",    title: "Memory Cards",     description: "Find the matching pairs!", emoji: "🃏", color: "from-teal-500 to-teal-700",    gameId: "memory-cards" },
   { path: "/memory/sequence", title: "Sequence Memory",  description: "Remember the order!",      emoji: "🔢", color: "from-blue-500 to-blue-700",    gameId: "sequence-memory" },
   { path: "/memory/animal",   title: "Animal Memory",    description: "Remember the animals!",    emoji: "🐾", color: "from-orange-500 to-orange-700", gameId: "animal-memory" },
 ];
