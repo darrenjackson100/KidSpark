@@ -5,7 +5,7 @@ import { useAppContext } from "@/context/AppContext";
 import { sounds } from "@/lib/sounds";
 
 const GAMES = [
-  { path: "/maths/color",      title: "Colour Match",    description: "Name the colour!",      emoji: "🎨", color: "from-pink-500 to-pink-700",     gameId: "color-match" },
+  { path: "/colours/color",    title: "Colour Match",    description: "Name the colour!",      emoji: "🎨", color: "from-pink-500 to-pink-700",     gameId: "color-match" },
   { path: "/colours/shapes",   title: "Shape Sorting",   description: "Name the shape!",       emoji: "🔷", color: "from-blue-500 to-blue-700",     gameId: "shape-sorting" },
   { path: "/colours/patterns", title: "Colour Patterns", description: "What comes next?",      emoji: "🌈", color: "from-purple-500 to-purple-700", gameId: "colour-patterns" },
 ];
