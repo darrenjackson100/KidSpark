@@ -50,7 +50,10 @@ function buildQ(food: FoodItem): Q {
 }
 
 export default function FoodSorting() {
-  const [, setLocation] = useLocation();
+const [location, setLocation] = useLocation();
+const openedFromHealth = location.startsWith("/health");
+const backPath = openedFromHealth ? "/health" : "/science";
+const category: "health" | "science" = openedFromHealth ? "health" : "science";
   const COLORS = ["bg-green-500", "bg-red-500", "bg-orange-500", "bg-blue-500"];
 
   const questions = useMemo(() => {
@@ -74,8 +77,8 @@ export default function FoodSorting() {
   }, []);
 
   return (
-    <GameEngine gameId="food-sorting" gameName="Healthy Food" category="science"
+      <GameEngine gameId="food-sorting" gameName="Healthy Food" category={category}
       description="Which foods help your body grow strong?"
-      questions={questions} onExit={() => setLocation("/science")} />
+      questions={questions} onExit={() => setLocation(backPath)} />
   );
 }
