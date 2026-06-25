@@ -137,6 +137,7 @@ function Router() {
       <Route path="/maths/tracing" component={NumberTracing} />
       <Route path="/maths/memory" component={MemoryCards} />
       <Route path="/maths/color" component={ColorMatch} />
+      <Route path="/colours/color" component={ColorMatch} />
       <Route path="/maths/subtraction" component={Subtraction} />
       <Route path="/maths/times" component={Multiplication} />
       <Route path="/maths/timed" component={TimedMaths} />
@@ -177,6 +178,7 @@ function Router() {
       <Route path="/science/lifecycle" component={LifeCycles} />
       <Route path="/science/bigorsmall" component={BigOrSmall} />
       <Route path="/science/food" component={FoodSorting} />
+      <Route path="/health/food" component={FoodSorting} />
       <Route path="/science/sinkorflat" component={SinkOrFloat} />
 
       <Route path="/colours" component={ColoursShapes} />
@@ -186,6 +188,7 @@ function Router() {
       <Route path="/memory-hub" component={MemoryHub} />
       <Route path="/memory/sequence" component={SequenceMemory} />
       <Route path="/memory/animal" component={AnimalMemory} />
+      <Route path="/memory/cards" component={MemoryCards} />
 
       <Route path="/health" component={Health} />
       <Route path="/health/fruitveg" component={PickFruitVeg} />
